@@ -1,0 +1,47 @@
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Form1.resources
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Properties.Resources.resources
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.csproj.GenerateResource.Cache
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno (modificada)\Entrega Diseno\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno (modificada)\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Form1.resources
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno (modificada)\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Properties.Resources.resources
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno (modificada)\Entrega Diseno\obj\x86\Debug\Entrega Diseno.csproj.GenerateResource.Cache
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Form1.resources
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Properties.Resources.resources
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.exe
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\TP3.exe
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\TP3.pdb
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.exe
+C:\Users\Bolivia\Desktop\Entrega Diseno\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.exe
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Form1.resources
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Properties.Resources.resources
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.exe
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\bin\Debug\TP3.exe
+C:\Users\Bolivia\Desktop\Entrega Diseno\Entrega Diseno\Entrega Diseno\bin\Debug\TP3.pdb
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.exe
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.pdb
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.exe
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.pdb
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.exe
+C:\Users\guido\Desktop\Guido\Estudio\UTN\3RO\DDS\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.exe
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.exe
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\Entrega Diseno.pdb
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\TP3.exe
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\bin\Debug\TP3.pdb
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Form1.resources
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\Entrega_Diseno.Properties.Resources.resources
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Bolivia\Desktop\Nueva carpeta\Entrega Diseno\Entrega Diseno\obj\x86\Debug\GenerateResource.write.1.tlog
