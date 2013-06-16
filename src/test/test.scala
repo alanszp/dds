@@ -4,6 +4,7 @@ import org.scalatest._
 import org.junit.Assert._
 import org.junit.Test
 import org.junit.Before
+import org.junit.After
 import java.util.Date
 import recital._
 
