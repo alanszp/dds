@@ -1,9 +1,9 @@
 package recital
 
-class Banda {
-	var hola=10
-	
-	def sumar= hola+1
-	def mostrar = println(hola)
-	
+class Banda (Nombre: String, Categoria: CategoriaBanda){
+  
+  var nombre: String = Nombre
+  var categoria: CategoriaBanda = Categoria
+
+
 }

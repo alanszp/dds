@@ -1,7 +1,10 @@
-class CoreDeVentas (Entrada: Entrada) {
+package recital
+
+class CoreDeVentas {
 
   var entradas: Set[Entrada] = Set()
-  
+  var noches: Set[Noche] = Set()
+ 
   def venderEntrada(Entrada: Entrada) {
     
    if (this.entradas.contains(Entrada)){
@@ -12,4 +15,9 @@ class CoreDeVentas (Entrada: Entrada) {
      this.entradas += Entrada
    }
   }
+  
+  def vaciarListaEntradas = {
+    entradas.empty
+  }
+  
 }

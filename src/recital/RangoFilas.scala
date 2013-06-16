@@ -1,3 +1,5 @@
+package recital
+
 class RangoFilas(Desde: Int, Hasta: Int,Precio: Double, CantAsientos:Int) {
   
   var desde: Int = Desde

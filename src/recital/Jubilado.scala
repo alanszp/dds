@@ -1,3 +1,5 @@
+package recital
+
 class Jubilado (PrecioDescuento: Double) extends CategoriaPersona{
 
    var precioDescuento: Double = PrecioDescuento

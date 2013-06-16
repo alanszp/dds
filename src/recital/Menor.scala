@@ -1,3 +1,5 @@
+package recital
+
 class Menor (PrecioDescuento: Double, PorcentajeDescuento: Double) extends CategoriaPersona {
 
   var precioDescuento: Double = PrecioDescuento

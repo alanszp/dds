@@ -1,8 +1,10 @@
-class Sector (Nombre: String, Precio: Double, Filas:RangoFilas){
+package recital
+
+class Sector (Nombre: String, Precio: Double){
   
   var nombre: String = Nombre
   var precio: Double = Precio
-  var filas: RangoFilas = Filas
+  var filas: Set[RangoFilas] = Set()
   
   def valorEntradaBase(): Double ={
     this.precio + filas.precio

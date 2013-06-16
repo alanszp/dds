@@ -1,3 +1,5 @@
+package recital
+
 class Entrada (Sector: Sector, Noche: Noche, Categoria:CategoriaPersona, Asiento:Int) {
 
   var sector: Sector = Sector
