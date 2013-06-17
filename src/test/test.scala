@@ -5,10 +5,9 @@ import org.junit.Assert._
 import org.junit.Test
 import org.junit.Before
 import org.junit.After
-import java.util.Date
 import recital._
 
-class PrecioEntradaTest extends AssertionsForJUnit {
+class test extends AssertionsForJUnit {
   
   @Before
   var jubilado = new Jubilado(50)
