@@ -1,12 +1,16 @@
 package recital
 
-class Sector ( var nombre: String, var precio: Double){
+class Sector ( var nombre: String){
 
   var filas: Set[RangoFilas] = Set()
   
   def valorEntradaBase(numero: Int): Double ={
-    val fila = filas.find{fila => fila.tengoFilas(numero)}
+    var fila = filas.find{fila: RangoFilas => fila.tengoFila(numero)}
     
-    fila.get.precio + this.precio
+    if (fila.isEmpty) 
+    	throw new FilaIncorrectaException      
+    	
+    fila.get.precio
+    
   }
 }

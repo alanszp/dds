@@ -1,8 +1,8 @@
 package recital
 
-class Mayor (precioDescuento: Double) extends CategoriaPersona {
+class Mayor extends CategoriaPersona {
    
    override def aplicarDescuento(EntradaBase: Double):Double = {
-     EntradaBase
+     0
    }
 }

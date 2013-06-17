@@ -4,14 +4,15 @@ class Menor (precioDescuento: Double, porcentajeDescuento: Double) extends Categ
 
   
   override def aplicarDescuento(EntradaBase: Double):Double = {
-    
-    if (EntradaBase > 100){
-      return (EntradaBase * this.porcentajeDescuento)
-    }else if((EntradaBase > 50) && (EntradaBase <= 100)){
-      return (EntradaBase - this.precioDescuento)
-    }else{
-    return (EntradaBase)
-    }
-    
+		var descuento:Double = 0
+	    if (EntradaBase > 100){
+	      descuento = (EntradaBase * this.porcentajeDescuento)
+	      
+	    }else if((EntradaBase > 50) && (EntradaBase <= 100)){
+	      descuento = this.precioDescuento
+	      
+	    }
+	    
+    	((descuento*100).round) / 100.0
 	}
 }
