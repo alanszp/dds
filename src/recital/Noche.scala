@@ -4,6 +4,6 @@ class Noche (var fecha: String){
 	
 	var bandas: Set[Banda] = Set()
 	
-	def valorExtra() = bandas.maxBy(x => x.precioCategoria()) 
+	def valorExtra() = this.bandas.maxBy(x => x.precioCategoria()) 
 
 }

@@ -7,9 +7,6 @@ class Sector ( var nombre: String, var precio: Double){
   def valorEntradaBase(numero: Int): Double ={
     val fila = filas.find{fila => fila.tengoFilas(numero)}
     
-    fila.foreach(rng => rng.precio)
-    
-    
+    fila.get.precio + this.precio
   }
-
 }
