@@ -1,9 +1,6 @@
 package recital
 
-class Banda (Nombre: String, Categoria: CategoriaBanda){
-  
-  var nombre: String = Nombre
-  var categoria: CategoriaBanda = Categoria
+class Banda (nombre: String, var categoria: CategoriaBanda){
 
-
+	def precioCategoria() = categoria.precioExtra
 }

@@ -1,15 +1,10 @@
 package recital
 
-class RangoFilas(Desde: Int, Hasta: Int,Precio: Double, CantAsientos:Int) {
-  
-  var desde: Int = Desde
-  var hasta: Int = Hasta 
-  var precio: Double = Precio
-  var cantAsientos: Int = CantAsientos
+class RangoFilas(var desde: Int, var hasta: Int, var precio: Double, var cantAsientos:Int) {
 
-  def tengoFilas(fila: Int ): Boolean ={
-    
-    (this.desde >= fila) && (this.hasta <= fila)
+  
+  def tengoFilas(fila: Int): Boolean ={
+    (desde >= fila) && (hasta <= fila)
   }
   
 }

@@ -1,13 +1,15 @@
 package recital
 
-class Sector (Nombre: String, Precio: Double){
-  
-  var nombre: String = Nombre
-  var precio: Double = Precio
+class Sector ( var nombre: String, var precio: Double){
+
   var filas: Set[RangoFilas] = Set()
   
-  def valorEntradaBase(): Double ={
-    this.precio + filas.precio
+  def valorEntradaBase(numero: Int): Double ={
+    val fila = filas.find{fila => fila.tengoFilas(numero)}
+    
+    fila.foreach(rng => rng.precio)
+    
+    
   }
 
 }

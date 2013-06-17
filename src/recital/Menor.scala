@@ -1,9 +1,7 @@
 package recital
 
-class Menor (PrecioDescuento: Double, PorcentajeDescuento: Double) extends CategoriaPersona {
+class Menor (precioDescuento: Double, porcentajeDescuento: Double) extends CategoriaPersona {
 
-  var precioDescuento: Double = PrecioDescuento
-  var porcentajeDescuento: Double = PorcentajeDescuento
   
   override def aplicarDescuento(EntradaBase: Double):Double = {
     

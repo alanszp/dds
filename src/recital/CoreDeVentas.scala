@@ -14,10 +14,5 @@ class CoreDeVentas {
    } else{
      this.entradas += Entrada
    }
-  }
-  
-  def vaciarListaEntradas = {
-    entradas.empty
-  }
-  
+  }  
 }
