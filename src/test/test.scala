@@ -42,6 +42,20 @@ class test extends AssertionsForJUnit {
   coreDeVentas.noches += noche1
   
   @Test
+  def testPrecioExtraPorNoche_conCambiosDinamicos {
+	  assertTrue(noche1.valorExtra == 200)
+	  acdc.categoria = categoria_nacionalReconocidaInternacionalmente
+	  assertTrue(noche1.valorExtra == 100)
+	  acdc.categoria = categoria_nacionalReconocida
+	  assertTrue(noche1.valorExtra == 50)
+	  wachiturros.categoria = categoria_internacional //ironia
+	  assertTrue(noche1.valorExtra == 200)
+	  wachiturros.categoria = categoria_nacionalPocoReconocida
+	  acdc.categoria = categoria_internacional
+	  assertTrue(noche1.valorExtra == 200) 	//dejo como estaba antes y chequeo denuevo...
+  }
+  
+  @Test
   def testFilas {
 	println(fila1a10.tengoFila(50))
     assertTrue(fila1a10.tengoFila(10))
