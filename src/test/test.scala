@@ -13,6 +13,8 @@ class test extends AssertionsForJUnit {
   var jubilado = new Jubilado(0.15)
   var menor = new Menor(10,0.2)
   var mayor = new Mayor
+  var damas = new Damas(0.2)
+  var menor12 = new Menor12(0.5)
 	
   var sectorA = new Sector("A")
 	
@@ -84,6 +86,10 @@ class test extends AssertionsForJUnit {
 	  assertTrue(menor.aplicarDescuento(50) == 0)
 	  assertTrue(menor.aplicarDescuento(40) == 0)
 	  assertTrue(menor.aplicarDescuento(110) == 22)
+	  assertTrue(damas.aplicarDescuento(100)==80)
+	  assertTrue(damas.aplicarDescuento(40)==32)
+	  assertTrue(menor12.aplicarDescuento(40)==20)
+	  assertTrue(menor12.aplicarDescuento(0)==0)
   }
   
   @Test
