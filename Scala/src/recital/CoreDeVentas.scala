@@ -18,10 +18,15 @@ class CoreDeVentas {
 		  
   def agregarEntrada(entrada : Entrada) {
    if (existeEntrada(entrada)){
-	   this.entradas += entrada         
-   } else{
-     throw new EntradaExistenteException
+	  throw new EntradaExistenteException
    }
+   
+   this.entradas += entrada         
   }
+  
+  def cantidadEntradasVendidas = this.entradas.size
+  
+  def cantidadEntradasVendidas(funcion: Entrada => Boolean ) = this.entradas.filter(funcion).size
+  
   
 }

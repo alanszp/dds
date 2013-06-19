@@ -52,9 +52,6 @@ class test extends AssertionsForJUnit {
 	  assertTrue(noche1.valorExtra == 50)
 	  wachiturros.categoria = categoria_internacional //ironia
 	  assertTrue(noche1.valorExtra == 200)
-	  wachiturros.categoria = categoria_nacionalPocoReconocida
-	  acdc.categoria = categoria_internacional
-	  assertTrue(noche1.valorExtra == 200) 	//dejo como estaba antes y chequeo denuevo...
   }
   
   @Test
@@ -76,20 +73,20 @@ class test extends AssertionsForJUnit {
   
   @Test
   def testCategorias {
-	  assertTrue(mayor.aplicarDescuento(100) == 0)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", mayor, 100, 0)
 	  
-	  assertTrue(jubilado.aplicarDescuento(100)== 15)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", jubilado, 100, 15)
 	  
-	  assertTrue(menor.aplicarDescuento(101) == 20.2)
-	  assertTrue(menor.aplicarDescuento(100) == 10)
-	  assertTrue(menor.aplicarDescuento(75) == 10)
-	  assertTrue(menor.aplicarDescuento(50) == 0)
-	  assertTrue(menor.aplicarDescuento(40) == 0)
-	  assertTrue(menor.aplicarDescuento(110) == 22)
-	  assertTrue(damas.aplicarDescuento(100)==80)
-	  assertTrue(damas.aplicarDescuento(40)==32)
-	  assertTrue(menor12.aplicarDescuento(40)==20)
-	  assertTrue(menor12.aplicarDescuento(0)==0)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 101, 20.2)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 100, 10)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 75, 10)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 50, 0)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 40, 0)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 110, 22)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", damas, 100, 80)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", damas, 40, 32)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor12, 40, 20)
+	  assertDescuentoCategoria("Categoria calcula bien descuento", menor12, 0, 0)
   }
   
   @Test
@@ -99,10 +96,10 @@ class test extends AssertionsForJUnit {
     var entrada3 = new Entrada(sectorA, noche2, mayor, 10, 2)
     var entrada4 = new Entrada(sectorA, noche2, mayor, 15, 2)
     
-    assertTrue("Precio entrada mayor correcto", entrada.precioEntrada == 350)    
-    assertTrue("Precio entrada mayor correcto", entrada2.precioEntrada == 270)   
-    assertTrue("Precio entrada mayor correcto", entrada3.precioEntrada == 150)    
-    assertTrue("Precio entrada mayor correcto", entrada4.precioEntrada == 70)   
+    assertPrecioEntrada("Precio entrada mayor correcto", entrada, 350)    
+    assertPrecioEntrada("Precio entrada mayor correcto", entrada2, 270)   
+    assertPrecioEntrada("Precio entrada mayor correcto", entrada3, 150)    
+    assertPrecioEntrada("Precio entrada mayor correcto", entrada4, 70)   
   }
   
   @Test
@@ -112,10 +109,10 @@ class test extends AssertionsForJUnit {
     var entrada3 = new Entrada(sectorA, noche2, menor, 10, 2)
     var entrada4 = new Entrada(sectorA, noche2, menor, 15, 2)
     
-    assertTrue("Precio entrada Menor correcto", entrada.precioEntrada == 320)
-    assertTrue("Precio entrada Menor correcto", entrada2.precioEntrada == 260)  
-    assertTrue("Precio entrada Menor correcto", entrada3.precioEntrada == 120)    
-    assertTrue("Precio entrada Menor correcto", entrada4.precioEntrada == 60)
+    assertPrecioEntrada("Precio entrada Menor correcto", entrada, 320)
+    assertPrecioEntrada("Precio entrada Menor correcto", entrada2, 260)  
+    assertPrecioEntrada("Precio entrada Menor correcto", entrada3, 120)    
+    assertPrecioEntrada("Precio entrada Menor correcto", entrada4, 60)
   }
   
   @Test
@@ -125,17 +122,64 @@ class test extends AssertionsForJUnit {
     var entrada3 = new Entrada(sectorA, noche2, jubilado, 10, 2)
     var entrada4 = new Entrada(sectorA, noche2, jubilado, 15, 2)
     
-    assertTrue("Precio entrada jubilado correcto", entrada.precioEntrada == 327.5)   
-    assertTrue("Precio entrada jubilado correcto", entrada2.precioEntrada == 259.5)  
-    assertTrue("Precio entrada jubilado correcto", entrada3.precioEntrada == 127.5)    
-    assertTrue("Precio entrada jubilado correcto", entrada4.precioEntrada == 59.5)
+    assertPrecioEntrada("Precio entrada jubilado correcto", entrada, 327.5)   
+    assertPrecioEntrada("Precio entrada jubilado correcto", entrada2, 259.5)  
+    assertPrecioEntrada("Precio entrada jubilado correcto", entrada3, 127.5)    
+    assertPrecioEntrada("Precio entrada jubilado correcto", entrada4, 59.5)
   }
-      
-
   
-  @After 
-  def vaciarEntradas {
-    coreDeVentas.entradas.empty
+  @Test
+  def coreEstaVacioAlIniciar {
+    assertCantidadEntradasVendidas("Hay 0 entradas al iniciar el core", coreDeVentas, 0)
+  }
+  
+  @Test
+  def venderEntradaCorrectamente {
+	var entrada = new Entrada(sectorA, noche1, menor, 10, 2)
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	
+	coreDeVentas.venderEntrada(entrada)
+	assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada)
+	
+	coreDeVentas.venderEntrada(entrada2)
+	assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada)
+	assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada2)
+	assertCantidadEntradasVendidas("Me aseguro que hayan dos entradas", coreDeVentas, 2)
+  }
+  
+  @Test
+  def testNoSePuedeVenderDosEntradasIguales {
+	  var entrada = new Entrada(sectorA, noche1, menor, 10, 2)
+    try {
+    	coreDeVentas.venderEntrada(entrada)      
+    	coreDeVentas.venderEntrada(entrada)
+    	fail()
+    }
+    catch { 
+    	case e: EntradaExistenteException => {
+    	  assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada)
+    	  assertCantidadEntradasVendidas("Me fijo que haya 1 sola entrada", coreDeVentas, 1)
+    	  }
+     }
+	
+  }
+  
+  
+  def assertPrecioEntrada(msg: String, entrada: Entrada, precio: Double) {
+    assertEquals(msg, entrada.precioEntrada, precio, 0.01)
+  }
+  
+  def assertDescuentoCategoria(msg: String, categoria: CategoriaPersona, entradaBase: Double, precio: Double) {
+    assertEquals(msg, categoria.aplicarDescuento(entradaBase), precio, 0.01)
+  }
+  
+  def assertHayEntradaVendida(msg:String, coreDeVentas:CoreDeVentas, entrada:Entrada) {
+    assertTrue(msg, coreDeVentas.existeEntrada(entrada))
+  }
+  
+  def assertCantidadEntradasVendidas(msg:String, coreDeVentas:CoreDeVentas, cantidad:Int) {
+    assertEquals(msg, coreDeVentas.cantidadEntradasVendidas, cantidad)
+    
   }
   
 }

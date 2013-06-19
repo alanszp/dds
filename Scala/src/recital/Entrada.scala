@@ -8,4 +8,7 @@ class Entrada (var sector: Sector, var noche: Noche, var categoria:CategoriaPers
   
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 
   
+  def esDama = this.categoria.isInstanceOf[Damas]
+  
+  
 }
