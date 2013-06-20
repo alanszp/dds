@@ -153,15 +153,45 @@ class test extends AssertionsForJUnit {
     try {
     	coreDeVentas.venderEntrada(entrada)      
     	coreDeVentas.venderEntrada(entrada)
-    	fail()
+    	fail("Se vendio correctamente dos entradas... Algo falla!")
     }
     catch { 
     	case e: EntradaExistenteException => {
-    	  assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada)
+    	  assertHayEntradaVendida("Aseguro que la primer entrada se haya registrado", coreDeVentas, entrada)
     	  assertCantidadEntradasVendidas("Me fijo que haya 1 sola entrada", coreDeVentas, 1)
     	  }
      }
 	
+  }
+  
+  @Test
+  def testInstancioUnaEntradaConUbicacionIncorrecta {
+	//Pruebo fila erronea 
+    try {
+      var entrada1 = new Entrada(sectorA, noche1, menor, 60, 2)
+      fail("Se instancio una entrada con una fila erronea")
+    }
+    catch {
+      case e: FilaIncorrectaException => //Se esperaba esto!
+    }
+  
+    //Pruebo fila y asiento erroneos
+    try {
+      var entrada2 = new Entrada(sectorA, noche1, menor, 60, 100)
+      fail("Se instancio una entrada con una fila y asiento erroneo")
+    }
+    catch {
+      case e: FilaIncorrectaException => //Se esperaba esto! --> Salta primero el FilaIncorrectaException, antes que el AsientoIncorrectoException. Si es al revez, hay algo mal :D
+    }
+    
+    //Pruebo asiento erroneo
+    try {
+      var entrada3 = new Entrada(sectorA, noche1, menor, 10, 100)
+      fail("Se instancio una entrada con un asiento erroneo")
+    }
+    catch {
+      case e: AsientoIncorrectoException => //Se esperaba esto!
+    }    
   }
   
   
