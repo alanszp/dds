@@ -56,7 +56,6 @@ class test extends AssertionsForJUnit {
   
   @Test
   def testFilas {
-	println(fila1a10.tengoFila(50))
     assertTrue(fila1a10.tengoFila(10))
     assertTrue(fila1a10.tengoFila(5))
     assertTrue(fila1a10.tengoFila(1))
@@ -73,20 +72,22 @@ class test extends AssertionsForJUnit {
   
   @Test
   def testCategorias {
-	  assertDescuentoCategoria("Categoria calcula bien descuento", mayor, 100, 0)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", mayor, 100, 0)
 	  
-	  assertDescuentoCategoria("Categoria calcula bien descuento", jubilado, 100, 15)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", jubilado, 100, 15)
 	  
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 101, 20.2)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 100, 10)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 75, 10)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 50, 0)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 40, 0)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor, 110, 22)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", damas, 100, 80)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", damas, 40, 32)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor12, 40, 20)
-	  assertDescuentoCategoria("Categoria calcula bien descuento", menor12, 0, 0)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor, 101, 20.2)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor, 100, 10)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor, 75, 10)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor, 50, 0)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor, 40, 0)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor, 110, 22)
+	  
+	  assertDescuentoCategoria("Categoria calcula mal descuento", damas, 100, 20)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", damas, 40, 8)
+	  
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor12, 40, 20)
+	  assertDescuentoCategoria("Categoria calcula mal descuento", menor12, 0, 0)
   }
   
   @Test
@@ -96,10 +97,10 @@ class test extends AssertionsForJUnit {
     var entrada3 = new Entrada(sectorA, noche2, mayor, 10, 2)
     var entrada4 = new Entrada(sectorA, noche2, mayor, 15, 2)
     
-    assertPrecioEntrada("Precio entrada mayor correcto", entrada, 350)    
-    assertPrecioEntrada("Precio entrada mayor correcto", entrada2, 270)   
-    assertPrecioEntrada("Precio entrada mayor correcto", entrada3, 150)    
-    assertPrecioEntrada("Precio entrada mayor correcto", entrada4, 70)   
+    assertPrecioEntrada("Precio entrada mayor incorrecto", entrada, 350)    
+    assertPrecioEntrada("Precio entrada mayor incorrecto", entrada2, 270)   
+    assertPrecioEntrada("Precio entrada mayor incorrecto", entrada3, 150)    
+    assertPrecioEntrada("Precio entrada mayor incorrecto", entrada4, 70)   
   }
   
   @Test
@@ -109,10 +110,10 @@ class test extends AssertionsForJUnit {
     var entrada3 = new Entrada(sectorA, noche2, menor, 10, 2)
     var entrada4 = new Entrada(sectorA, noche2, menor, 15, 2)
     
-    assertPrecioEntrada("Precio entrada Menor correcto", entrada, 320)
-    assertPrecioEntrada("Precio entrada Menor correcto", entrada2, 260)  
-    assertPrecioEntrada("Precio entrada Menor correcto", entrada3, 120)    
-    assertPrecioEntrada("Precio entrada Menor correcto", entrada4, 60)
+    assertPrecioEntrada("Precio entrada Menor incorrecto", entrada, 320)
+    assertPrecioEntrada("Precio entrada Menor incorrecto", entrada2, 260)  
+    assertPrecioEntrada("Precio entrada Menor incorrecto", entrada3, 120)    
+    assertPrecioEntrada("Precio entrada Menor incorrecto", entrada4, 60)
   }
   
   @Test
@@ -122,15 +123,15 @@ class test extends AssertionsForJUnit {
     var entrada3 = new Entrada(sectorA, noche2, jubilado, 10, 2)
     var entrada4 = new Entrada(sectorA, noche2, jubilado, 15, 2)
     
-    assertPrecioEntrada("Precio entrada jubilado correcto", entrada, 327.5)   
-    assertPrecioEntrada("Precio entrada jubilado correcto", entrada2, 259.5)  
-    assertPrecioEntrada("Precio entrada jubilado correcto", entrada3, 127.5)    
-    assertPrecioEntrada("Precio entrada jubilado correcto", entrada4, 59.5)
+    assertPrecioEntrada("Precio entrada jubilado incorrecto", entrada, 327.5)   
+    assertPrecioEntrada("Precio entrada jubilado incorrecto", entrada2, 259.5)  
+    assertPrecioEntrada("Precio entrada jubilado incorrecto", entrada3, 127.5)    
+    assertPrecioEntrada("Precio entrada jubilado incorrecto", entrada4, 59.5)
   }
   
   @Test
   def coreEstaVacioAlIniciar {
-    assertCantidadEntradasVendidas("Hay 0 entradas al iniciar el core", coreDeVentas, 0)
+    assertCantidadEntradasVendidas("No hay 0 entradas al iniciar el core", coreDeVentas, 0)
   }
   
   @Test
@@ -139,12 +140,38 @@ class test extends AssertionsForJUnit {
 	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
 	
 	coreDeVentas.venderEntrada(entrada)
-	assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada)
+	assertHayEntradaVendida("No se agrego la entrada1", coreDeVentas, entrada)
 	
 	coreDeVentas.venderEntrada(entrada2)
-	assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada)
-	assertHayEntradaVendida("Aseguro que la entrada se haya registrado", coreDeVentas, entrada2)
+	assertHayEntradaVendida("Se borro inesperadamente la entrada1", coreDeVentas, entrada)
+	assertHayEntradaVendida("No se agrego la entrada2", coreDeVentas, entrada2)
+	assertCantidadEntradasVendidas("Tiene que haber 2 sola entrada", coreDeVentas, 2)
+  }
+  
+  @Test
+  def venderComboEntradaCorrectamente {
+	var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4)
+	var entrada4 = new Entrada(sectorA, noche1, menor, 10, 5)
+	var comboEntrada1 = new ComboEntrada(0.2)
+	var comboEntrada2 = new ComboEntrada(0.2)
+	comboEntrada1.agregar(entrada1)
+	comboEntrada1.agregar(entrada2)
+	comboEntrada2.agregar(entrada3)
+	comboEntrada2.agregar(entrada4)
+	
+	coreDeVentas.venderEntrada(comboEntrada1)
+	assertHayEntradaVendida("Aseguro que la entrada1 se haya registrado", coreDeVentas, entrada1)
+	assertHayEntradaVendida("Aseguro que la entrada2 se haya registrado", coreDeVentas, entrada2)
 	assertCantidadEntradasVendidas("Me aseguro que hayan dos entradas", coreDeVentas, 2)
+	
+	coreDeVentas.venderEntrada(comboEntrada2)
+	assertHayEntradaVendida("Aseguro que la entrada1 se haya registrado", coreDeVentas, entrada1)
+	assertHayEntradaVendida("Aseguro que la entrada2 se haya registrado", coreDeVentas, entrada2)
+	assertHayEntradaVendida("Aseguro que la entrada3 se haya registrado", coreDeVentas, entrada3)
+	assertHayEntradaVendida("Aseguro que la entrada4 se haya registrado", coreDeVentas, entrada4)
+	assertCantidadEntradasVendidas("Tiene que haber 4 sola entrada", coreDeVentas, 4)
   }
   
   @Test
@@ -157,11 +184,109 @@ class test extends AssertionsForJUnit {
     }
     catch { 
     	case e: EntradaExistenteException => {
-    	  assertHayEntradaVendida("Aseguro que la primer entrada se haya registrado", coreDeVentas, entrada)
-    	  assertCantidadEntradasVendidas("Me fijo que haya 1 sola entrada", coreDeVentas, 1)
+    	  assertHayEntradaVendida("No se agrego la entrada", coreDeVentas, entrada)
+    	  assertCantidadEntradasVendidas("Tiene que haber 1 sola entrada", coreDeVentas, 1)
     	  }
      }
-	
+  }
+  
+  @Test
+  def testNoSePuedeVenderDosComboDeEntradasIguales {
+	var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4)
+	var entrada4 = new Entrada(sectorA, noche1, menor, 10, 5)
+	var comboEntrada1 = new ComboEntrada(0.2)
+  	var comboEntrada2 = new ComboEntrada(0.2)
+	comboEntrada1.agregar(entrada1)
+	comboEntrada1.agregar(entrada2)
+	comboEntrada2.agregar(entrada2)
+	comboEntrada2.agregar(entrada3)
+
+    try {
+    	coreDeVentas.venderEntrada(comboEntrada1)      
+    	coreDeVentas.venderEntrada(comboEntrada1)
+    	fail("Se vendio correctamente dos entradas iguales...")
+    }
+    catch { 
+    	case e: EntradaExistenteException => {
+    	  assertHayEntradaVendida("No se agrego la entrada1", coreDeVentas, entrada1)
+    	  assertHayEntradaVendida("No se agrego la entrada2", coreDeVentas, entrada2)
+    	  assertCantidadEntradasVendidas("Tiene que haber 2 sola entrada", coreDeVentas, 2)
+    	  }
+    }
+  }
+  
+  @Test 
+  def testNoSePuedeVenderDosCombosConUnaEntradaEquivalente {
+    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4)
+	var comboEntrada1 = new ComboEntrada(0.2)
+  	var comboEntrada2 = new ComboEntrada(0.2)
+	comboEntrada1.agregar(entrada1)
+	comboEntrada1.agregar(entrada2)
+	comboEntrada2.agregar(entrada2)
+	comboEntrada2.agregar(entrada3)
+    
+    try {
+      coreDeVentas.venderEntrada(comboEntrada1)      
+      coreDeVentas.venderEntrada(comboEntrada2)
+      fail("Se vendio correctamente dos Combo de Entradas que tenian la misma entrada...")
+    }
+    catch {
+      case e: EntradaExistenteException => {
+        assertHayEntradaVendida("No se agrego la entrada1", coreDeVentas, entrada1)
+        assertHayEntradaVendida("No se agrego la entrada2", coreDeVentas, entrada2)
+        assertNoHayEntradaVendida("Se agrego la entrada3 y no tenia que agregarse", coreDeVentas, entrada3)
+        assertCantidadEntradasVendidas("Tiene que haber 2 sola entrada", coreDeVentas, 2)
+      }
+    }
+  }
+  
+  @Test 
+  def testNoSePuedeVenderUnComboCuandoYaExisteUnaDeSusEntradas {
+    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	var comboEntrada1 = new ComboEntrada(0.2)
+	comboEntrada1.agregar(entrada1)
+	comboEntrada1.agregar(entrada2)
+
+    try {
+      coreDeVentas.venderEntrada(entrada1)
+      coreDeVentas.venderEntrada(comboEntrada1)      
+      fail("Se vendio correctamente un Combo de Entrada cuadno ya existia una de esas...")
+    }
+    catch {
+      case e: EntradaExistenteException => {
+        assertHayEntradaVendida("No se agrego la entrada1", coreDeVentas, entrada1)
+        assertNoHayEntradaVendida("Se agrego la entrada 2 y no tenia que agregarse", coreDeVentas, entrada2)
+        assertCantidadEntradasVendidas("Tiene que haber 1 sola entrada", coreDeVentas, 1)
+      }
+    }
+  }
+  
+  @Test 
+  def testNoSePuedeVenderUnaEntradaCuandoYaExisteUnComboQueLaTenga {
+    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	var comboEntrada1 = new ComboEntrada(0.2)
+	comboEntrada1.agregar(entrada1)
+	comboEntrada1.agregar(entrada2)
+
+    try {
+      coreDeVentas.venderEntrada(comboEntrada1)      
+      coreDeVentas.venderEntrada(entrada1)
+      fail("Se vendio correctamente un Combo de Entrada cuadno ya existia una de esas...")
+    }
+    catch {
+      case e: EntradaExistenteException => {
+        assertHayEntradaVendida("No se agrego la entrada1", coreDeVentas, entrada1)
+        assertHayEntradaVendida("Se agrego la entrada 2 y no tenia que agregarse", coreDeVentas, entrada2)
+        assertCantidadEntradasVendidas("Tiene que haber 2 sola entrada", coreDeVentas, 2)
+      }
+    }
+   
   }
   
   @Test
@@ -195,6 +320,9 @@ class test extends AssertionsForJUnit {
   }
   
   
+  
+  
+  
   def assertPrecioEntrada(msg: String, entrada: Entrada, precio: Double) {
     assertEquals(msg, entrada.precioEntrada, precio, 0.01)
   }
@@ -207,8 +335,12 @@ class test extends AssertionsForJUnit {
     assertTrue(msg, coreDeVentas.existeEntrada(entrada))
   }
   
+  def assertNoHayEntradaVendida(msg:String, coreDeVentas:CoreDeVentas, entrada:Entrada) {
+    assertTrue(msg, !coreDeVentas.existeEntrada(entrada))
+  }
+  
   def assertCantidadEntradasVendidas(msg:String, coreDeVentas:CoreDeVentas, cantidad:Int) {
-    assertEquals(msg, coreDeVentas.cantidadEntradasVendidas, cantidad)
+    assertEquals(msg,cantidad, coreDeVentas.cantidadEntradasVendidas)
     
   }
   

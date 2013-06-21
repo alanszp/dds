@@ -2,10 +2,10 @@ package recital
 
 class CoreDeVentas {
 
-  var entradas: Set[Entrada] = Set()
+  var entradas: Set[entradaAbstracta] = Set()
   var noches: Set[Noche] = Set()
  
-  def venderEntrada(entrada: Entrada) {
+  def venderEntrada(entrada: entradaAbstracta) {
 	  try {
 		  this.agregarEntrada(entrada);
 	  }
@@ -14,9 +14,9 @@ class CoreDeVentas {
 	  }	
   }
   
-  def existeEntrada(entrada : Entrada) : Boolean = this.entradas.contains(entrada)
+  def existeEntrada(entrada : entradaAbstracta) : Boolean = this.entradas.exists(_ sosOLaTenes entrada)
 		  
-  def agregarEntrada(entrada : Entrada) {
+  def agregarEntrada(entrada : entradaAbstracta) {
    if (existeEntrada(entrada)){
 	  throw new EntradaExistenteException
    }
@@ -24,9 +24,9 @@ class CoreDeVentas {
    this.entradas += entrada         
   }
   
-  def cantidadEntradasVendidas = this.entradas.size
+  def cantidadEntradasVendidas = this.entradas.toList.map(_.cantidadDeEntradas).sum
   
-  def cantidadEntradasVendidas(funcion: Entrada => Boolean ) = this.entradas.filter(funcion).size
+  def cantidadEntradasVendidas(funcion: entradaAbstracta => Boolean) = this.entradas.filter(funcion).toList.map(_.cantidadDeEntradas).sum
   
   
 }
