@@ -37,8 +37,10 @@ class test extends AssertionsForJUnit {
  
   noche1.bandas += acdc
   noche1.bandas += wachiturros
+  noche1.descuentos = noche1.descuentos union Set(jubilado, menor, mayor, damas, menor12)
   
   noche2.bandas += wachiturros
+  noche2.descuentos = noche2.descuentos union Set(jubilado, menor, mayor, damas, menor12)
   
   var coreDeVentas = new CoreDeVentas
   coreDeVentas.noches += noche1
@@ -88,6 +90,18 @@ class test extends AssertionsForJUnit {
 	  
 	  assertDescuentoCategoria("Categoria calcula mal descuento", menor12, 40, 20)
 	  assertDescuentoCategoria("Categoria calcula mal descuento", menor12, 0, 0)
+  }
+  
+  @Test
+  def testNocheNoTieneDescuentoApropiado {
+    var jubilado2 = new Jubilado(0.3)
+    try {
+      var entrada = new Entrada(sectorA, noche1, jubilado2, 10, 2)
+      fail("No tendria que haberse creado la entrada")
+    }
+    catch {
+      case e: CategoriaNoValidaException => //Todo oka!
+    }
   }
   
   @Test

@@ -1,6 +1,6 @@
 package recital
 
-class ComboEntrada (var porcentajeDescuento: Double) extends entradaAbstracta {
+class ComboEntrada (var porcentajeDescuento: Double) extends EntradaAbstracta {
   
   var entradas: Set[Entrada] = Set()
   
@@ -13,7 +13,7 @@ class ComboEntrada (var porcentajeDescuento: Double) extends entradaAbstracta {
   
   def cantidadDeEntradas = this.entradas.size
 		  
-  def sosOLaTenes(e: entradaAbstracta):Boolean = {
+  def sosOLaTenes(e: EntradaAbstracta):Boolean = {
 	  e.isInstanceOf[Entrada] && this.tenesEntrada(e.asInstanceOf[Entrada]) ||
 	  e.isInstanceOf[ComboEntrada] && this.tenesAlgunaEntrada(e.asInstanceOf[ComboEntrada])
   }
