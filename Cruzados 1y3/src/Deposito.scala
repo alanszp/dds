@@ -11,5 +11,4 @@ class Deposito {
    def quitarFabricados(comp: Componente) { this.fabricados -= comp }
    def agregarFabricados(comp: Componente) { this.fabricados += comp }
    
-   //QUE AHCE PRODUCCION produccion()?
 }
