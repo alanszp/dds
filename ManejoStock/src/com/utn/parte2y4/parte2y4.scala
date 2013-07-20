@@ -1,5 +1,6 @@
-abstract class Producto
-{
+package com.utn.parte2y4
+
+class Producto{
   val nombre: String
   val cantMinima  : Int
   val cantMaxima : Int
@@ -9,15 +10,9 @@ abstract class Producto
   val log: Boolean
   val unidadesCriticas: Int
 }
- 
-(val cantMinima:Int, val cantMaxima:Int, val puntoDePedido:Int, val nombre:String, val importaLog:Boolean, val unidadesCriticas:Int) extends Producto
-{  
-  var productos: Set[Producto] = Set()
-}
 
-//singleton Deposito 
-object Deposito
-{
+
+class Deposito {
     var productos:  Set[Producto] = Set()
     var manejadorIngreso:   Set[ManejadorEventos] = Set()
     var manejadorSalida:  Set[ManejadorEventos] = Set()
@@ -29,7 +24,7 @@ object Deposito
     def cuantos(producto: Producto ): Int = this.productos.count(_ == productos)
     
     
-    //Metodos diseñados
+    //Metodos diseï¿½ados
     def sacar(producto: Producto, cantidad: Int) = {
         //Saca de la lista `cantidad` de veces
         (1 to cantidad).foreach( _ => this.removerProd(producto) )
@@ -46,15 +41,15 @@ object Deposito
   
 }
  
-abstract class ManejadorEventos
+abstract class ManejadorEventos3
 {
     //Solo es un contrato
     def manejar(producto: Producto, cantidad: Int)
 }
  
  
-//Debe generarse un pedido de compra si el producto bajó por sobre su stock mínimo. 
-class EventoSalidaStockMinimo extends ManejadorEventos
+//Debe generarse un pedido de compra si el producto bajï¿½ por sobre su stock mï¿½nimo. 
+class EventoSalidaStockMinimo3 extends ManejadorEventos
 {
     def manejar(producto: Producto, cantidad: Int) ={
         val cantidadFaltante: Int = producto.cantMinima - Deposito.cuantos(producto)
@@ -67,8 +62,8 @@ class EventoSalidaStockMinimo extends ManejadorEventos
 }
  
  
-//Algunos productos al bajar el stock mínimo generan un log de auditoría 
-class EventoStockMinimo extends ManejadorEventos
+//Algunos productos al bajar el stock mï¿½nimo generan un log de auditorï¿½a 
+class EventoStockMinimo3 extends ManejadorEventos
 {    
     def manejar(producto: Producto, cantidad: Int) ={
         val cantidadFaltante: Int = producto.cantMinima - Deposito.cuantos(producto)
@@ -81,8 +76,8 @@ class EventoStockMinimo extends ManejadorEventos
 }
  
  
-//Para algunos productos nos interesa enviar un mail si un determinado producto tuvo una salida de más de x unidad
-class EventoSalidaCant extends ManejadorEventos
+//Para algunos productos nos interesa enviar un mail si un determinado producto tuvo una salida de mï¿½s de x unidad
+class EventoSalidaCant3 extends ManejadorEventos
 {    
     def manejar(producto: Producto, cantidad: Int) ={        
         //Si nos interesa logear y por sobre la cantidad critica
@@ -93,8 +88,8 @@ class EventoSalidaCant extends ManejadorEventos
 }
  
  
-//Algunos productos registran en el log de auditoría cuando dejan de estar por debajo del stoc
-class EventoSuperarStockMinimo extends ManejadorEventos
+//Algunos productos registran en el log de auditorï¿½a cuando dejan de estar por debajo del stoc
+class EventoSuperarStockMinimo3 extends ManejadorEventos
 {    
     def manejar(producto: Producto, cantidad: Int) ={
         val cantidadFaltante: Int = producto.cantMinima - Deposito.cuantos(producto)
@@ -107,8 +102,8 @@ class EventoSuperarStockMinimo extends ManejadorEventos
 }
  
  
-//Otros productos avisan cuando al ingresar mercadería exceden el stock máximo posible.
-class EventoSuperarStockMaximo extends ManejadorEventos
+//Otros productos avisan cuando al ingresar mercaderï¿½a exceden el stock mï¿½ximo posible.
+class EventoSuperarStockMaximo3 extends ManejadorEventos
 {    
     def manejar(producto: Producto, cantidad: Int) ={
         val cantidadSobrante: Int = producto.cantMaxima - Deposito.cuantos(producto)
@@ -122,13 +117,13 @@ class EventoSuperarStockMaximo extends ManejadorEventos
  
  
 //Mocks
-object AuditoriaLoger
+class AuditoriaLoger3
 {
     def log(s: String) = println(s)
     def mail(s: String) = println(s)
 }
  
-object DepartamentoCompras
+class DepartamentoCompras3
 {
     def armarNotaCompras(c: Producto, i: Int) = println("Comprar " + i + " " + c.nombre)
 }

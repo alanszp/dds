@@ -1,5 +1,7 @@
 package com.utn.parte1y3
 
+import com.utn.comun.Componente
+
 abstract class TipoReserva {
-  def reservar(producto:String, fabrica:Fabrica)
+  def reservar(producto:Componente, fabrica:Fabrica)
 }

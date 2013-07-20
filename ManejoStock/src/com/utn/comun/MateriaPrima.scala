@@ -1,4 +1,6 @@
-package com.utn.parte1y3
+package com.utn.comun
+
+import com.utn.comun.Componente
 
 class MateriaPrima(var nombre:String) extends Componente {
 	

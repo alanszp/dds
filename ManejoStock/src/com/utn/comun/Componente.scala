@@ -1,4 +1,4 @@
-package com.utn.parte1y3
+package com.utn.comun
 
 abstract class Componente {
 	var nombre:String
