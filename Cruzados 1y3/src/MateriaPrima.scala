@@ -1,3 +1,0 @@
-class MateriaPrima  extends Componente {
-
-}
