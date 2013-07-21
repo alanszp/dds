@@ -1,0 +1,21 @@
+package com.utn.test
+
+import org.scalatest.junit._
+import org.junit.Assert._
+import org.junit.Test
+import org.junit.Before
+import org.junit.After
+import com.utn.comun._
+import com.utn.parte1y3._
+
+
+class testParte1y3 extends AssertionsForJUnit {
+  
+ 
+  
+  @Test
+  def testTrue {
+    assertTrue(1==1);
+  }
+   
+}

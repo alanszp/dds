@@ -1,4 +1,4 @@
-package com.utn.parte2y4
+/*package com.utn.parte2y4
 
 class Producto{
   val nombre: String
@@ -126,4 +126,4 @@ class AuditoriaLoger3
 class DepartamentoCompras3
 {
     def armarNotaCompras(c: Producto, i: Int) = println("Comprar " + i + " " + c.nombre)
-}
+}*/

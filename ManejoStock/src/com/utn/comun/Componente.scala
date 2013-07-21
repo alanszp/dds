@@ -1,7 +1,7 @@
 package com.utn.comun
 
 abstract class Componente {
-	var nombre:String
+	val nombre:String
 	
 	def sos(str:String):Boolean = str == nombre
 }

@@ -1,9 +1,9 @@
 package com.utn.parte1y3
 
-import com.utn.comun._
+import com.utn.comun.Componente
 
-class ReservarFabricando extends TipoReserva {
-	def reservar(producto:Componente, fabrica:Fabrica){	
+class ReservarSinFabricar extends TipoReserva {
+  def reservar(producto:Componente, fabrica:Fabrica){	
 	  val deposito = fabrica.deposito
 	  val produccion = fabrica.produccion
 		if (deposito.hayFabricados(producto)) {
@@ -11,5 +11,5 @@ class ReservarFabricando extends TipoReserva {
         } else {
             deposito.agregarReservados(produccion.crear(producto.nombre))
         }
-	}
+  }
 }
