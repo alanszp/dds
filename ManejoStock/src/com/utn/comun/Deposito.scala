@@ -15,6 +15,14 @@ class Deposito {
    /*****************METODOS PARA FABRICADOS Y RESERVADOS *************/
    def hayReservados(comp: String): Boolean = this.reservados.exists(_.sos(comp))
    def agregarReservados(comp: Componente) = reservados = reservados :+ comp
+   def quitarReservados(comp: String): Componente = { 
+     var componente = getDeReservados(comp)
+     if (componente != null){
+       reservados = reservados diff List(componente)
+     }
+     return componente
+   }
+   def getDeReservados(comp: String): Componente = this.reservados.find(_.sos(comp)).getOrElse(null)
    
    def hayFabricados(comp: String): Boolean = this.fabricados.exists(_.sos(comp))
    def hayFabricados(comp: Componente): Boolean = this.fabricados.exists(_.equals(comp))

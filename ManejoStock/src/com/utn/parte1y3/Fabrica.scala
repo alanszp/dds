@@ -11,7 +11,7 @@ class Fabrica (var deposito: Deposito, var produccion: Produccion){
 	  tipoReserva = tipo
 	}
 	
-	def reservar(componente:Componente) = {
+	def reservar(componente:String) = {
 		tipoReserva.reservar(componente, this)
 	}
 	

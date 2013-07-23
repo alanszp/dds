@@ -27,4 +27,18 @@ class FactoryCompuesto(listaComponetes:List[String]) extends FactoryComponente {
 	def nuevoComponente(nombre:String):ComponenteCompuesto = {
 		return new ComponenteCompuesto(nombre)
 	}
+	
+	override def tenesParaFabricar(nombre:String, produccion:Produccion):Unit = {
+	  if(produccion.fabrica.deposito.hayFabricados(nombre))
+		  return
+		  
+	  var iterator = listaComponetes.iterator
+	  var componente = ""
+	    
+	  while (iterator.hasNext) {
+	    componente = iterator.next
+	    produccion.getFactory(componente).tenesParaFabricar(componente, produccion)
+	  }
+	  
+	}
 }
