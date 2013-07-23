@@ -182,6 +182,13 @@ class test1y3 extends  AssertionsForJUnit {
     assertStock(List("vidrio"))
     assertReservas(List("chapa"))
     
+    var chapa = deposito.quitarReservados("chapa")
+    assertCompuesto(chapa.asInstanceOf[ComponenteCompuesto], "chapa", List(), listaChapa)
+    
+    fabrica.reservar("vidrio")
+    assertStock(List())
+    assertReservas(List("vidrio"))
+    
   }
   
   
