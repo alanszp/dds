@@ -4,6 +4,7 @@ import com.utn.comun.Producto
 
 class FactoryProducto (listaComponetes:List[String]) extends FactoryCompuesto(listaComponetes) {
 	override def nuevoComponente(nombre:String):Producto = {
-		return new Producto(nombre)
+	  //ver aca
+		return new Producto(nombre,0,0,0,,0)
 	}
 }

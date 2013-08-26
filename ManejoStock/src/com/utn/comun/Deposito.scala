@@ -1,12 +1,16 @@
 package com.utn.comun
 
 import com.utn.parte1y3.Fabrica
+import com.utn.parte1y3.NoHayStockException
+import com.utn.parte2y4.ManejadorEventos
 
 
 class Deposito {
   
    var fabricados:List[Componente] = List()
    var reservados:List[Componente] = List()
+   var productos:Set[Producto] = Set()
+   var manejadores:List[ManejadorEventos] = List()
    var fabrica:Fabrica = null
    
    def setFabrica(fabrica:Fabrica) =  {this.fabrica = fabrica}
@@ -46,5 +50,23 @@ class Deposito {
    }
    
    def agregarFabricados(comp: Componente) = fabricados = fabricados :+ comp
+   
+   def cuantosHay(prod: Producto ): Int = this.productos.count(_ == productos)
+   
+   def sacarProducto(prod: Producto, cant: Int) { 
+     (this.manejadores).foreach( (manejador) => manejador.manejar(prod, cuantosHay(prod), cant) )
+     (1 to cant).foreach(_=> this.productos -= prod)
+     if(!(productos.exists((_.equals(prod)))))
+       throw new NoHayStockException
+       
+   }
+ 
+   def agregarProducto(prod: Producto, cant: Int) { 
+     (this.manejadores).foreach( (manejador) => manejador.manejar(prod, cuantosHay(prod), cant) )
+     (1 to cant).foreach(_=> this.productos += prod)
+     if(!(productos.exists((_.equals(prod)))))
+       throw new NoHayStockException
+   }
+       
    /************************************************************************/
 }
