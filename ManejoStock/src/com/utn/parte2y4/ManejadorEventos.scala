@@ -1,5 +1,7 @@
 package com.utn.parte2y4
 
-abstract class ManejadorEventos {
+import com.utn.comun.Producto
 
+abstract class ManejadorEventos {
+  def manejar(producto: Producto, cantidad: Int)
 }
