@@ -23,6 +23,8 @@ class test2y4 extends  AssertionsForJUnit {
   var prodMesa = new Producto("mesa",2,6,3,false,3)  
   var prodEscritorio = new Producto("escritorio",2,5,3,true,3) 
   
+  @Test
+  def PruebaTest{assertEquals(1,1)}
   
   @Test
   def testRestarProducto {    
@@ -52,8 +54,7 @@ class test2y4 extends  AssertionsForJUnit {
   
   def agregarManejador(m: ManejadorEventos){deposito.manejadores += m}
   
-  def agregarProducto(p: Producto){deposito.productos += p}  
   def agregarProductos(p: Producto, cant: Int){
-    (1 to cant).foreach(_=> this.agregarProducto(p))
+    (1 to cant).foreach(_=> deposito.productos += p)
   }
 }
