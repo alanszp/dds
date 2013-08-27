@@ -1,7 +1,7 @@
 package com.utn.parte2y4
 import com.utn.comun._
-import org.joda.time
-import org.joda.time.convert
+//import org.joda.time
+//import org.joda.time.convert
 
 class EventoSalidaStockMinimo extends ManejadorEventos {
   
@@ -18,9 +18,9 @@ def manejar(producto: Producto, cantEnDeposito: Int, cant: Int){
 
  }
 
-//ESTA BIEN ESTO? CHEQUEAR....
+//ENVIARLE AL DEPTO DE COMPRAS
 def enviarACompras(pedido:PedidoCompra){
-  //FUERA DE NUESTRO ALCANCE
+  
 }
 
 def generarLogAuditoria(producto:Producto){
@@ -29,7 +29,7 @@ def generarLogAuditoria(producto:Producto){
 }
 
 def getFechaActual{
-  val fechaActual: LocalDate = new LocalDate(anio, mes, dia)
+  //val fechaActual: LocalDate = new LocalDate(anio, mes, dia)
 }
   
 }
