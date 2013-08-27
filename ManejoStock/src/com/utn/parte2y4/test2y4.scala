@@ -1,9 +1,13 @@
 package com.utn.parte2y4
 
+import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Test
 import org.scalatest.junit.AssertionsForJUnit
 
 import com.utn.comun.Deposito
+import com.utn.comun.Producto
+
 
 class test2y4 extends  AssertionsForJUnit {
   
@@ -19,15 +23,47 @@ class test2y4 extends  AssertionsForJUnit {
   var eventoSuperarStockMaximo = new EventoSuperarStockMaximo
   this.agregarManejador(eventoSuperarStockMaximo)
   
+  var prodSilla = new Producto("silla",3,10,4,true,4)
+  this.agregarProductos(prodSilla, 6)
+  
+  var prodMesa = new Producto("mesa",2,6,3,false,3)
+  this.agregarProductos(prodMesa, 3)
+  
+  var prodEscritorio = new Producto("escritorio",2,5,3,true,3)
+  this.agregarProductos(prodSilla, 6)
+  
+  
+  @Test
+  def testRestarProducto {    
+    var prodSilla = new Producto("silla")
+    deposito.restarProducto(prodSilla)
+    
+    assertCantProductos(prodSilla)
+  }
+  
+  
+  /*******************AUXILIARES****************************************/
+  
+  def assertCantProductos(prod: Producto){
+    assertEquals("no coincide la cantidad de productos", deposito.cuantosHay(prod), 5)
+  }
 
   
   
   /******************FUNCIONES PRIVADAS******************************/
   def agregarManejador(m: ManejadorEventos){deposito.manejadores += m}
   
+  def agregarProducto(p: Producto){deposito.productos += p}
+  
+  def agregarProductos(p: Producto, cant: Int){
+    (1 to cant).foreach(_=> this.agregarProducto(p))
+  }
+
   
   
-  /*******************TEST 2 Y 4********************/
+  
+  
+  /*******************TEST 1 Y 3********************/
   /*
   var produccion = new Produccion
   
