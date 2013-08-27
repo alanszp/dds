@@ -10,7 +10,7 @@ def manejar(producto: Producto, cantEnDeposito: Int, cant: Int){
    if(cantEnDeposito < producto.cantMinima){
      
 	   //GENERO PEDIDO DE COMPRA
-	   var pedidoCompra:Compras = new Compras(producto, producto.puntoDePedido)
+	   var pedidoCompra:PedidoCompra = new PedidoCompra(producto, producto.puntoDePedido)
 	   enviarACompras(pedidoCompra)
 	   //GENERO AUDITORIA
 	   if (producto.necesitaLog) generarLogAuditoria(producto)
@@ -19,7 +19,7 @@ def manejar(producto: Producto, cantEnDeposito: Int, cant: Int){
  }
 
 //ESTA BIEN ESTO? CHEQUEAR....
-def enviarACompras(pedido:Compras){
+def enviarACompras(pedido:PedidoCompra){
   //FUERA DE NUESTRO ALCANCE
 }
 
