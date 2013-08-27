@@ -10,7 +10,7 @@ class Deposito {
    var fabricados:List[Componente] = List()
    var reservados:List[Componente] = List()
    var productos:Set[Producto] = Set()
-   var manejadores:List[ManejadorEventos] = List()
+   var manejadores:Set[ManejadorEventos] = Set()
    var fabrica:Fabrica = null
    
    def setFabrica(fabrica:Fabrica) =  {this.fabrica = fabrica}
@@ -53,19 +53,17 @@ class Deposito {
    
    def cuantosHay(prod: Producto ): Int = this.productos.count(_ == productos)
    
+   def sumarProducto(prod: Producto){this.productos += prod}
+   def restarProducto(prod: Producto){this.productos-=prod}
+   
    def sacarProducto(prod: Producto, cant: Int) { 
      (this.manejadores).foreach( (manejador) => manejador.manejar(prod, cuantosHay(prod), cant) )
-     (1 to cant).foreach(_=> this.productos -= prod)
-     if(!(productos.exists((_.equals(prod)))))
-       throw new NoHayStockException
-       
-   }
- 
+     (1 to cant).foreach(_=> this.restarProducto(prod))       
+   }   
+
    def agregarProducto(prod: Producto, cant: Int) { 
      (this.manejadores).foreach( (manejador) => manejador.manejar(prod, cuantosHay(prod), cant) )
-     (1 to cant).foreach(_=> this.productos += prod)
-     if(!(productos.exists((_.equals(prod)))))
-       throw new NoHayStockException
+     (1 to cant).foreach(_=> this.sumarProducto(prod))
    }
        
    /************************************************************************/

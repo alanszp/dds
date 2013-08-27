@@ -11,7 +11,7 @@ def manejar(producto: Producto, cantEnDeposito: Int, cant: Int){
 	   var pedidoCompra:PedidoDeCompra = new PedidoDeCompra(producto, producto.puntoDePedido)
 	   enviarACompras(pedidoCompra)
 	   //GENERO AUDITORIA
-	   if (producto.necesitaLog==true) generarLogAuditoria(producto)
+	   if (producto.necesitaLog) generarLogAuditoria(producto)
    }
 
  }
