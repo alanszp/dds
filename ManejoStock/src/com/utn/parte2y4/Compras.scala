@@ -4,6 +4,7 @@ import com.utn.comun.Producto
 
 class Compras(val producto: Producto, val cant:Int) {
   
-  def generarNotaDeCompra(prod: Producto, cant: Int) = true
+  //Fuera del alcance del ejercicio
+  def generarNotaDeCompra(prod: Producto, cant: Int) 
 
 }
