@@ -1,5 +1,7 @@
 package com.utn.parte2y4
 import com.utn.comun._
+import org.joda.time
+import org.joda.time.convert
 
 class EventoSalidaStockMinimo extends ManejadorEventos {
   
@@ -8,7 +10,7 @@ def manejar(producto: Producto, cantEnDeposito: Int, cant: Int){
    if(cantEnDeposito < producto.cantMinima){
      
 	   //GENERO PEDIDO DE COMPRA
-	   var pedidoCompra:PedidoDeCompra = new PedidoDeCompra(producto, producto.puntoDePedido)
+	   var pedidoCompra:Compras = new Compras(producto, producto.puntoDePedido)
 	   enviarACompras(pedidoCompra)
 	   //GENERO AUDITORIA
 	   if (producto.necesitaLog) generarLogAuditoria(producto)
@@ -16,7 +18,8 @@ def manejar(producto: Producto, cantEnDeposito: Int, cant: Int){
 
  }
 
-def enviarACompras(pedido:PedidoDeCompra){
+//ESTA BIEN ESTO? CHEQUEAR....
+def enviarACompras(pedido:Compras){
   //FUERA DE NUESTRO ALCANCE
 }
 
@@ -26,8 +29,7 @@ def generarLogAuditoria(producto:Producto){
 }
 
 def getFechaActual{
-  //harcodeado
-  return "01/12/2013"
+  val fechaActual: LocalDate = new LocalDate(anio, mes, dia)
 }
   
 }
