@@ -7,7 +7,7 @@ import org.junit.Before
 import org.junit.After
 import recital._
 
-class test extends AssertionsForJUnit {
+class testCompleto extends AssertionsForJUnit {
   
   @Before
   var jubilado = new Jubilado(0.15)
