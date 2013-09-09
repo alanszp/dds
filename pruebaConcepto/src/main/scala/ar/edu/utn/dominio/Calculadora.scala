@@ -48,5 +48,11 @@ class Calculadora {
     alFinal
   }
    
+  def reset = {
+    acumulador = 0.0
+    operando = 0.0
+    display = 0.0
+    firstTime = true
+  }
 
 }
