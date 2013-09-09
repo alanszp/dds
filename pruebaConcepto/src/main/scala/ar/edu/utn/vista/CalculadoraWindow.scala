@@ -22,6 +22,18 @@ class CalculadoraWindow(owner:WindowOwner) extends SimpleWindow[Calculadora](own
 		new Button(actionsPanel) //
 			.setCaption("+")
 			.onClick(new MessageSend(this.getModelObject(), "sumar"))
+			
+		new Button(actionsPanel) //
+			.setCaption("-")
+			.onClick(new MessageSend(this.getModelObject(), "restar"))
+		
+		new Button(actionsPanel) //
+			.setCaption("*")
+			.onClick(new MessageSend(this.getModelObject(), "multiplicar"))
+		
+		new Button(actionsPanel) //
+			.setCaption("/")
+			.onClick(new MessageSend(this.getModelObject(), "dividir"))
 	}
 
 	override def createFormPanel(mainPanel:Panel ) {
@@ -30,18 +42,22 @@ class CalculadoraWindow(owner:WindowOwner) extends SimpleWindow[Calculadora](own
 
 		new Label(mainPanel).setText("Pantallita")
 
-		new TextBox(mainPanel).bindValueToProperty("operando")
+		new TextBox(mainPanel)
+			.setWidth(100)
+			.bindValueToProperty("operando")
 
 		new Label(mainPanel)
-			.setBackground(Color.GREEN)
+			.setWidth(100)
+			
 			.bindValueToProperty("acumulador")
 
 	}
+	
+	
 }
 
 object CalculadoraApplication extends Application with App {
+	  def createMainWindow() = new CalculadoraWindow(this)
+	  start()
 	
-	override def createMainWindow() = new CalculadoraWindow(this)
-	
-	start()
 }
