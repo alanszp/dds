@@ -26,28 +26,28 @@ class Calculadora {
   
   def sumar = {
     //checkAndSet(0)
-    this.validar
+    //this.validar
     acumulador += operando
     alFinal
   }
   
   def restar = {
     //checkAndSet(0)
-    this.validar
+    //this.validar
     acumulador -= operando
     alFinal
   }
   
   def multiplicar = {
     //checkAndSet(1)
-    this.validar
+    //this.validar
     acumulador *= operando
     alFinal
   }
   
   def dividir = {
     //if (!checkAndSet(operando))
-    this.validar
+    //this.validar
     if(operando != 0.0)
     	acumulador = acumulador / operando 
     alFinal
