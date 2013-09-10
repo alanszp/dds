@@ -26,27 +26,39 @@ class Calculadora {
   
   def sumar = {
     //checkAndSet(0)
+    this.validar
     acumulador += operando
     alFinal
   }
   
   def restar = {
     //checkAndSet(0)
+    this.validar
     acumulador -= operando
     alFinal
   }
   
   def multiplicar = {
     //checkAndSet(1)
+    this.validar
     acumulador *= operando
     alFinal
   }
   
   def dividir = {
     //if (!checkAndSet(operando))
+    this.validar
     if(operando != 0.0)
     	acumulador = acumulador / operando 
     alFinal
+  }
+  
+  def isNumeric(x: String): Boolean = x.forall(_.isDigit)
+  
+  def validar ={
+    if(! this.isNumeric(operando)){
+    	throw new UserException("El numero ingresado no es valido") //VER COMO PONERLO EN EL TEXTBOX
+    }
   }
   
   def reset = {
