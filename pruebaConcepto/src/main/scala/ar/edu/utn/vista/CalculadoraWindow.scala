@@ -53,8 +53,9 @@ class CalculadoraWindow(owner:WindowOwner) extends SimpleWindow[Calculadora](own
 
 		new TextBox(mainPanel)
 			.setWidth(100)
+			.withFilter [ event | StringUtils.isNumeric(event.potentialTextResult) ]
 			.bindValueToProperty("operando")
-
+		
 		new Label(mainPanel)
 			.setWidth(100)
 			
