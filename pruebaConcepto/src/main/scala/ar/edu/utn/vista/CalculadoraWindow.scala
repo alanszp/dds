@@ -38,6 +38,14 @@ class CalculadoraWindow(owner:WindowOwner) extends SimpleWindow[Calculadora](own
 		new Button(actionsPanel) //
 			.setCaption("AC")
 			.onClick(new MessageSend(this.getModelObject(), "reset"))
+			
+		new Button(actionsPanel) 
+			.setCaption("AC")
+			.onClick(new MessageSend(this.getModelObject(), "resetear"))
+			
+		new Button(actionsPanel) 
+			.setCaption("=")
+			.onClick(new MessageSend(this.getModelObject(), "mostrar"))
 	}
 
 	override def createFormPanel(mainPanel:Panel ) {
