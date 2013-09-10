@@ -10,9 +10,13 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.Window
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.Application
-
 import java.awt.Color
 import ar.edu.utn.dominio.Calculadora
+import com.uqbar.commons.StringUtils
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.commons.utils.Observable
+
+
 
 
 
@@ -46,25 +50,25 @@ class CalculadoraWindow(owner:WindowOwner) extends SimpleWindow[Calculadora](own
 	}
 
 	override def createFormPanel(mainPanel:Panel ) {
-		this.setTitle("Calculadora Cientifica (?)")
+		this.setTitle("Calculadora Cientifica")
+		
 		mainPanel.setLayout(new VerticalLayout())
 
-		new Label(mainPanel).setText("Pantallita")
+		new Label(mainPanel).setText("Pantalla")
 
-		new TextBox(mainPanel)
-			.setWidth(100)
-			.withFilter [ event | StringUtils.isNumeric(event.potentialTextResult) ]
-			.bindValueToProperty("operando")
-		
+		var textCalcu = new TextBox(mainPanel)
+			textCalcu.setWidth(100)
+			textCalcu.withFilter(new DateTextFilter)
+			textCalcu.bindValueToProperty("operando")
+			
 		new Label(mainPanel)
 			.setWidth(100)
-			
 			.bindValueToProperty("acumulador")
 
 	}
 	
-	
 }
+
 
 object CalculadoraApplication extends Application with App {
 	  def createMainWindow() = new CalculadoraWindow(this)
