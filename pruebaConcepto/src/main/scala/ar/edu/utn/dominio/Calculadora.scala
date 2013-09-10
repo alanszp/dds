@@ -57,7 +57,7 @@ class Calculadora {
   
   def validar ={
     if(! this.isNumeric(operando)){
-    	throw new UserException("El numero ingresado no es valido") //VER COMO PONERLO EN EL TEXTBOX
+    	throw new UserException("El numero ingresado no es valido") //VER COMO PONRLO EN EL TEXTBOX
     }
   }
   
