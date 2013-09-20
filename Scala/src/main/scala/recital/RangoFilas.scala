@@ -1,6 +1,19 @@
 package recital
 
-class RangoFilas(var desde: Int, var hasta: Int, var precio: Double, var cantAsientos:Int) {
+class RangoFilas {
+  
+  def this(desde: Int, hasta: Int, precio: Double, cantAsientos:Int) = {
+    this()
+    this.desde = desde
+    this.hasta = hasta
+    this.precio = precio
+    this.cantAsientos = cantAsientos
+  }  
+  
+  var desde: Int =_
+  var hasta: Int =_
+  var precio: Double = _
+  var cantAsientos:Int = _
 
   
   def tengoFila(fila: Int): Boolean = (this.desde <= fila) && (this.hasta >= fila)

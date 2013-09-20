@@ -1,9 +1,23 @@
 package recital
 
-class Entrada (var sector: Sector, var noche: Noche, var categoria:CategoriaPersona, var fila: Int, var asiento:Int) extends EntradaAbstracta {
+class Entrada extends EntradaAbstracta {
 
-  sector.verificarUbicacion(fila, asiento) //Corre al inicializarse. Si no existen, tira excepcion por fila o por asiento inexistente...
-  noche.tieneDescuento(categoria) //Corre al inicializarse. Si no tiene descuento, tira excepcion por categoria no valida...
+  def this(sector: Sector, noche: Noche, categoria:CategoriaPersona, fila: Int, asiento:Int) = {
+    this()
+    this.sector= sector
+    this.noche = noche
+    this.categoria = categoria
+    this.fila = fila
+    this.asiento = asiento
+    
+    this.validarEntrada //Corre al instanciarse con todos los parametros. 
+  }
+  
+  var sector: Sector = _
+  var noche: Noche = _
+  var categoria:CategoriaPersona = _
+  var fila: Int = _
+  var asiento:Int = _
   
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 
   
@@ -19,4 +33,9 @@ class Entrada (var sector: Sector, var noche: Noche, var categoria:CategoriaPers
   def valorExtraPorNoche = this.noche.valorExtra
   
   def esDama:Boolean = this.categoria.isInstanceOf[Damas]
+  
+  def validarEntrada = {
+     sector.verificarUbicacion(fila, asiento) //Si no existen, tira excepcion por fila o por asiento inexistente...
+     noche.tieneDescuento(categoria) //Si no tiene descuento, tira excepcion por categoria no valida...
+  }
 }

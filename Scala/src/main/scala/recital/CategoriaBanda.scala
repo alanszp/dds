@@ -1,5 +1,12 @@
 package recital
 
-class CategoriaBanda (val tipo: String, val precioExtra: Double) {
-  
+class CategoriaBanda () {
+	var tipo: String = _
+	var precioExtra: Double = _
+	
+	def this(tipo: String, precioExtra: Double) = {
+	  this()
+	  this.tipo = tipo
+	  this.precioExtra = precioExtra
+	}
 }

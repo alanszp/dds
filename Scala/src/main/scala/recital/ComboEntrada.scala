@@ -1,7 +1,13 @@
 package recital
 
-class ComboEntrada (var porcentajeDescuento: Double) extends EntradaAbstracta {
+class ComboEntrada extends EntradaAbstracta {
   
+  def this(porcentajeDescuento: Double) = {
+    this()
+    this.porcentajeDescuento = porcentajeDescuento
+  }
+  
+  var porcentajeDescuento: Double = _
   var entradas: Set[Entrada] = Set()
   
   def precioEntrada : Double ={

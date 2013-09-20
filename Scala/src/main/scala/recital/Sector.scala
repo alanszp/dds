@@ -1,7 +1,13 @@
 package recital
 
-class Sector ( var nombre: String){
-
+class Sector{
+  
+  def this(nombre: String) = {
+    this()
+    this.nombre = nombre
+  }
+  
+  var nombre: String =_
   var filas: Set[RangoFilas] = Set()
   
   def valorEntradaBase(numero: Int): Double ={

@@ -1,7 +1,13 @@
 package recital
 
-class Noche (var fecha: String){
+class Noche{
 	
+	def this(fecha: String) = {
+	  this()
+	  this.fecha = fecha
+	}
+  
+	var fecha: String = _
 	var bandas: Set[Banda] = Set()
 	var descuentos: Set[CategoriaPersona] = Set()
 	
