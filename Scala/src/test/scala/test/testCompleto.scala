@@ -44,6 +44,7 @@ class testCompleto extends AssertionsForJUnit {
   
   var coreDeVentas = new CoreDeVentas
   coreDeVentas.noches += noche1
+  coreDeVentas.noches += noche1
   
   @Test
   def testPrecioExtraPorNoche_conCambiosDinamicos {
