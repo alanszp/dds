@@ -58,7 +58,6 @@ class CalculadoraWindow(owner:WindowOwner) extends SimpleWindow[Calculadora](own
 
 		var textCalcu = new TextBox(mainPanel)
 			textCalcu.setWidth(100)
-			textCalcu.withFilter(new DateTextFilter)
 			textCalcu.bindValueToProperty("operando")
 			
 		new Label(mainPanel)
