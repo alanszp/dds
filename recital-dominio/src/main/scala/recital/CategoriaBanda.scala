@@ -1,6 +1,6 @@
 package recital
 
-class CategoriaBanda () {
+class CategoriaBanda {
 	var tipo: String = _
 	var precioExtra: Double = _
 	

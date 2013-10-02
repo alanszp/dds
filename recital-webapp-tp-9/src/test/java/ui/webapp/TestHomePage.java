@@ -1,4 +1,4 @@
-package ui.webapp;
+/*package ui.webapp;
 
 import junit.framework.TestCase;
 
@@ -7,7 +7,7 @@ import org.apache.wicket.util.tester.WicketTester;
 /**
  * Simple test using the WicketTester
  */
-public class TestHomePage extends TestCase
+/*public class TestHomePage extends TestCase
 {
 	private WicketTester tester;
 
@@ -29,3 +29,4 @@ public class TestHomePage extends TestCase
 		tester.assertLabel("message", "If you see this message wicket is properly configured and running");
 	}
 }
+*/

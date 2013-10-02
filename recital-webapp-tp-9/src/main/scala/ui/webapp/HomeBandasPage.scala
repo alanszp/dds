@@ -12,7 +12,7 @@ import appmodel.webapp._;
 
 class HomeBandasPage extends WebPage {
 	var	serialVersionUID = 1L;
-	
+	var model = new HomeBandas
 	var resultados:Component = _
 	
 	def addSearchFields(filtroForm: Form[HomeBandas]) = {
@@ -29,6 +29,17 @@ class HomeBandasPage extends WebPage {
 	  panel.setOutputMarkupId(true);
 	}
 }
+
+/*
+ * 
+ * new Form(idWicketDel form)
+ * 
+ * ListView
+ * 
+ * 
+ */
+
+
 
 /*
 public class ListadoSociosPage extends AbstractWebPage<ListadoSocios> {

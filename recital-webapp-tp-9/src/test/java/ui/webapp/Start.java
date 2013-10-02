@@ -1,4 +1,4 @@
-package ui.webapp;
+/*package ui.webapp;
 
 import org.mortbay.jetty.Connector;
 import org.mortbay.jetty.Server;
@@ -46,3 +46,4 @@ public class Start {
 		}
 	}
 }
+*/
