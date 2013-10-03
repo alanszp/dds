@@ -1,11 +1,14 @@
 package appmodel.webapp
 
 import recital._
+import scala.collection.JavaConversions
+import java.util.List
+
 
 class HomeBandas {
 	
 	var homeBandas : Set[Banda]= Set() 
-	var nombre = ""
+	var nombreBanda = ""
 	this.populate
 	
 	def populate : Unit= {
@@ -23,8 +26,8 @@ class HomeBandas {
 	  homeBandas += pinpinela
 	}
 	
-	def getBandas : Set[Banda] = {
-	  filteredBandas(nombre);
+	def getBandas = {
+		  JavaConversions.asJavaSet(filteredBandas(nombreBanda))
 	}
 	
 	def filteredBandas(nombreBanda:String) : Set[Banda]= {
@@ -35,6 +38,6 @@ class HomeBandas {
 	  homeBandas.filter(banda => banda.nombre.contains(nombreBanda))
 	}
 	
-	def getNombre = nombre
-	def setNombre(nombreBanda:String) = nombre = nombreBanda
+	def getNombreBanda = nombreBanda
+	def setNombreBanda(nombre:String) = this.nombreBanda = nombre
 }

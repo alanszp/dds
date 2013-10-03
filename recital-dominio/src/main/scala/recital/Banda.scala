@@ -11,4 +11,7 @@ class Banda (){
 	var categoria:CategoriaBanda = _
 	
 	def precioCategoria : Double = categoria.precioExtra
+	
+	def getNombre = nombre
+	def setNombre(nombreBanda : String) = nombre = nombreBanda
 }
