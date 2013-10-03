@@ -28,6 +28,7 @@ class HomeBandas {
 	
 	def getBandas = {
 		  JavaConversions.asJavaSet(filteredBandas(nombreBanda))
+		  
 	}
 	
 	def filteredBandas(nombreBanda:String) : Set[Banda]= {
