@@ -12,6 +12,7 @@
 	            <span>Nombre a buscar:</span>
 	            <input wicket:id="nombreBanda" type="text" name="nombre"/>
 	            <input type="submit" wicket:id="buscar" value="Buscar"/>
+	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
            	</div>
 	            
            	<table id="main" width="80%">
@@ -19,13 +20,13 @@
 	               	<th id="main" width="40%">Nombre Banda</th>
 <!-- 	               	<th id="main" width="40%">Autor</th> -->
                	</tr></thead>
-               	<tbody><tr wicket:id="resultado" id="main">
+               	<tbody><tr wicket:id="bandas" id="main">
                    	<td id="main" width="40%"><span wicket:id="nombre">unNombreBanda</span></td> 
 <!--            	        <td id="main" width="40%"><span wicket:id="autor">unAutor</span></td>  -->
                	</tr></tbody>
            	</table>
 			
-			<a href="#" class="volver" wicket:id="linkVolver">Volver</a>
+<!-- 			<a href="#" class="volver" wicket:id="linkVolver">Volver</a> -->
         </form>
 
 </body>

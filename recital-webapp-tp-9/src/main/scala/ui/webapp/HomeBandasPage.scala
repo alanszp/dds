@@ -43,5 +43,15 @@ class HomeBandasPage extends WebPage {
 
         override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
       })
+    
+    form.add(
+      new AjaxButton("limpiar") {
+        override def onSubmit(target: AjaxRequestTarget, form: Form[_]) = {
+          model.nombreBanda = ""
+          target.addComponent(buscarForm)
+        }
+
+        override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
+      })
   }
 }

@@ -26,7 +26,7 @@ class TestAppModel extends AssertionsForJUnit {
   def testFiltroConUnNombre{
 	 var home = new HomeBandas
 	 home.setNombreBanda("AC")
-	 assertTrue("No tiene las tres bandas hardcodeadas", home.getBandas.size == 1)
+	 assertTrue("No tiene las tres bandas hardcodeadas", home.getBandas.size == 2)
   }
  //Faltan mas. Cuando ande todo veo de agregar mas
 
