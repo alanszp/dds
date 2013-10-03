@@ -8,22 +8,24 @@
 		<h1>B&uacute;squeda de Bandas</h1>
 
         <form wicket:id="buscarBandasForm">
-            <div class="buscar">
+            <div style="border: 1px dashed #888; background: #eee; display: inline-block; padding: 20px 30px;">
 	            <span>Nombre a buscar:</span>
 	            <input wicket:id="nombreBanda" type="text" name="nombre"/>
 	            <input type="submit" wicket:id="buscar" value="Buscar"/>
 	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
            	</div>
-	            
-           	<table id="main" width="80%">
-           		<thead><tr>
-	               	<th id="main" width="40%">Nombre Banda</th>
-<!-- 	               	<th id="main" width="40%">Autor</th> -->
+			<br/><br/>
+           	<table style="border-collapse: collapse; border: 1px solid black;" width="80%">
+           		<thead><tr style="background: black; color:white;">
+	               	<th style="border: 1px solid black;">Nombre Banda</th>
+	               	<th style="border: 1px solid black;">Tipo de Categor&iacute;a</th>
+	               	<th style="border: 1px solid black;">Precio extra por categor&iacute;a</th>
                	</tr></thead>
                	<tbody><tr wicket:id="bandas" id="main">
-                   	<td id="main" width="40%"><span wicket:id="nombre">unNombreBanda</span></td> 
-<!--            	        <td id="main" width="40%"><span wicket:id="autor">unAutor</span></td>  -->
-               	</tr></tbody>
+                   	<td style="border: 1px solid black;" align=center><span wicket:id="nombre">unNombreBanda</span></td> 
+           	        <td style="border: 1px solid black;"align=center ><span wicket:id="categoria.tipo">unTipoDeCategoria</span></td> 
+      				<td style="border: 1px solid black;"align=center ><span wicket:id="categoria.precioExtra">unTipoDeCategoria</span></td> 
+              	</tr></tbody>
            	</table>
 			
 <!-- 			<a href="#" class="volver" wicket:id="linkVolver">Volver</a> -->

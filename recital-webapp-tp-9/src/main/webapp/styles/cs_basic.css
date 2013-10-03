@@ -36,9 +36,11 @@ body table {
 		
 td table { 
 	font-size: 100%;
+	border: 1px solid black;
 }
 
-table { 
+table { 	
+	border-collapse:collapse;
 	font-weight: normal;
 	color: #000000;
 	caption-side: bottom;
