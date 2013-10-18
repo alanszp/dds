@@ -53,4 +53,5 @@ class HomeBandasPage extends WebPage {
         override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
       })
   }
+
 }
