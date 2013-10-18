@@ -97,7 +97,7 @@ class testCompleto extends AssertionsForJUnit {
   def testNocheNoTieneDescuentoApropiado {
     var jubilado2 = new Jubilado(0.3)
     try {
-      var entrada = new Entrada(sectorA, noche1, jubilado2, 10, 2)
+      var entrada = new Entrada(sectorA, noche1, jubilado2, 10, 2, "Pepe")
       fail("No tendria que haberse creado la entrada")
     }
     catch {
@@ -107,10 +107,10 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def precioEntradaMayorCorrecto {
-    var entrada = new Entrada(sectorA, noche1, mayor, 10, 2)
-    var entrada2 = new Entrada(sectorA, noche1, mayor, 15, 2)
-    var entrada3 = new Entrada(sectorA, noche2, mayor, 10, 2)
-    var entrada4 = new Entrada(sectorA, noche2, mayor, 15, 2)
+    var entrada = new Entrada(sectorA, noche1, mayor, 10, 2, "Pepe")
+    var entrada2 = new Entrada(sectorA, noche1, mayor, 15, 2, "Pepe")
+    var entrada3 = new Entrada(sectorA, noche2, mayor, 10, 2, "Pepe")
+    var entrada4 = new Entrada(sectorA, noche2, mayor, 15, 2, "Pepe")
     
     assertPrecioEntrada("Precio entrada mayor incorrecto", entrada, 350)    
     assertPrecioEntrada("Precio entrada mayor incorrecto", entrada2, 270)   
@@ -120,10 +120,10 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def precioEntradaMenorCorrecto {
-    var entrada = new Entrada(sectorA, noche1, menor, 10, 2)
-    var entrada2 = new Entrada(sectorA, noche1, menor, 15, 2)
-    var entrada3 = new Entrada(sectorA, noche2, menor, 10, 2)
-    var entrada4 = new Entrada(sectorA, noche2, menor, 15, 2)
+    var entrada = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+    var entrada2 = new Entrada(sectorA, noche1, menor, 15, 2, "Pepe")
+    var entrada3 = new Entrada(sectorA, noche2, menor, 10, 2, "Pepe")
+    var entrada4 = new Entrada(sectorA, noche2, menor, 15, 2, "Pepe")
     
     assertPrecioEntrada("Precio entrada Menor incorrecto", entrada, 320)
     assertPrecioEntrada("Precio entrada Menor incorrecto", entrada2, 260)  
@@ -133,10 +133,10 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def precioEntradaJubiladoCorrecto {
-    var entrada = new Entrada(sectorA, noche1, jubilado, 10, 2)
-    var entrada2 = new Entrada(sectorA, noche1, jubilado, 15, 2)
-    var entrada3 = new Entrada(sectorA, noche2, jubilado, 10, 2)
-    var entrada4 = new Entrada(sectorA, noche2, jubilado, 15, 2)
+    var entrada = new Entrada(sectorA, noche1, jubilado, 10, 2, "Pepe")
+    var entrada2 = new Entrada(sectorA, noche1, jubilado, 15, 2, "Pepe")
+    var entrada3 = new Entrada(sectorA, noche2, jubilado, 10, 2, "Pepe")
+    var entrada4 = new Entrada(sectorA, noche2, jubilado, 15, 2, "Pepe")
     
     assertPrecioEntrada("Precio entrada jubilado incorrecto", entrada, 327.5)   
     assertPrecioEntrada("Precio entrada jubilado incorrecto", entrada2, 259.5)  
@@ -151,8 +151,8 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def venderEntradaCorrectamente {
-	var entrada = new Entrada(sectorA, noche1, menor, 10, 2)
-	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+	var entrada = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3, "Pepe")
 	
 	coreDeVentas.venderEntrada(entrada)
 	assertHayEntradaVendida("No se agrego la entrada1", coreDeVentas, entrada)
@@ -165,10 +165,10 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def venderComboEntradaCorrectamente {
-	var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
-	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
-	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4)
-	var entrada4 = new Entrada(sectorA, noche1, menor, 10, 5)
+	var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3, "Pepe")
+	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4, "Pepe")
+	var entrada4 = new Entrada(sectorA, noche1, menor, 10, 5, "Pepe")
 	var comboEntrada1 = new ComboEntrada(0.2)
 	var comboEntrada2 = new ComboEntrada(0.2)
 	comboEntrada1.agregar(entrada1)
@@ -191,7 +191,7 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def testNoSePuedeVenderDosEntradasIguales {
-	  var entrada = new Entrada(sectorA, noche1, menor, 10, 2)
+	  var entrada = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
     try {
     	coreDeVentas.venderEntrada(entrada)      
     	coreDeVentas.venderEntrada(entrada)
@@ -207,10 +207,10 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test
   def testNoSePuedeVenderDosComboDeEntradasIguales {
-	var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
-	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
-	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4)
-	var entrada4 = new Entrada(sectorA, noche1, menor, 10, 5)
+	var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3, "Pepe")
+	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4, "Pepe")
+	var entrada4 = new Entrada(sectorA, noche1, menor, 10, 5, "Pepe")
 	var comboEntrada1 = new ComboEntrada(0.2)
   	var comboEntrada2 = new ComboEntrada(0.2)
 	comboEntrada1.agregar(entrada1)
@@ -234,9 +234,9 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test 
   def testNoSePuedeVenderDosCombosConUnaEntradaEquivalente {
-    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
-	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
-	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4)
+    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3, "Pepe")
+	var entrada3 = new Entrada(sectorA, noche1, menor, 10, 4, "Pepe")
 	var comboEntrada1 = new ComboEntrada(0.2)
   	var comboEntrada2 = new ComboEntrada(0.2)
 	comboEntrada1.agregar(entrada1)
@@ -261,8 +261,8 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test 
   def testNoSePuedeVenderUnComboCuandoYaExisteUnaDeSusEntradas {
-    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
-	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3, "Pepe")
 	var comboEntrada1 = new ComboEntrada(0.2)
 	comboEntrada1.agregar(entrada1)
 	comboEntrada1.agregar(entrada2)
@@ -283,8 +283,8 @@ class testCompleto extends AssertionsForJUnit {
   
   @Test 
   def testNoSePuedeVenderUnaEntradaCuandoYaExisteUnComboQueLaTenga {
-    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2)
-	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3)
+    var entrada1 = new Entrada(sectorA, noche1, menor, 10, 2, "Pepe")
+	var entrada2 = new Entrada(sectorA, noche1, menor, 10, 3, "Pepe")
 	var comboEntrada1 = new ComboEntrada(0.2)
 	comboEntrada1.agregar(entrada1)
 	comboEntrada1.agregar(entrada2)
@@ -308,7 +308,7 @@ class testCompleto extends AssertionsForJUnit {
   def testInstancioUnaEntradaConUbicacionIncorrecta {
 	//Pruebo fila erronea 
     try {
-      var entrada1 = new Entrada(sectorA, noche1, menor, 60, 2)
+      var entrada1 = new Entrada(sectorA, noche1, menor, 60, 2, "Pepe")
       fail("Se instancio una entrada con una fila erronea")
     }
     catch {
@@ -317,7 +317,7 @@ class testCompleto extends AssertionsForJUnit {
   
     //Pruebo fila y asiento erroneos
     try {
-      var entrada2 = new Entrada(sectorA, noche1, menor, 60, 100)
+      var entrada2 = new Entrada(sectorA, noche1, menor, 60, 100, "Pepe")
       fail("Se instancio una entrada con una fila y asiento erroneo")
     }
     catch {
@@ -326,7 +326,7 @@ class testCompleto extends AssertionsForJUnit {
     
     //Pruebo asiento erroneo
     try {
-      var entrada3 = new Entrada(sectorA, noche1, menor, 10, 100)
+      var entrada3 = new Entrada(sectorA, noche1, menor, 10, 100, "Pepe")
       fail("Se instancio una entrada con un asiento erroneo")
     }
     catch {
