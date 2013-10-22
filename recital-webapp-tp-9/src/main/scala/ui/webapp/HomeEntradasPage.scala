@@ -24,11 +24,12 @@ class HomeEntradasPage extends WebPage {
 	add(buscarFormCliente)
 	
 	//campos con los que se hace la busqueda
-	def addSearchFields(buscadorCliente: Form[HomeEntradas]) =
-    buscadorCliente.add(new TextField[String]("nombreCliente"))
+	def addSearchFields(buscadorCliente: Form[HomeEntradas]) ={
+		buscarFormCliente.add(new TextField[String]("nombreCliente"))
+    }
     
-    def addResults(buscarForm: Form[HomeEntradas]) =
-    buscarForm.add(new PropertyListView[Entrada]("entradas") {
+    def addResults(filtroForm: Form[HomeEntradas]) =
+    buscarFormCliente.add(new PropertyListView[Entrada]("entradas") {
       override def populateItem(item: ListItem[Entrada]) = item.add(
           new Label("cliente"),
           new Label("sector"),
