@@ -50,12 +50,12 @@ class HomeEntradas{
 	  noche2.bandas += wachiturros
 	  noche2.descuentos = noche2.descuentos union Set(jubilado, menor, mayor, damas, menorDe12)
 
-	  var entrada1 = new Entrada(sectorA, noche1, jubilado, 9, 2, "Pepe")
-	  var entrada2 = new Entrada(sectorA, noche1, jubilado, 9, 3, "Pepe")
-	  var entrada3 = new Entrada(sectorA, noche1, jubilado, 9, 4, "Pepe")
-	  var entrada4 = new Entrada(sectorB, noche2, mayor, 19, 19, "Luis")
-	  var entrada5 = new Entrada(sectorC, noche1, damas, 23, 5, "Maria")
-	  var entrada6 = new Entrada(sectorC, noche1, damas, 22, 6, "Maria")
+	  var entrada1 = new Entrada(sectorA, noche1, jubilado, 9, 2, "Pepe", "Abasto")
+	  var entrada2 = new Entrada(sectorA, noche1, jubilado, 9, 3, "Pepe", "Abasto")
+	  var entrada3 = new Entrada(sectorA, noche1, jubilado, 9, 4, "Pepe", "Abasto")
+	  var entrada4 = new Entrada(sectorB, noche2, mayor, 19, 19, "Luis", "Abasto")
+	  var entrada5 = new Entrada(sectorC, noche1, damas, 23, 5, "Maria", "Abasto")
+	  var entrada6 = new Entrada(sectorC, noche1, damas, 22, 6, "Maria", "Abasto")
 	 
 	  homeEntradas += entrada1
 	  homeEntradas += entrada2 
