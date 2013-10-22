@@ -8,14 +8,14 @@
 		<h1>Buscar entradas por cliente y fecha</h1>
 
         <form wicket:id="buscarPorClienteForm">
-            <div class="buscar">
+            <div style="border: 1px dashed #888; background: #eee; display: inline-block; padding: 20px 30px;">
 	            <span>Nombre del cliente:</span>
-	            <input wicket:id="nombreCliente" type="text" name="nombreCliente"/>
+	            <input wicket:id="nombreCliente" type="text" name="cliente"/>
 	            <br/><br/>
 	            <span>Desde:</span>
-	            <input wicket:id="fechaDesde" type="text" name="fechaDesde"/>
+	            <input wicket:id="fechaDesde" type="text" name="desde"/>
 	            <span>Hasta:</span>
-	            <input wicket:id="fechaHasta" type="text" name=""fechaHasta""/>
+	            <input wicket:id="fechaHasta" type="text" name="hasta"/>
 	            <input type="submit" wicket:id="buscar" value="Buscar"/>
 	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
            	</div>
@@ -29,16 +29,16 @@
 	               	<th style="border: 1px solid black;">Fila</th>
 	               	<th style="border: 1px solid black;">Asiento</th>
                	</tr></thead>
-               	<tbody><tr wicket:id="resultado" id="main">
+               	<tbody><tr wicket:id="entradas" id="main">
                		<td id="main" width="40%"><span wicket:id="cliente">unCliente</span></td> 
                    	<td id="main" width="40%"><span wicket:id="sector">unSector</span></td> 
            	        <td id="main" width="40%"><span wicket:id="noche.fecha">unaFecha</span></td> 
            	        <td id="main" width="40%"><span wicket:id="fila">unaFila</span></td> 
            	        <td id="main" width="40%"><span wicket:id="asiento">unAsiento</span></td> 
-               	</tr></tbody>
+               	</tr></tbody>       	
            	</table>
 			
-			<a href="#" class="volver" wicket:id="linkVolver">Volver</a>
+	<!-- 			<a href="#" class="volver" wicket:id="linkVolver">Volver</a> -->
         </form>
 
 </body>

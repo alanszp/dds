@@ -13,7 +13,7 @@ class HomeEntradas{
   var fechaHasta = ""
   this.populate
   
-  def populate= {
+  def populate = {
 	  var sectorA = new Sector("A")
 	  var sectorB = new Sector("B")
 	  var sectorC = new Sector("C")
@@ -100,7 +100,6 @@ class HomeEntradas{
     if (fechaDesde == "" && fechaHasta == "") {
 	    return homeEntradas
 	  }
-    	homeEntradas.filter (entrada => (entrada.noche.fecha >fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
+    	homeEntradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
   }
-  
 }
