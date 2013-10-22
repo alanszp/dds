@@ -14,13 +14,13 @@ import appmodel.webapp.HomeFestivales
 import recital._
 
 class HomeFestivalesPage extends WebPage {
-  val buscadorPuesto = new HomeFestivales
+  val model = new HomeFestivales
 
-  val buscarFormPuesto = new Form[HomeFestivales]("buscarPorPuestoForm", new CompoundPropertyModel[HomeFestivales](buscadorPuesto))
-  addSearchFields(buscarFormPuesto)
-  addResults(buscarFormPuesto)
-  addActions(buscarFormPuesto)
-  add(buscarFormPuesto)
+  val buscarForm = new Form[HomeFestivales]("buscarPuestoForm", new CompoundPropertyModel[HomeFestivales](model))
+  addSearchFields(buscarForm)
+  addResults(buscarForm)
+  addActions(buscarForm)
+  add(buscarForm)
 
   //campos con los que se hace la busqueda
   def addSearchFields(buscadorFestival: Form[HomeFestivales]) =
@@ -42,7 +42,7 @@ class HomeFestivalesPage extends WebPage {
     form.add(
       new AjaxButton("buscar") {
         override def onSubmit(target: AjaxRequestTarget, form: Form[_]) = {
-          target.addComponent(buscarFormPuesto)
+          target.addComponent(buscarForm)
         }
 
         override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
@@ -51,9 +51,9 @@ class HomeFestivalesPage extends WebPage {
     form.add(
       new AjaxButton("limpiar") {
         override def onSubmit(target: AjaxRequestTarget, form: Form[_]) = {
-          buscadorPuesto.puestoVenta = ""
-          buscadorPuesto.festival = ""
-          target.addComponent(buscarFormPuesto)
+          model.puestoVenta = ""
+          model.festival = ""
+          target.addComponent(buscarForm)
         }
 
         override def onError(target: AjaxRequestTarget, form: Form[_]) = {}

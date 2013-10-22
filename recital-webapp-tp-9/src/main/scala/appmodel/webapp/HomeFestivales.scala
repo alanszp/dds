@@ -76,32 +76,30 @@ class HomeFestivales {
     homeFestivales += entrada6
   }
 
-  //variables para los filtros
-  def getCliente = puestoVenta
-  def setCliente(cliente: String) = this.puestoVenta = cliente
 
-  def getFechaDesde = festival
-  def setFechaDesde(desde: String) = this.festival = desde
+  def getPuesto = puestoVenta
+  def setPuesto(puesto: String) = this.puestoVenta = puesto
 
-  //obtener el conjunto de entradas tras el filtro del cliente
-  def getEntradasCliente: java.util.List[Entrada] = {
+  def getFestival = festival
+  def setFestival(fest: String) = this.festival = fest
+
+
+  def getEntradasPuesto: java.util.List[Entrada] = {
     JavaConversions.asJavaList(filtrarEntradasPuesto(puestoVenta))
   }
 
-  //UNIFICARTODO
-
-  //filtrar por cliente
   def filtrarEntradasPuesto(puesto: String): ListBuffer[Entrada] = {
     if (puesto == "") homeFestivales
     else homeFestivales.filter(entrada => entrada.puestoVenta == puesto)
   }
+  
 
-  //obtener el conjunto de entradas tras el filtro de las fechas
+
   def getEntradasFestival: java.util.List[Entrada] = {
     JavaConversions.asJavaList(filtrarEntradasFestival(festival))
   }
 
-  //filtrar por fecha
+
   def filtrarEntradasFestival(festival: String): ListBuffer[Entrada] = {
     if (festival == "") homeFestivales
     else homeFestivales.filter(entrada => (entrada.noche.fecha == festival))
