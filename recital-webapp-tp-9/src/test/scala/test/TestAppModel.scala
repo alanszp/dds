@@ -28,14 +28,14 @@ class TestAppModel extends AssertionsForJUnit {
 	  }
 	@Test
 	  def testFiltroConUnNombre{
-		 home.setNombreBanda("AC")
+		 home.nombreBanda = "AC"
 		 assertCantidadBandas("No tiene las dos bandas que tendrian que salir", 2)
 		 assertResultContains("No tiene se encuentra AC/DC y Wachiturros", ListBuffer("AC/DC","Wachiturros"))
 	  }
 	
 	@Test
 	  def testFiltroSinResultados{
-		 home.setNombreBanda("ACBC")
+		 home.nombreBanda = "ACBC"
 		 assertCantidadBandas("Tendria que devolver 0 bandas", 0)
 	  }
 	 
@@ -44,6 +44,6 @@ class TestAppModel extends AssertionsForJUnit {
 	  assertEquals(msg, lista.sorted, this.home.filteredBandas(home.nombreBanda).map(banda => banda.nombre).sorted)
 	}
 	
-	def assertCantidadBandas(msg:String, cantidad:Int) = assertEquals(msg, cantidad, home.getBandas.size)
+	def assertCantidadBandas(msg:String, cantidad:Int) = assertEquals(msg, cantidad, home.bandas.size)
 
 }
