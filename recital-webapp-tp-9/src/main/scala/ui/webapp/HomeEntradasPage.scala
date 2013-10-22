@@ -13,11 +13,11 @@ import org.apache.wicket.model.CompoundPropertyModel
 import appmodel.webapp.HomeEntradas
 import recital.Entrada
 
-class HomeEntradsaPage extends WebPage {
+class HomeEntradasPage extends WebPage {
 
-	val buscadorCliente = new HomeEntradas
+	var buscadorCliente = new HomeEntradas
 	
-	val buscarFormCliente = new Form [HomeEntradas]("buscarPorClienteForm", new CompoundPropertyModel[HomeEntradas](buscadorCliente))
+	var buscarFormCliente = new Form [HomeEntradas]("buscarPorClienteForm", new CompoundPropertyModel[HomeEntradas](buscadorCliente))
 	addSearchFields(buscarFormCliente)
 	addResults (buscarFormCliente)
 	addActions(buscarFormCliente)

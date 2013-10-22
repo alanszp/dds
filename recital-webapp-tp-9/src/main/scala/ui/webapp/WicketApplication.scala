@@ -1,5 +1,6 @@
 package ui.webapp
 
+
 import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.request.resource.CompressedResourceReference
 
@@ -12,6 +13,7 @@ class WicketApplication extends WebApplication {
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
-	def getHomePage = classOf[HomeBandasPage];
+	//def getHomePage = classOf[HomeBandasPage];
+  def getHomePage() = classOf[HomeEntradasPage];
 
 }
