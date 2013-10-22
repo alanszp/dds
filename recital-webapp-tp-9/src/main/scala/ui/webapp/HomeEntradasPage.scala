@@ -15,9 +15,9 @@ import recital.Entrada
 
 class HomeEntradasPage extends WebPage {
 
-	var buscadorCliente = new HomeEntradas
+	val buscadorCliente = new HomeEntradas
 	
-	var buscarFormCliente = new Form [HomeEntradas]("buscarPorClienteForm", new CompoundPropertyModel[HomeEntradas](buscadorCliente))
+	val buscarFormCliente = new Form[HomeEntradas]("buscarPorClienteForm", new CompoundPropertyModel[HomeEntradas](buscadorCliente))
 	addSearchFields(buscarFormCliente)
 	addResults (buscarFormCliente)
 	addActions(buscarFormCliente)
