@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Buscador de entradas</title>
+</head>
+<body>
+		<h1>Buscar entradas por puesto de venta y festival (noche)</h1>
+
+        <form wicket:id="buscarPorPuestoForm">
+            <div style="border: 1px dashed #888; background: #eee; display: inline-block; padding: 20px 30px;">
+	            <span>Puesto de venta:</span>
+	            <input wicket:id="puestoVenta" type="text" name="puesto"/>
+	            <br/><br/>
+	            <span>Festival (Noche):</span>
+	            <input wicket:id="festival" type="text" name="desde"/>
+	            <input type="submit" wicket:id="buscar" value="Buscar"/>
+	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
+           	</div>
+           	<br/><br/>
+	            
+           	<table id="main" width="80%">
+           		<thead><tr style="background: black; color:white;">
+           			<th style="border: 1px solid black;">Puesto de Venta</th>
+	               	<th style="border: 1px solid black;">Festival (Fecha)</th>
+           			<th style="border: 1px solid black;">Sector</th>
+	               	<th style="border: 1px solid black;">Fila</th>
+	               	<th style="border: 1px solid black;">Asiento</th>
+               	</tr></thead>
+               	<tbody><tr wicket:id="entradas" id="main">
+               		<td id="main" width="40%"><span wicket:id="puesto">unPuesto</span></td> 
+           	        <td id="main" width="40%"><span wicket:id="noche.fecha">unaFecha</span></td> 
+                   	<td id="main" width="40%"><span wicket:id="sector">unSector</span></td> 
+           	        <td id="main" width="40%"><span wicket:id="fila">unaFila</span></td> 
+           	        <td id="main" width="40%"><span wicket:id="asiento">unAsiento</span></td> 
+               	</tr></tbody>       	
+           	</table>
+			
+	<!-- 			<a href="#" class="volver" wicket:id="linkVolver">Volver</a> -->
+        </form>
+
+</body>
+</html>
