@@ -2,7 +2,7 @@ package recital
 
 class Entrada extends EntradaAbstracta {
 
-  def this(sector: Sector, noche: Noche, categoria:CategoriaPersona, fila: Int, asiento:Int, cliente:String) = {
+  def this(sector: Sector, noche: Noche, categoria:CategoriaPersona, fila: Int, asiento:Int, cliente:String, puestoVenta:String) = {
     this()
     this.sector= sector
     this.noche = noche
@@ -10,6 +10,7 @@ class Entrada extends EntradaAbstracta {
     this.fila = fila
     this.asiento = asiento
     this.cliente = cliente
+    this.puestoVenta = puestoVenta
     
     
     this.validarEntrada //Corre al instanciarse con todos los parametros. 
@@ -21,6 +22,7 @@ class Entrada extends EntradaAbstracta {
   var fila: Int = _
   var asiento:Int = _
   var cliente:String = _
+  var puestoVenta:String =_
   
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 
   
