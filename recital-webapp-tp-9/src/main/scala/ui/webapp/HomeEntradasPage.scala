@@ -32,7 +32,7 @@ class HomeEntradasPage extends WebPage {
       override def populateItem(item: ListItem[Entrada]) = item.add(
           new Label("cliente"),
           new Label("sector"),
-          new Label("fecha"),
+          new Label("noche.fecha"),
           new Label("fila"),
           new Label("asiento")
     )
