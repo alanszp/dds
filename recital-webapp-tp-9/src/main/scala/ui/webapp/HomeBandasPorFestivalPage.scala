@@ -1,7 +1,7 @@
 package ui.webapp
 
 import appmodel.webapp.HomeBandasPorFestival
-import recital.Noche
+import recital.Banda
 import appmodel.webapp.HomeBandasPorFestival
 import org.apache.wicket.markup.html.WebPage
 
@@ -20,7 +20,7 @@ class HomeBandasPorFestivalPage extends WebPage {
   formBuilder.setSearchFields(List("buscadorFestival", "buscadorCliente"))
 	
   //Setear el id de la tabla general y cada columna con una lista (El tipo que se le pasa es de cada fila que se va a mostrar)
-  formBuilder.setResult[Noche]("tablaBandasPorFestival", List("nombreCliente", "numeroEntrada", "nombreFestival", "nombreBanda"))
+	formBuilder.setResult[Banda]("bandas", List("nombre", "categoria.tipo", "categoria.precioExtra"))
 	
 	//Setear nombre del boton de accion. Buscar y limpiar.
 	formBuilder.setActions("buscar", "limpiar")

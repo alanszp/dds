@@ -9,7 +9,8 @@ import scala.collection.mutable.ListBuffer
 class HomeBandasPorFestival extends AbstractModel {
 	
 	var core : CoreDeVentas = new CoreDeVentas
-	var nombreBanda = ""
+	var buscadorFestival = ""
+	var buscadorCliente = ""
 	this.populate
 	
 	def populate= {
@@ -35,15 +36,23 @@ class HomeBandasPorFestival extends AbstractModel {
 	  var categoria_nacionalReconocidaInternacionalmente = new CategoriaBanda("Nacional Reconocida Internacionalmente", 100)
 	  var categoria_internacional = new CategoriaBanda("Internacional", 200)
 	  
-	  var acdc = new Banda("AC/DC", categoria_internacional)
-	  var wachiturros = new Banda("Wachiturros", categoria_nacionalPocoReconocida)
-	  var pinpinela = new Banda("Los Pinpinela", categoria_nacionalReconocida)
+	  var rolling = new Banda("The Rolling Stones", categoria_internacional)
+	  var u2 = new Banda("U2", categoria_internacional)
+	  var Aha = new Banda("A-ha", categoria_internacional)
+	  var bandana = new Banda("Las Bandana", categoria_nacionalPocoReconocida)
+	  var ketchup = new Banda("Las Ketchup", categoria_nacionalPocoReconocida)
+	  var pimpinela = new Banda("Los Pimpinela", categoria_nacionalReconocida)
+	  var fabianacantilo = new Banda("Fabiana Cantilo", categoria_nacionalReconocida)
 	  
-	  noche1.bandas += acdc
-	  noche1.bandas += wachiturros
+	  noche1.bandas += rolling
+	  noche1.bandas += u2
+	  noche1.bandas += ketchup
 	  noche1.descuentos = noche1.descuentos union Set(jubilado, menor, mayor, damas, menor12)
 	  
-	  noche2.bandas += pinpinela
+	  noche2.bandas += pimpinela
+	  noche2.bandas += fabianacantilo
+	  noche2.bandas += Aha
+	  noche2.bandas += bandana
 	  noche2.descuentos = noche2.descuentos union Set(jubilado, menor, mayor, damas, menor12)
 	 
 	  core.noches += noche1
@@ -51,25 +60,39 @@ class HomeBandasPorFestival extends AbstractModel {
 	}
 	
 	def bandas : java.util.List[Banda] = {
-		  JavaConversions.asJavaList(filteredBandas(nombreBanda))
+	  JavaConversions.asJavaList(filteredBandas(buscadorCliente, buscadorFestival))
 		  
 	}
 	
-	def filteredBandas(nombreBanda:String) : ListBuffer[Banda]= {
-	  if (nombreBanda== "") {
+	def filteredBandas(nombreCliente:String, nombreFestival:String) : ListBuffer[Banda]= {
+	  if ((buscadorFestival== "") && (buscadorCliente=="")) {
 	    return todasLasBandas
 	  }
+	  else
+	  {
+		   /* if (buscadorFestival== ""){
+		      
+		    }
+		    
+		    if (buscadorCliente==""){
+		      
+		    } */
+	  }
+	
 	  
 	  todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreBanda.toLowerCase()))
 	}
 	
+	//retorna todas las bandas que estan en TODAS las noches
 	def todasLasBandas : ListBuffer[Banda] = {
 	  var lista : ListBuffer[Banda] = ListBuffer()  
 	  core.noches.flatMap(noches => noches.bandas).foreach(banda => lista+=banda) 
 	  lista
 	}
 	
+	//limpia forms
 	def clean = {
-	  nombreBanda = ""
+	  buscadorCliente = ""
+	  buscadorFestival = ""
 	}
 }
