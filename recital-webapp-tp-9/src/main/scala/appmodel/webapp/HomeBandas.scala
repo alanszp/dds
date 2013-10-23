@@ -51,8 +51,7 @@ class HomeBandas extends AbstractModel {
 	}
 	
 	def bandas : java.util.List[Banda] = {
-		  JavaConversions.asJavaList(filteredBandas(nombreBanda))
-		  
+		  JavaConversions.asJavaList(filteredBandas(nombreBanda))	  
 	}
 	
 	def filteredBandas(nombreBanda:String) : ListBuffer[Banda]= {

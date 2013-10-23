@@ -1,6 +1,7 @@
 package ui.webapp
 
 import org.apache.wicket.ajax.AjaxRequestTarget
+
 import org.apache.wicket.ajax.markup.html.form.AjaxButton
 import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.markup.html.basic.Label
@@ -13,50 +14,23 @@ import org.apache.wicket.model.CompoundPropertyModel
 import appmodel.webapp.HomeFestivales
 import recital._
 
+
 class HomeFestivalesPage extends WebPage {
-  val model = new HomeFestivales
+	//Setear el modelo --> Pasarle una instancia	
+	setModel(new HomeFestivales)
+	
+	//Setear el formulario a usar (Hay que pasarle el tipo del modelo, para que pueda crear el form)
+	setForm[HomeFestivales]("buscarPuestoForm")
+	
+	//Setear los campos de busqueda que va a tener el form (Con una lista)
+	setSearchFields(List("puestoVenta", "festival"))
+	
+	//Setear el id de la tabla general y cada columna con una lista (El tipo que se le pasa es de cada fila que se va a mostrar)
+	setResult[Entrada]("entradas", List("puestoVenta", "noche.fecha", "sector.nombre", "fila", "asiento", "cliente"))
 
-  val buscarForm = new Form[HomeFestivales]("buscarPuestoForm", new CompoundPropertyModel[HomeFestivales](model))
-  addSearchFields(buscarForm)
-  addResults(buscarForm)
-  addActions(buscarForm)
-  add(buscarForm)
-
-  //campos con los que se hace la busqueda
-  def addSearchFields(buscadorFestival: Form[HomeFestivales]) =
-    buscadorFestival.add(new TextField[String]("puestoVenta"))
-
-  def addResults(buscarForm: Form[HomeFestivales]) =
-    buscarForm.add(new PropertyListView[Entrada]("entradas") {
-      override def populateItem(item: ListItem[Entrada]) = item.add(
-        new Label("puesto"),
-        new Label("noche.fecha"),
-        new Label("sector"),
-        new Label("fila"),
-        new Label("asiento"))
-
-    })
-
-  //botones
-  def addActions(form: Form[HomeFestivales]) = {
-    form.add(
-      new AjaxButton("buscar") {
-        override def onSubmit(target: AjaxRequestTarget, form: Form[_]) = {
-          target.addComponent(buscarForm)
-        }
-
-        override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
-      })
-
-    form.add(
-      new AjaxButton("limpiar") {
-        override def onSubmit(target: AjaxRequestTarget, form: Form[_]) = {
-          model.puestoVenta = ""
-          model.festival = ""
-          target.addComponent(buscarForm)
-        }
-
-        override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
-      })
-  }
+	//Setear nombre del boton de accion. Buscar y limpiar.
+	setActions("buscar", "limpiar")
+	
+	//Especie de build. Agrega el formulario a la pagina.
+	start
 }

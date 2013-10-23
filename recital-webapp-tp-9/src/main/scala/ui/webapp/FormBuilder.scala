@@ -12,7 +12,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget
 import appmodel.webapp.AbstractModel
 import org.apache.wicket.model.CompoundPropertyModel
 
-abstract class AbstractHome extends WebPage {
+class FormBuilder {
   
   var model : AbstractModel = _
   var form : Form[_] = _
@@ -22,8 +22,6 @@ abstract class AbstractHome extends WebPage {
   }
 
   def setModel(model : AbstractModel) = this.model = model
-
-  def start = add(form)
   
   def setResult[T:Manifest](id:String,  columnas : List[String]) = {
 		form.add(new PropertyListView[T](id) {
@@ -58,5 +56,6 @@ abstract class AbstractHome extends WebPage {
       })
   }
     
+	def build = this.form
 
 }

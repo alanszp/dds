@@ -5,7 +5,7 @@ import scala.collection.JavaConversions
 import java.util.List
 import scala.collection.mutable.ListBuffer
 
-class HomeEntradas{
+class HomeEntradas extends AbstractModel{
   
   var homeEntradas : ListBuffer[Entrada]= ListBuffer()
   var nombreCliente = ""
@@ -75,31 +75,36 @@ class HomeEntradas{
   def getFechaHasta = fechaHasta
   def setFechaHasta(hasta:String) = this.fechaHasta = hasta
   
-  //obtener el conjunto de entradas tras el filtro del cliente
-  def getEntradasCliente : java.util.List[Entrada] = {
-		  JavaConversions.asJavaList(filtrarEntradasCliente(nombreCliente))
-	}
   
   //UNIFICARTODO
-  
-  //filtrar por cliente
-  def filtrarEntradasCliente(cliente:String) : ListBuffer[Entrada]= {
-	  if (cliente == "") {
-	    return homeEntradas
-	  }
-	  homeEntradas.filter(entrada => entrada.cliente == cliente)
-	}
-  
-  //obtener el conjunto de entradas tras el filtro de las fechas
-  def getEntradasFecha : java.util.List[Entrada] = {
-		  JavaConversions.asJavaList(filtrarEntradasFecha(fechaDesde,fechaHasta))
+  def entradas : java.util.List[Entrada] = {
+	var entradas: ListBuffer[Entrada] = ListBuffer()
+	entradas = homeEntradas
+	entradas = filtrarEntradasCliente(entradas)
+	entradas = filtrarEntradasFecha(entradas)
+    JavaConversions.asJavaList(entradas)
+    
   }
   
-  //filtrar por fecha
-  def filtrarEntradasFecha (fechaDesde:String, fechaHasta:String) : ListBuffer [Entrada] = {
-    if (fechaDesde == "" && fechaHasta == "") {
-	    return homeEntradas
+  //filtrar por cliente
+  def filtrarEntradasCliente(entradas : ListBuffer[Entrada]) : ListBuffer[Entrada]= {
+	  if (nombreCliente == "") {
+	    return entradas
 	  }
-    	homeEntradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
+	  entradas.filter(entrada => entrada.cliente == nombreCliente)
+	}
+  
+  //filtrar por fecha
+  def filtrarEntradasFecha (entradas : ListBuffer[Entrada]) : ListBuffer [Entrada] = {
+    if (fechaDesde == "" && fechaHasta == "") {
+	    return entradas
+	  }
+    	entradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
+  }
+  
+  def clean = {
+	nombreCliente = ""
+  	fechaDesde = ""
+  	fechaHasta = ""
   }
 }
