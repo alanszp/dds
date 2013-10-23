@@ -8,25 +8,32 @@
 		<h1>B&uacute;squeda de Bandas por festival</h1>
 
         <form wicket:id="buscarBandasPorFestivalForm"> 
+        
             <div style="border: 1px dashed #888; background: #eee; display: inline-block; padding: 20px 30px;">
-	            <span>Nombre festival a buscar:</span> 
-	            <input wicket:id="nombreFestival" type="text" name="nombre"/>
+	            <span>Nombre Cliente:</span> 
+	            <input wicket:id="buscadorCliente" type="text" name="nombre"/>
 	            <input type="submit" wicket:id="buscar" value="Buscar"/>
 	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
            	</div>
+           	<div style="border: 1px dashed #888; background: #eee; display: inline-block; padding: 20px 30px;">
+	            <span>Nombre Festival:</span> 
+	            <input wicket:id="buscadorFestival" type="text" name="nombre"/>
+	            <input type="submit" wicket:id="buscar" value="Buscar"/>
+	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
+           	</div>
+           	
 			<br/><br/>
+			
            	<table style="border-collapse: collapse; border: 1px solid black;" width="80%">
            		<thead><tr style="background: black; color:white;">
-	               	<th style="border: 1px solid black;">Nombre Cliente</th>
-	               	<th style="border: 1px solid black;">Nº Entrada</th>
-	               	<th style="border: 1px solid black;">Nombre Festival</th>
-	               	<th style="border: 1px solid black;">Banda</th>
+	               	<th style="border: 1px solid black;">Nombre Banda</th>
+	               	<th style="border: 1px solid black;">Tipo de Categor&iacute;a</th>
+	               	<th style="border: 1px solid black;">Precio extra por categor&iacute;a</th>
                	</tr></thead>
-               	<tbody><tr wicket:id="tablaBandasPorFestival" id="main">
-                   	<td style="border: 1px solid black;" align=center><span wicket:id="nombreCliente">unNombreCliente</span></td> 
-           	        <td style="border: 1px solid black;"align=center ><span wicket:id="numeroEntrada">unNombreEntrada</span></td> 
-      				<td style="border: 1px solid black;"align=center ><span wicket:id="nombreFestival">unNombreFestival</span></td> 
-      				<td style="border: 1px solid black;"align=center ><span wicket:id="nombreBanda">unNombreBanda</span></td> 
+               	<tbody><tr wicket:id="bandas" id="main">
+                   	<td style="border: 1px solid black;" align=center><span wicket:id="nombre">unNombreBanda</span></td> 
+           	        <td style="border: 1px solid black;"align=center ><span wicket:id="categoria.tipo">unTipoDeCategoria</span></td> 
+      				<td style="border: 1px solid black;"align=center ><span wicket:id="categoria.precioExtra">unTipoDeCategoria</span></td> 
               	</tr></tbody>
            	</table>
 			

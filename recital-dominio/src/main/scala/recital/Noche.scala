@@ -7,6 +7,7 @@ class Noche{
 	  this.fecha = fecha
 	}
   
+	var numeroNoche: Int = _
 	var fecha: String = _
 	var bandas: Set[Banda] = Set()
 	var descuentos: Set[CategoriaPersona] = Set()
