@@ -55,33 +55,58 @@ class HomeBandasPorFestival extends AbstractModel {
 	  noche2.bandas += bandana
 	  noche2.descuentos = noche2.descuentos union Set(jubilado, menor, mayor, damas, menor12)
 	 
+	  
+	  var entrada1 = new Entrada(sectorA, noche1, jubilado,1,1,"Uri","Puesto La Plata")
+	  var entrada2 = new Entrada(sectorA, noche1, jubilado,1,1,"Tomy","Puesto Vicente Lopez")
+	  var entrada3 = new Entrada(sectorA, noche2, jubilado,1,1,"Alan","Puesto Villa Lugano")
+	  var entrada4 = new Entrada(sectorA, noche2, jubilado,1,1,"Guido","Puesto Las Varillas")
+	  
+	  core.entradas += entrada1
+	  core.entradas += entrada2
+	  core.entradas += entrada3
+	  core.entradas += entrada4
+	  
 	  core.noches += noche1
 	  core.noches += noche2
 	}
 	
-/*	def bandas : java.util.List[Banda] = {
+	def bandas : java.util.List[Banda] = {
 	  JavaConversions.asJavaList(filteredBandas(buscadorCliente, buscadorFestival))
 		  
-	}*/
+	}
 	
-	/*def filteredBandas(nombreCliente:String, nombreFestival:String) : ListBuffer[Banda]= {
+	def filteredBandas(nombreCliente:String, nombreFestival:String) : ListBuffer[Banda]= {
+	  
 	  if ((buscadorFestival== "") && (buscadorCliente=="")) {
 	    return todasLasBandas
 	  }
 	  else
 	  {
 		   /* if (buscadorFestival== ""){
-		      
+		      retornar todas las bandas que vio el cliente
 		    }
 		    
 		    if (buscadorCliente==""){
-		      
+		      retornar todas las bandas del festival
 		    } */
 	  }
 	
+	  var listaEntradas : ListBuffer[Entrada] = ListBuffer() 
 	  
-	 // todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreBanda.toLowerCase()))
-	}*/
+	  //pongo en la lista las entradas del modelo de datos
+	 // core.entradas.foreach(entrada => listaEntradas+=entrada) 
+	  
+	  //filtro la lista, solo dejando aquellas entradas cuyo cliente, sea igual al ingresado
+	  listaEntradas.filter(entrada => entrada.cliente.toLowerCase().contains(nombreCliente.toLowerCase()))
+	  listaEntradas.filter(entrada => entrada.noche.nombreNoche.toLowerCase().contains(nombreFestival.toLowerCase()))  
+	  
+	  var listaNoches : ListBuffer[Noche] = ListBuffer()
+	  //creo lista de noches, con los filtros ya hechos
+	//  listaEntradas.flatMap(entrada => entrada.noche).foreach(noche => listaNoches+=noche)
+	  
+	  //sacar este ultimo
+	  todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreCliente.toLowerCase()))
+	}
 	
 	//retorna todas las bandas que estan en TODAS las noches
 	def todasLasBandas : ListBuffer[Banda] = {
