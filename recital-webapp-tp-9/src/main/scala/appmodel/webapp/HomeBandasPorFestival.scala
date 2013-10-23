@@ -96,7 +96,7 @@ class HomeBandasPorFestival extends AbstractModel {
 	  var listaEntradas : ListBuffer[Entrada] = ListBuffer() 
 	  
 	  //pongo en la lista las entradas del modelo de datos
-	 // core.entradas.foreach(entrada => listaEntradas+=entrada) 
+	  //core.entradas.foreach(entrada => listaEntradas+=entrada) 
 	  
 	  //filtro la lista, solo dejando aquellas entradas cuyo cliente, sea igual al ingresado
 	  listaEntradas = listaEntradas.filter(entrada => entrada.cliente.toLowerCase().contains(nombreCliente.toLowerCase()))
