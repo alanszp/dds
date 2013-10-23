@@ -28,8 +28,8 @@ class HomePage extends WebPage {
     })
 
   def opciones = List(
-    new MenuAction("Tomas Gropper - Integrante 1", classOf[HomeFestivalesPage]),
-    new MenuAction("Uriel Petasny - Integrante 2", classOf[HomeEntradasPage]),
+    new MenuAction("Uriel Petasny - Integrante 1", classOf[HomeEntradasPage]),
+    new MenuAction("Tomas Gropper - Integrante 2", classOf[HomeFestivalesPage]),
     new MenuAction("Alan Szpigiel - Integrante 3", classOf[HomeBandasPage]),
     new MenuAction("Guido Kuznicki - Integrante 4", classOf[HomeBandasPorFestivalPage]))
 }

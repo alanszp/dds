@@ -6,7 +6,7 @@ import java.util.List
 import scala.collection.mutable.ListBuffer
 
 
-class HomeBandasPorFestival extends AbstractModel {
+/*class HomeBandasPorFestival extends AbstractModel {
 	
 	var core : CoreDeVentas = new CoreDeVentas
 	var buscadorFestival = ""
@@ -80,7 +80,7 @@ class HomeBandasPorFestival extends AbstractModel {
 	  }
 	
 	  
-	  todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreBanda.toLowerCase()))
+	 // todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreBanda.toLowerCase()))
 	}
 	
 	//retorna todas las bandas que estan en TODAS las noches
@@ -94,5 +94,5 @@ class HomeBandasPorFestival extends AbstractModel {
 	def clean = {
 	  buscadorCliente = ""
 	  buscadorFestival = ""
-	}
+	}*/
 }

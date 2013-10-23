@@ -80,31 +80,41 @@ class HomeEntradas extends AbstractModel{
   def entradas : java.util.List[Entrada] = {
 	var entradas: ListBuffer[Entrada] = ListBuffer()
 	entradas = homeEntradas
-	entradas = filtrarEntradasCliente(entradas)
-	entradas = filtrarEntradasFecha(entradas)
+	entradas = filtrarEntradas(entradas)
+	//entradas = filtrarEntradasFecha(entradas)
     JavaConversions.asJavaList(entradas)
     
   }
   
   //filtrar por cliente
-  def filtrarEntradasCliente(entradas : ListBuffer[Entrada]) : ListBuffer[Entrada]= {
-	  if (nombreCliente == "") {
-	    return entradas
+  def filtrarEntradas(entradas : ListBuffer[Entrada]) : ListBuffer[Entrada]= {
+	  if (nombreCliente == "" && fechaDesde == "" && fechaHasta == "") entradas
+	  else if (nombreCliente != "") entradas.filter(entrada => entrada.cliente.toLowerCase().contains(nombreCliente.toLowerCase()))
+	  else if (fechaDesde != "" && fechaHasta != ""){
+	    fechaDesde = sacarPipes(fechaDesde,"/")
+    	fechaHasta = sacarPipes(fechaHasta,"/")
+    	entradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
 	  }
-	  entradas.filter(entrada => entrada.cliente == nombreCliente)
+	  else entradas
 	}
   
+  
   //filtrar por fecha
-  def filtrarEntradasFecha (entradas : ListBuffer[Entrada]) : ListBuffer [Entrada] = {
+/*  def filtrarEntradasFecha (entradas : ListBuffer[Entrada]) : ListBuffer [Entrada] = {
     if (fechaDesde == "" && fechaHasta == "") {
+    	fechaDesde = sacarPipes(fechaDesde,"/")
+    	fechaHasta = sacarPipes(fechaHasta,"/")
 	    return entradas
 	  }
     	entradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
-  }
+  }*/
   
+  def sacarPipes(s:String, ch:String)= s filterNot (ch contains _)
+
   def clean = {
 	nombreCliente = ""
   	fechaDesde = ""
   	fechaHasta = ""
   }
+
 }
