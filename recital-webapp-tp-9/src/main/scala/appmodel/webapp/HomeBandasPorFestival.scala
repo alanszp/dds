@@ -30,7 +30,8 @@ class HomeBandasPorFestival extends AbstractModel {
 			
 	  var noche1 = new Noche("25/12/13")
 	  var noche2 = new Noche("26/12/13")
-	  
+	  noche1.nombreNoche = "noche1"
+	  noche2.nombreNoche = "noche2"  //se los asigno de esta manera y no al definirlos, porque alan en su parte no tiene defindo el atributo nombreNoche que agregue para este.	    
 	  var categoria_nacionalPocoReconocida = new CategoriaBanda("Nacional Poco Reconocida", 0)
 	  var categoria_nacionalReconocida = new CategoriaBanda("Nacional Reconocida", 50)
 	  var categoria_nacionalReconocidaInternacionalmente = new CategoriaBanda("Nacional Reconocida Internacionalmente", 100)
@@ -82,6 +83,7 @@ class HomeBandasPorFestival extends AbstractModel {
 	  }
 	  else
 	  {
+	    //ESTAS SERIAN LOS CASOS EN LOS CUALES 1 DE LOS DOS FILTROS ESTA VACIO
 		   /* if (buscadorFestival== ""){
 		      retornar todas las bandas que vio el cliente
 		    }
@@ -97,15 +99,16 @@ class HomeBandasPorFestival extends AbstractModel {
 	 // core.entradas.foreach(entrada => listaEntradas+=entrada) 
 	  
 	  //filtro la lista, solo dejando aquellas entradas cuyo cliente, sea igual al ingresado
-	  listaEntradas.filter(entrada => entrada.cliente.toLowerCase().contains(nombreCliente.toLowerCase()))
-	  listaEntradas.filter(entrada => entrada.noche.nombreNoche.toLowerCase().contains(nombreFestival.toLowerCase()))  
+	  listaEntradas = listaEntradas.filter(entrada => entrada.cliente.toLowerCase().contains(nombreCliente.toLowerCase()))
+	  //filtro la lista, solo dejando aquellas entradas cuyo nombre de noche sea igual al ingresado
+	  listaEntradas = listaEntradas.filter(entrada => entrada.noche.nombreNoche.toLowerCase().contains(nombreFestival.toLowerCase()))  
 	  
-	  var listaNoches : ListBuffer[Noche] = ListBuffer()
+	  var listaBandas : ListBuffer[Banda] = ListBuffer()
 	  //creo lista de noches, con los filtros ya hechos
-	//  listaEntradas.flatMap(entrada => entrada.noche).foreach(noche => listaNoches+=noche)
+	  listaEntradas.flatMap(entrada => entrada.noche.bandas).foreach(banda => listaBandas+=banda)
 	  
 	  //sacar este ultimo
-	  todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreCliente.toLowerCase()))
+	 listaBandas
 	}
 	
 	//retorna todas las bandas que estan en TODAS las noches
