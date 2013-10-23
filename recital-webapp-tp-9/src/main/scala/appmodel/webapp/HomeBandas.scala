@@ -6,7 +6,7 @@ import java.util.List
 import scala.collection.mutable.ListBuffer
 
 
-class HomeBandas {
+class HomeBandas extends AbstractModel {
 	
 	var core : CoreDeVentas = new CoreDeVentas
 	var nombreBanda = ""
@@ -67,5 +67,9 @@ class HomeBandas {
 	  var lista : ListBuffer[Banda] = ListBuffer()  
 	  core.noches.flatMap(noches => noches.bandas).foreach(banda => lista+=banda) 
 	  lista
+	}
+	
+	def clean = {
+	  nombreBanda = ""
 	}
 }
