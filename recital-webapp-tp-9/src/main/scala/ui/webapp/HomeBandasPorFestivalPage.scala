@@ -16,7 +16,7 @@ class HomeBandasPorFestivalPage extends AbstractHome {
 	
 	//Setear el id de la tabla general y cada columna con una lista (El tipo que se le pasa es de cada fila que se va a mostrar)
 	//setResult[Banda]("bandas", List("nombre", "categoria.tipo", "categoria.precioExtra"))
-	setResult[Noche]("festivales", List("cliente", "entrada" "categoria.tipo", "categoria.precioExtra"))
+	setResult[Noche]("festivales", List("nombre_cliente", "entrada", "nombre_festival", "nombre_banda"))
 	
 	//Setear nombre del boton de accion. Buscar y limpiar.
 	setActions("buscar", "limpiar")
