@@ -13,7 +13,7 @@ class HomeBandasPorFestival extends AbstractModel {
 	this.populate
 	
 	def populate= {
-	  var jubilado = new Jubilado(0.15)
+	  var jubilado = new Jubilado(0.2)
 	  var menor = new Menor(10,0.2)
 	  var mayor = new Mayor
 	  var damas = new Damas(0.2)

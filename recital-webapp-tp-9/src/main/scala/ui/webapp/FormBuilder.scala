@@ -16,7 +16,7 @@ class FormBuilder {
   
   var model : AbstractModel = _
   var form : Form[_] = _
-  
+
   def setForm[T:Manifest](idForm : String) = {
     this.form = new Form[T](idForm, new CompoundPropertyModel[T](model))
   }
