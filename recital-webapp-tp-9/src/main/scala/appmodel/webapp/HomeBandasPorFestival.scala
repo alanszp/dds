@@ -6,7 +6,7 @@ import java.util.List
 import scala.collection.mutable.ListBuffer
 
 
-/*class HomeBandasPorFestival extends AbstractModel {
+class HomeBandasPorFestival extends AbstractModel {
 	
 	var core : CoreDeVentas = new CoreDeVentas
 	var buscadorFestival = ""
@@ -59,12 +59,12 @@ import scala.collection.mutable.ListBuffer
 	  core.noches += noche2
 	}
 	
-	def bandas : java.util.List[Banda] = {
+/*	def bandas : java.util.List[Banda] = {
 	  JavaConversions.asJavaList(filteredBandas(buscadorCliente, buscadorFestival))
 		  
-	}
+	}*/
 	
-	def filteredBandas(nombreCliente:String, nombreFestival:String) : ListBuffer[Banda]= {
+	/*def filteredBandas(nombreCliente:String, nombreFestival:String) : ListBuffer[Banda]= {
 	  if ((buscadorFestival== "") && (buscadorCliente=="")) {
 	    return todasLasBandas
 	  }
@@ -81,7 +81,7 @@ import scala.collection.mutable.ListBuffer
 	
 	  
 	 // todasLasBandas.filter(banda => banda.nombre.toLowerCase().contains(nombreBanda.toLowerCase()))
-	}
+	}*/
 	
 	//retorna todas las bandas que estan en TODAS las noches
 	def todasLasBandas : ListBuffer[Banda] = {
@@ -94,5 +94,5 @@ import scala.collection.mutable.ListBuffer
 	def clean = {
 	  buscadorCliente = ""
 	  buscadorFestival = ""
-	}*/
+	}
 }
