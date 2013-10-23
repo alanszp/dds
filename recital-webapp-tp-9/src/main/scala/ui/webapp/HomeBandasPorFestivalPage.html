@@ -7,10 +7,10 @@
 <body>
 		<h1>B&uacute;squeda de Bandas por festival</h1>
 
-        <form wicket:id="buscarBandasPorFestivalForm"> <!-- buscarBandasForm -->
+        <form wicket:id="buscarBandasPorFestivalForm"> 
             <div style="border: 1px dashed #888; background: #eee; display: inline-block; padding: 20px 30px;">
 	            <span>Nombre festival a buscar:</span> 
-	            <input wicket:id="nombreFestival" type="text" name="nombre"/> <!-- nombreBanda -->
+	            <input wicket:id="nombreFestival" type="text" name="nombre"/>
 	            <input type="submit" wicket:id="buscar" value="Buscar"/>
 	            <input type="submit" wicket:id="limpiar" value="Limpiar"/>
            	</div>
@@ -20,7 +20,7 @@
 	               	<th style="border: 1px solid black;">Nombre Cliente</th>
 	               	<th style="border: 1px solid black;">Nº Entrada</th>
 	               	<th style="border: 1px solid black;">Nombre Festival</th>
-	               	<th style="border: 1px solid black;">Banda</th> <!-- AGREGUE COLUMNA -->
+	               	<th style="border: 1px solid black;">Banda</th>
                	</tr></thead>
                	<tbody><tr wicket:id="bandas" id="main">
                    	<td style="border: 1px solid black;" align=center><span wicket:id="nombre">unNombreCliente</span></td> 

@@ -31,6 +31,5 @@ class HomePage extends WebPage {
     new MenuAction("Tomas Gropper - Integrante 1", classOf[HomeFestivalesPage]),
     new MenuAction("Uriel Petasny - Integrante 2", classOf[HomeEntradasPage]),
     new MenuAction("Alan Szpigiel - Integrante 3", classOf[HomeBandasPage]),
-    new MenuAction("Guido Kuznicki - Integrante 4", classOf[HomeBandasPorFestivalPage])
-    )
+    new MenuAction("Guido Kuznicki - Integrante 4", classOf[HomeBandasPorFestivalPage]))
 }
