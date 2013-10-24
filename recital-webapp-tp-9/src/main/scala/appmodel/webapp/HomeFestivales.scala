@@ -106,8 +106,8 @@ class HomeFestivales extends AbstractModel {
 
   def filtrarEntradas(entradas: ListBuffer[Entrada]): ListBuffer[Entrada] = {
     if (puestoVenta == "" && festival == "") entradas
-    else if (puestoVenta != "") homeFestivales.filter(entrada => entrada.puestoVenta == puestoVenta)
-    else if (festival != "") homeFestivales.filter(entrada => entrada.noche.fecha == festival)
+    else if (puestoVenta != "") homeFestivales.filter(entrada => entrada.puestoVenta.contains(puestoVenta))
+    else if (festival != "") homeFestivales.filter(entrada => entrada.noche.fecha.contains(festival))
     else entradas //TODO el filter
   }
 /*
