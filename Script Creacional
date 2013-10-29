@@ -48,7 +48,7 @@ CREATE TABLE Rango_Filas(
 	sector int,
 	
 	PRIMARY KEY (id),
-	FOREIGN KEY (sector) REFERENCES Banda(id)
+	FOREIGN KEY (sector) REFERENCES Sector(id)
 )
 
 CREATE TABLE Categoria_Persona(
@@ -75,7 +75,7 @@ CREATE TABLE Descuento_Noche(
 
 	
 	FOREIGN KEY (noche) REFERENCES Noche(id),
-	FOREIGN KEY (banda) REFERENCES Banda(id)
+	FOREIGN KEY (descuentos) REFERENCES Categoria_Persona(id)
 )
 
 CREATE TABLE Banda_Noche(
