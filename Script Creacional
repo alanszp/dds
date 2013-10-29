@@ -1,0 +1,107 @@
+CREATE TABLE Puesto_Venta (
+	id int IDENTITY,
+	descripcion varchar(10),
+
+	PRIMARY KEY (id)
+)
+
+CREATE TABLE Cliente (
+	id int IDENTITY,
+	nombre varchar(30),
+	apellido varchar(20),
+
+	PRIMARY KEY (id)
+)
+
+CREATE TABLE Entrada(
+	id int IDENTITY,
+	sector int,
+	noche int,
+	categoria_persona int,
+	fila int,
+	asiento int,
+	cliente int,
+	puesto_venta int,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (sector) REFERENCES Sector(id),
+	FOREIGN KEY (noche) REFERENCES Noche(id),
+	FOREIGN KEY (categoria_persona) REFERENCES Categoria_Persona(id),
+	FOREIGN KEY (cliente) REFERENCES Cliente(id),
+	FOREIGN KEY (puesto_venta) REFERENCES Puesto_Venta(id)
+
+)
+
+CREATE TABLE Sector(
+	id int IDENTITY,
+	nombre varchar(30),
+	
+	PRIMARY KEY (id)
+)
+
+CREATE TABLE Rango_Filas(
+	id int IDENTITY,
+	desde int,
+	hasta int,
+	precio double,
+	cantAsientos int,
+	sector int,
+	
+	PRIMARY KEY (id),
+	FOREIGN KEY (sector) REFERENCES Banda(id)
+)
+
+CREATE TABLE Categoria_Persona(
+	id int IDENTITY,
+	clase varchar(30),
+	precio_descuento int,
+	porcentaje_descuento double,
+
+	
+	PRIMARY KEY (id)
+)
+
+CREATE TABLE Noche(
+	id int IDENTITY,
+	fecha datetime,
+
+	
+	PRIMARY KEY (id)
+)
+
+CREATE TABLE Descuento_Noche(
+	noche int NOT NULL,
+	descuentos int NOT NULL,
+
+	
+	FOREIGN KEY (noche) REFERENCES Noche(id),
+	FOREIGN KEY (banda) REFERENCES Banda(id)
+)
+
+CREATE TABLE Banda_Noche(
+	noche int NOT NULL,
+	banda int NOT NULL,
+
+	
+	FOREIGN KEY (noche) REFERENCES Noche(id),
+	FOREIGN KEY (banda) REFERENCES Banda(id)
+)
+
+CREATE TABLE Banda(
+	id int IDENTITY,
+	nombre varchar(30),
+	categoria int,
+
+	
+	PRIMARY KEY (id),
+	FOREIGN KEY (categoria) REFERENCES Categoria_Banda(id)
+)
+
+CREATE TABLE Categoria_Banda(
+	id int IDENTITY,
+	tipo varchar(30),
+	precio_extra int,
+
+	
+	PRIMARY KEY (id)
+)
