@@ -5,7 +5,7 @@ import scala.collection.JavaConversions
 import java.util.List
 import scala.collection.mutable.ListBuffer
 
-class HomeEntradas{
+class HomeEntradas extends AbstractModel{
   
   var homeEntradas : ListBuffer[Entrada]= ListBuffer()
   var nombreCliente = ""
@@ -75,31 +75,46 @@ class HomeEntradas{
   def getFechaHasta = fechaHasta
   def setFechaHasta(hasta:String) = this.fechaHasta = hasta
   
-  //obtener el conjunto de entradas tras el filtro del cliente
-  def getEntradasCliente : java.util.List[Entrada] = {
-		  JavaConversions.asJavaList(filtrarEntradasCliente(nombreCliente))
-	}
   
   //UNIFICARTODO
+  def entradas : java.util.List[Entrada] = {
+	var entradas: ListBuffer[Entrada] = ListBuffer()
+	entradas = homeEntradas
+	entradas = filtrarEntradas(entradas)
+	//entradas = filtrarEntradasFecha(entradas)
+    JavaConversions.asJavaList(entradas)
+    
+  }
   
   //filtrar por cliente
-  def filtrarEntradasCliente(cliente:String) : ListBuffer[Entrada]= {
-	  if (cliente == "") {
-	    return homeEntradas
+  def filtrarEntradas(entradas : ListBuffer[Entrada]) : ListBuffer[Entrada]= {
+	  if (nombreCliente == "" && fechaDesde == "" && fechaHasta == "") entradas
+	  else if (nombreCliente != "") entradas.filter(entrada => entrada.cliente.toLowerCase().contains(nombreCliente.toLowerCase()))
+	  else if (fechaDesde != "" && fechaHasta != ""){
+	    fechaDesde = sacarPipes(fechaDesde,"/")
+    	fechaHasta = sacarPipes(fechaHasta,"/")
+    	entradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
 	  }
-	  homeEntradas.filter(entrada => entrada.cliente == cliente)
+	  else entradas
 	}
   
-  //obtener el conjunto de entradas tras el filtro de las fechas
-  def getEntradasFecha : java.util.List[Entrada] = {
-		  JavaConversions.asJavaList(filtrarEntradasFecha(fechaDesde,fechaHasta))
-  }
   
   //filtrar por fecha
-  def filtrarEntradasFecha (fechaDesde:String, fechaHasta:String) : ListBuffer [Entrada] = {
+/*  def filtrarEntradasFecha (entradas : ListBuffer[Entrada]) : ListBuffer [Entrada] = {
     if (fechaDesde == "" && fechaHasta == "") {
-	    return homeEntradas
+    	fechaDesde = sacarPipes(fechaDesde,"/")
+    	fechaHasta = sacarPipes(fechaHasta,"/")
+	    return entradas
 	  }
-    	homeEntradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
+    	entradas.filter (entrada => (entrada.noche.fecha > fechaDesde) && (entrada.noche.fecha < fechaHasta)) 
+  }*/
+  
+  def sacarPipes(s:String, ch:String)= s filterNot (ch contains _)
+
+  def clean = {
+	nombreCliente = ""
+  	fechaDesde = ""
+  	fechaHasta = ""
   }
+
 }

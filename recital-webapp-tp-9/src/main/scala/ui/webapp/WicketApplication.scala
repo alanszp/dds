@@ -13,8 +13,6 @@ class WicketApplication extends WebApplication {
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
-	//def getHomePage = classOf[HomeBandasPage];
-	//def getHomePage() = classOf[HomeEntradasPage];
-		def getHomePage() = classOf[HomeFestivalesPage];
+	def getHomePage() = classOf[HomePage];
 
 }

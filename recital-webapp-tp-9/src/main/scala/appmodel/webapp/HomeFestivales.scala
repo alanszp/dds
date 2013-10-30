@@ -1,10 +1,21 @@
 package appmodel.webapp
 
-import scala.collection.mutable.ListBuffer
-import recital._
 import scala.collection.JavaConversions
+import scala.collection.mutable.ListBuffer
 
-class HomeFestivales {
+import recital.Banda
+import recital.CategoriaBanda
+import recital.Damas
+import recital.Entrada
+import recital.Jubilado
+import recital.Mayor
+import recital.Menor
+import recital.Menor12
+import recital.Noche
+import recital.RangoFilas
+import recital.Sector
+
+class HomeFestivales extends AbstractModel {
   var homeFestivales: ListBuffer[Entrada] = ListBuffer()
   var puestoVenta = ""
   var festival = ""
@@ -65,8 +76,8 @@ class HomeFestivales {
     var entrada2 = new Entrada(sectorA, noche1, jubilado, 9, 3, "Pepe", "Abasto")
     var entrada3 = new Entrada(sectorA, noche1, jubilado, 9, 4, "Pepe", "Abasto")
     var entrada4 = new Entrada(sectorB, noche2, mayor, 19, 19, "Luis", "Corrientes 200")
-    var entrada5 = new Entrada(sectorC, noche1, damas, 23, 5, "Maria", "Alato Palermo")
-    var entrada6 = new Entrada(sectorC, noche1, damas, 22, 6, "Maria", "Alato Palermo")
+    var entrada5 = new Entrada(sectorC, noche1, damas, 23, 5, "Maria", "Alto Palermo")
+    var entrada6 = new Entrada(sectorC, noche1, damas, 22, 6, "Maria", "Alto Palermo")
 
     homeFestivales += entrada1
     homeFestivales += entrada2
@@ -76,32 +87,37 @@ class HomeFestivales {
     homeFestivales += entrada6
   }
 
-
   def getPuesto = puestoVenta
   def setPuesto(puesto: String) = this.puestoVenta = puesto
 
   def getFestival = festival
   def setFestival(fest: String) = this.festival = fest
 
+  def entradas: java.util.List[Entrada] = {
+    var entradas: ListBuffer[Entrada] = homeFestivales
+    entradas = filtrarEntradas(entradas)
+    //entradas = filtrarEntradasFestival(entradas)
+    print(festival)
+    print(puestoVenta)
+    
+    JavaConversions.asJavaList(entradas)
 
-  def getEntradasPuesto: java.util.List[Entrada] = {
-    JavaConversions.asJavaList(filtrarEntradasPuesto(puestoVenta))
   }
 
-  def filtrarEntradasPuesto(puesto: String): ListBuffer[Entrada] = {
-    if (puesto == "") homeFestivales
-    else homeFestivales.filter(entrada => entrada.puestoVenta == puesto)
+  def filtrarEntradas(entradas: ListBuffer[Entrada]): ListBuffer[Entrada] = {
+    if (puestoVenta == "" && festival == "") entradas
+    else if (puestoVenta != "") homeFestivales.filter(entrada => entrada.puestoVenta.contains(puestoVenta))
+    else if (festival != "") homeFestivales.filter(entrada => entrada.noche.fecha.contains(festival))
+    else entradas //TODO el filter
   }
-  
+/*
+  def filtrarEntradasFestival(entradas: ListBuffer[Entrada]): ListBuffer[Entrada] = {
+    if (festival == "") entradas
+    else entradas.filter(entrada => (entrada.noche.fecha == festival))
+  }*/
 
-
-  def getEntradasFestival: java.util.List[Entrada] = {
-    JavaConversions.asJavaList(filtrarEntradasFestival(festival))
-  }
-
-
-  def filtrarEntradasFestival(festival: String): ListBuffer[Entrada] = {
-    if (festival == "") homeFestivales
-    else homeFestivales.filter(entrada => (entrada.noche.fecha == festival))
+  def clean = {
+    puestoVenta = ""
+    festival = ""
   }
 }

@@ -24,3 +24,5 @@ Scala/.project
 Scala/.classpath
 Scala/target/
 Scala/.settings/
+.cache
+*/.cache
