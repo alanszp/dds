@@ -1,0 +1,12 @@
+Llegamos al DER a partir de nuestro dominio.
+En si no tenía muchos problemas para modelarse en una base de datos relacional. Igualmente, tuvimos que tomar ciertas decisiones.
+
+Las categorías de personas, decidimos ponerlas en una Tabla por Jerarquía, ya que las diferentes categorías no presentaban mucha diferencia de datos (algunas tenían precio o porcentaje de descuento y otras no). Aparte, agregamos una columna "Clase" para poder identificar el tipo de cada fila. 
+Esto lo hicimos ya que las categorías son muy parecidas entre si y más importante es que se utiliza mucho el polimorfismo entre ellas y es común que en un momento se utilicen dos o más tipos de categorías al mismo tiempo. Por lo tanto, si las separábamos en Tablas por clase o tabla por clase concreta, íbamos a tener que "joinear" muchas tablas al mismo tiempo.
+
+También, tuvimos que modelar dos colecciones en las cuales no pueden encontrarse repetidos y no sigue un orden predefinido. Estas son la relación de Noche a Banda y de Noche a Descuento (que vendrían a ser las categorías de persona).
+Decidimos utilizar una tabla intermedia para tener la relación de muchos a muchos y decidimos que las dos columnas iban a ser PK, para que no puedan repetirse, por lo tanto, nos aseguramos que no haya dos entidades repetidas en una colección. Como no era una lista ordenada, no tuvimos que agregar columnas extra para explicitar el orden.
+
+Finalmente, la relación de conocimiento de Sector con Rango filas, decidimos hacerla unilateralmente (pensando en Objetos) ya que es muy difícil que un RangoFila se reutilice en varios sectores, por lo tanto aprovechamos esta idea y evitamos una tabla intermedia para obviar un join mas a la hora de hacer queries.
+
+Las demás construcciones se fueron dando por el modelo de domino y no presentan gran complejidad a la hora de decisión.
