@@ -15,4 +15,5 @@ FROM Noche N JOIN Entrada E ON E.noche = N.id
 			JOIN Categoria_Persona CP ON E.categoria_persona = CP.id
 			JOIN Cliente C ON E.cliente = C.id
 			JOIN Puesto_Venta P ON  E.puesto_venta = P.id
+			WHERE DAY(N.fecha) = 26 AND MONTH(N.fecha) = 05 AND YEAR(N.fecha) = 2013
 			
