@@ -17,3 +17,35 @@ FROM Noche N JOIN Entrada E ON E.noche = N.id
 			JOIN Puesto_Venta P ON  E.puesto_venta = P.id
 			WHERE DAY(N.fecha) = 26 AND MONTH(N.fecha) = 05 AND YEAR(N.fecha) = 2013
 			
+--Integrante 4: Guido Kuznicki
+
+SELECT N.Fecha as Noche, B.Nombre as Nombre_Banda, C.Tipo as Categoria_Banda, C.PrecioExtra as Precio_Extra_Banda, BN.Comienzo as Hora_Comienzo, BN.Fin as Hora_Fin 
+FROM Banda B 
+	JOIN CategoriaBanda C ON C.ID = B.Categoria
+	JOIN Banda_Noche BN on BN.Banda = B.ID
+	JOIN Noche N ON N.ID = BN.Noche
+WHERE N.Fecha="23/12/2013"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
