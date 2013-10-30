@@ -17,3 +17,10 @@ FROM Noche N JOIN Entrada E ON E.noche = N.id
 			JOIN Puesto_Venta P ON  E.puesto_venta = P.id
 			WHERE DAY(N.fecha) = 26 AND MONTH(N.fecha) = 05 AND YEAR(N.fecha) = 2013
 			
+--Integrante 3: Alan Szpigiel
+
+SELECT N.fecha 'Noche Toca'
+FROM Banda B
+JOIN Banda_Noche BN  ON N.id = BN.noche
+JOIN Noche N ON B.id = BN.banda
+WHERE B.nombre LIKE 'Catupecu Machu'
