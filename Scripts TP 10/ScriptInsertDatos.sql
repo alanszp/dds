@@ -24,7 +24,7 @@ INSERT INTO Categoria_Banda (id, tipo, precio_extra) VALUES (3, 'Internacional',
 
 INSERT INTO Banda (id, nombre, categoria) VALUES (1, 'Pimpinela', 1)
 INSERT INTO Banda (id, nombre, categoria) VALUES (2, 'Besruit', 1)
-INSERT INTO Banda (id, nombre, categoria) VALUES (3, 'Chayanne', 2)
+INSERT INTO Banda (id, nombre, categoria) VALUES (3, 'Catupecu Machu', 2)
 INSERT INTO Banda (id, nombre, categoria) VALUES (4, 'Rolling', 3)
 INSERT INTO Banda (id, nombre, categoria) VALUES (5, 'Aerosmith', 3)
 INSERT INTO Banda (id, nombre, categoria) VALUES (6, 'Bandana', 1)
