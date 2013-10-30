@@ -75,9 +75,9 @@ CREATE TABLE Descuento(
 
 CREATE TABLE Descuento_Noche(
         noche int NOT NULL,
-        descuentos int NOT NULL,
+        descuento int NOT NULL,
         FOREIGN KEY (noche) REFERENCES Noche(id),
-        FOREIGN KEY (descuentos) REFERENCES Descuento(id)
+        FOREIGN KEY (descuento) REFERENCES Descuento(id)
 )
 
 
