@@ -1,5 +1,8 @@
 package recital
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class Entrada extends EntradaAbstracta {
 
   def this(sector: Sector, noche: Noche, categoria:CategoriaPersona, fila: Int, asiento:Int, cliente:String, puestoVenta:String) = {
@@ -43,4 +46,6 @@ class Entrada extends EntradaAbstracta {
      sector.verificarUbicacion(fila, asiento) //Si no existen, tira excepcion por fila o por asiento inexistente...
      noche.tieneDescuento(categoria) //Si no tiene descuento, tira excepcion por categoria no valida...
   }
+  
+  def entradas = Set(this)
 }

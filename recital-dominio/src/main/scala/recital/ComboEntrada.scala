@@ -23,7 +23,7 @@ class ComboEntrada extends EntradaAbstracta {
 	  e.isInstanceOf[Entrada] && this.tenesEntrada(e.asInstanceOf[Entrada]) ||
 	  e.isInstanceOf[ComboEntrada] && this.tenesAlgunaEntrada(e.asInstanceOf[ComboEntrada])
   }
-
+  
   def precioAux =  entradas.map(_.precioEntrada).sum
   
   def tenesEntrada(entrada:Entrada):Boolean = this.entradas.contains(entrada)

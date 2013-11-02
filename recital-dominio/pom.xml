@@ -11,4 +11,12 @@
 		<artifactId>uqbar-scala-parent</artifactId>
 		<version>1.0</version>
 	</parent>
+	
+	 <dependencies>
+       <dependency>
+			<groupId>org.uqbar-project</groupId>
+			<artifactId>arena-jface</artifactId>
+			<version>3.3-SNAPSHOT</version>
+		</dependency>
+     </dependencies>
 </project>

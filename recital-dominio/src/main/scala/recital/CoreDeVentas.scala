@@ -28,5 +28,8 @@ class CoreDeVentas {
   
   def cantidadEntradasVendidas(funcion: EntradaAbstracta => Boolean) = this.entradas.filter(funcion).toList.map(_.cantidadDeEntradas).sum
   
+  def anularEntrada(entrada: EntradaAbstracta) {
+    entradas = entradas.filter(unaEntrada => !(unaEntrada sosOLaTenes entrada))
+  }
   
 }
