@@ -18,8 +18,6 @@ import org.uqbar.arena.widgets.tables.Table
 import recital.Entrada
 
 class VenderEntradaWindow(owner:WindowOwner) extends SimpleWindow[VenderEntradaAppModel](owner, new VenderEntradaAppModel()) {
-
-  getModelObject.search
 	
 	override def createFormPanel(mainPanel:Panel ) {
 		this.setTitle("Nueva Entrada")
@@ -29,13 +27,35 @@ class VenderEntradaWindow(owner:WindowOwner) extends SimpleWindow[VenderEntradaA
 		var panelVenta = new Panel(mainPanel)
 	    panelVenta.setLayout(new ColumnLayout(2))
 	
-	    var textNombre = new TextBox(mainPanel)
-		var textApellido = new TextBox(mainPanel)
-	    var textNoche = new TextBox(mainPanel)
-		var textCategoriaPersona = new TextBox(mainPanel)
-		var textSector = new TextBox(mainPanel)
-		var textFila = new TextBox(mainPanel)
-		var textAsiento = new TextBox(mainPanel)
+	    var labelNombre = new Label(panelVenta)
+	    labelNombre.setText("Nombre del cliente")
+	    var textNombre = new TextBox(panelVenta)
+		//BINDEAR LAS PROPERTYS QUE FALTAN
+		//textNombre.bindValueToProperty("nocheRecital")	 
+		
+	     var labelApe = new Label(panelVenta)
+	    labelApe.setText("Apellido del cliente")
+		var textApellido = new TextBox(panelVenta)
+		
+		 var labelNoche = new Label(panelVenta)
+	    labelNoche.setText("Fecha de la noche")
+	    var textNoche = new TextBox(panelVenta)
+		
+		 var labelCategoria = new Label(panelVenta)
+	    labelCategoria.setText("Categoria de la persona")
+		var textCategoriaPersona = new TextBox(panelVenta)
+		
+		 var labelSector = new Label(panelVenta)
+	    labelSector.setText("Numero de Sector")
+		var textSector = new TextBox(panelVenta)
+		
+		 var labelFila= new Label(panelVenta)
+	    labelFila.setText("Numero de fila")
+		var textFila = new TextBox(panelVenta)
+		
+		 var labelAsiento = new Label(panelVenta)
+	    labelAsiento.setText("Numero de Asiento")
+		var textAsiento = new TextBox(panelVenta)
 		
 	
 }
@@ -46,16 +66,9 @@ class VenderEntradaWindow(owner:WindowOwner) extends SimpleWindow[VenderEntradaA
 	    this.setTaskDescription("Complete los campos para vender la entrada")
 	
 	    super.createMainTemplate(mainPanel)
-	
-	   // this.createResultsGrid(mainPanel)
-	  //  this.createGridActions(mainPanel)
 	}
 	
 	override def addActions(actionsPanel: Panel) {
-	   // new Button(actionsPanel) //
-	   //   .setCaption("Limpiar")
-	   //   .onClick(new MessageSend(getModelObject, "clear"))
-	
 	    new Button(actionsPanel) //
 	      .setCaption("Vender Entrada")
 	      .onClick(new MessageSend(this, "venderEntrada"))
@@ -70,27 +83,6 @@ class VenderEntradaWindow(owner:WindowOwner) extends SimpleWindow[VenderEntradaA
 	    dialog.open
 	 }
 	
-	/*def setearColumnas(table: Table[Entrada]) {
-	    new Column[Entrada](table) //
-	      .setTitle("Fecha")
-	      .bindContentsToProperty("noche.fecha")
-	
-	    new Column[Entrada](table) //
-	      .setTitle("Cliente")
-	      .bindContentsToProperty("cliente")
-	
-	    new Column[Entrada](table)
-	      .setTitle("Sector")
-	      .bindContentsToProperty("sector.nombre")
-	      
-	    new Column[Entrada](table)
-	      .setTitle("Fila")
-	      .bindContentsToProperty("fila")
-	      
-	    new Column[Entrada](table)
-	      .setTitle("Asiento")
-	      .bindContentsToProperty("asiento")
-	}*/
 	 
 	
 }
