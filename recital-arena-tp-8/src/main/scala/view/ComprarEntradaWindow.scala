@@ -29,14 +29,14 @@ class ComprarEntradaWindow(owner:WindowOwner) extends SimpleWindow[ComprarEntrad
 		var panelBusqueda = new Panel(mainPanel)
 	    panelBusqueda.setLayout(new ColumnLayout(2))
 	
+	    //filtro fecha
 	    var labelFecha = new Label(panelBusqueda)
 	    labelFecha.setText("Fecha")
 	    new TextBox(panelBusqueda).bindValueToProperty("nocheRecital")	     	
 	
-
+	    //filtro nombre
 	    var labelNombre = new Label(panelBusqueda)
 	    labelNombre.setText("Nombre del cliente")
-	
 	    new TextBox(panelBusqueda).bindValueToProperty("nombreCliente")
 
 
@@ -64,6 +64,8 @@ class ComprarEntradaWindow(owner:WindowOwner) extends SimpleWindow[ComprarEntrad
 	
 	def venderEntrada() {
 		//this.openDialog(new VenderEntradaWindow(this))
+	  var ventana = new VenderEntradaWindow(this)
+	  ventana.open()
 	}
 	
 	def openDialog(dialog: Dialog[_]) {
