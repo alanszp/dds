@@ -86,13 +86,18 @@ class VenderEntradaWindow(owner: WindowOwner) extends SimpleWindow[ComprarEntrad
   override def addActions(actionsPanel: Panel) {
     new Button(actionsPanel) //
       .setCaption("Vender Entrada")
-      .onClick(new MessageSend(getModelObject, "venderEntrada"))
+      .onClick(new MessageSend(this, "venderEntrada"))
       //.onClick()
   }
 
   def openDialog(dialog: Dialog[_]) {
     dialog.onAccept(new MessageSend(getModelObject, "search"))
     dialog.open
+  }
+  
+  def venderEntrada = {
+    getModelObject().venderEntrada
+    this.close()
   }
 
 }
