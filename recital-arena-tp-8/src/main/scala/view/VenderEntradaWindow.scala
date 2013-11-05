@@ -18,7 +18,7 @@ import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.bindings.ObservableProperty
 import org.uqbar.arena.bindings.PropertyAdapter
 
-class VenderEntradaWindow(owner: WindowOwner) extends SimpleWindow[ComprarEntradaAppModel](owner, new ComprarEntradaAppModel()) {
+class VenderEntradaWindow(owner: ComprarEntradaWindow) extends SimpleWindow[ComprarEntradaAppModel](owner, owner.getModelObject()) {
 
   override def createFormPanel(mainPanel: Panel) {
     this.setTitle("Nueva Entrada")
@@ -97,6 +97,7 @@ class VenderEntradaWindow(owner: WindowOwner) extends SimpleWindow[ComprarEntrad
   
   def venderEntrada = {
     getModelObject().venderEntrada
+    getModelObject().limpiarCampos
     this.close()
   }
 

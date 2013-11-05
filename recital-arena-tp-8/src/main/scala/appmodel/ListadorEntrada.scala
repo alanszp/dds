@@ -213,7 +213,18 @@ class ComprarEntradaAppModel extends Serializable {
   def venderEntrada = {
     val entradaNueva = new Entrada(sector, noche, categoriaCliente, fila.toInt, asiento.toInt, nombreCliente, "Abasto")
     coreVentas.venderEntrada(entradaNueva)
-    search
+    //search
+  }
+  
+  def limpiarCampos = {
+    _nombreCliente = null
+    _apellidoCliente = null
+    _fila = null
+    _asiento = null
+    _categoriaCliente = null
+    _noche = null
+    _sector = null
+    search    
   }
 
   def sectoresList = JavaConversions.asJavaSet(sectores)
