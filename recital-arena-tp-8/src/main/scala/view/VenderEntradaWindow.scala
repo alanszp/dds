@@ -87,12 +87,7 @@ class VenderEntradaWindow(owner: WindowOwner) extends SimpleWindow[ComprarEntrad
     new Button(actionsPanel) //
       .setCaption("Vender Entrada")
       .onClick(new MessageSend(getModelObject, "venderEntrada"))
-    //.onClick()
-  }
-
-  def venderEntrada() {
-    //  val moel = new VenderEntradaAppModel
-    //  model.venderEntrada
+      //.onClick()
   }
 
   def openDialog(dialog: Dialog[_]) {

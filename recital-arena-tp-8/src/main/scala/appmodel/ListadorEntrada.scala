@@ -211,7 +211,7 @@ class ComprarEntradaAppModel extends Serializable {
   }
 
   def venderEntrada = {
-    val entradaNueva = new Entrada(this.sector, this.noche, this.categoriaCliente, this.fila.toInt, this.asiento.toInt, this.nombreCliente, "Abasto")
+    val entradaNueva = new Entrada(sector, noche, categoriaCliente, fila.toInt, asiento.toInt, nombreCliente, "Abasto")
     coreVentas.venderEntrada(entradaNueva)
     search
   }
