@@ -50,22 +50,22 @@ class VenderEntradaAppModel extends Serializable {
 		def nocheRecital = _nocheRecital
 		//
 		def categoriaCliente_=(categoriaCliente :String) = {
-		  _categoriaCliente = categoriaCliente
-		
+		  _categoriaCliente = categoriaCliente		
 		}
+		
 		def categoriaCliente = _categoriaCliente
 		//
 		def sector_=(sector :String) = {
-		  _sector = sector
-		
+		  _sector = sector		
 		}
+		
 		def sector = _sector
 		//
 		def fila_=(fila:String) = {
 		  _fila=fila
 		
 		}
-		def filaa = _fila
+		def fila = _fila
 		//
 		def asiento_=(asiento:String) = {
 		  _asiento = asiento
@@ -74,7 +74,8 @@ class VenderEntradaAppModel extends Serializable {
 		def asiento = _asiento
 		
 	def venderEntrada {
-	//	coreVentas.venderEntrada(entrada)
+		
+		coreVentas.venderEntrada(entradaSeleccionada)
 
 	}
 

@@ -8,7 +8,7 @@ class Damas extends CategoriaPersona {
   }
   
   var porcentajeDescuento: Double = _
-  
+    val descripcion = "Dama"
   override def aplicarDescuento(EntradaBase: Double):Double = {
     EntradaBase * this.porcentajeDescuento
   }

@@ -10,6 +10,7 @@ class Menor extends CategoriaPersona {
   
   var precioDescuento: Double = _
   var porcentajeDescuento: Double = _
+  val descripcion = "Menor"
   
   override def aplicarDescuento(EntradaBase: Double):Double = {
 		var descuento:Double = 0

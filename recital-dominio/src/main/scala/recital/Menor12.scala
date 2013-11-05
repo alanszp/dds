@@ -8,6 +8,7 @@ class Menor12 extends CategoriaPersona {
   }
   
   var porcentajeDescuento: Double =_ 
+  val descripcion = "Menor12"
 
   override def aplicarDescuento(EntradaBase: Double):Double = {
     
