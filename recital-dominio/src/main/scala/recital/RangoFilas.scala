@@ -1,7 +1,10 @@
 package recital
 
 import uqbar.arena.persistence.annotations.PersistentField
+import uqbar.arena.persistence.annotations.PersistentClass
 
+
+@PersistentClass
 class RangoFilas extends Serializable {
   
   def this(desde: Int, hasta: Int, precio: Double, cantAsientos:Int) = {
