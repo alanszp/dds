@@ -1,5 +1,7 @@
 package recital
 
+import uqbar.arena.persistence.annotations.PersistentField
+
 class Menor extends CategoriaPersona {
 	
   def this(precioDescuento: Double, porcentajeDescuento: Double) ={
@@ -24,4 +26,12 @@ class Menor extends CategoriaPersona {
 	    
     	((descuento*100).round) / 100.0
 	}
+  
+    @PersistentField
+	def getprecioDescuento = precioDescuento
+	def setprecioDescuento(n:Double) = precioDescuento = n
+	
+	@PersistentField
+	def getporcentajeDescuento = porcentajeDescuento
+	def setporcentajeDescuento(n:Double) = porcentajeDescuento = n
 }

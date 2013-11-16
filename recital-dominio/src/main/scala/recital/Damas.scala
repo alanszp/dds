@@ -1,5 +1,7 @@
 package recital
 
+import uqbar.arena.persistence.annotations.PersistentField
+
 class Damas extends CategoriaPersona {
 
   def this(porcentajeDescuento: Double) = {
@@ -12,4 +14,9 @@ class Damas extends CategoriaPersona {
   override def aplicarDescuento(EntradaBase: Double):Double = {
     EntradaBase * this.porcentajeDescuento
   }
+  
+  	@PersistentField
+	def getporcentajeDescuento = porcentajeDescuento
+	def setporcentajeDescuento(n:Double) = porcentajeDescuento = n
 }
+
