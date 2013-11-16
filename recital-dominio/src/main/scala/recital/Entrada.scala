@@ -43,7 +43,23 @@ class Entrada extends EntradaAbstracta {
 	def geCategoriaPersona = categoria
 	def setCategoriaPersona(c:CategoriaPersona) = categoria = c
   
+	@PersistentField
+  	def getFila = fila
+  	def setFila(f:Int) = fila = f
   
+  	@PersistentField
+  	def getAsiento = asiento
+  	def setAsiento(as:Int) = asiento = as
+  	
+  	@Relation
+	def getSector = sector
+	def setSector(s:Sector) = sector = s
+	
+	@PersistentField
+  	def getCliente = cliente
+  	def setCliente(c:String) = cliente = c
+  	
+  	
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 
   
   def cantidadDeEntradas = 1
