@@ -159,8 +159,9 @@ class ListadorEntrada extends Serializable {
   }
 
   def todasLasEntradas: ListBuffer[Entrada] = {
-    setToBuffer[Entrada](coreVentas.entradas.flatMap(_.entradas))
-  }
+    setToBuffer[Entrada](coreVentas.entradas.flatMap(_.entradas)) //VER COMO USAR HOMEENTRADAS.TODASLASENTRADAS
+  }  
+
   
   def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {
     var lista: ListBuffer[T] = ListBuffer()

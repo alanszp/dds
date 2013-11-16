@@ -27,4 +27,8 @@ object HomeEntradas extends PersistentHome[Entrada] with Serializable {
   this.create(entrada)
   } 
   
+  def todasLasEntradas:  java.util.List[recital.Entrada] = {
+	searchByExample(new Entrada())
+  }
+  
 }
