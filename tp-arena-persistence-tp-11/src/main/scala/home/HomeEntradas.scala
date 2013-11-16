@@ -16,19 +16,33 @@ object HomeEntradas extends PersistentHome[Entrada] with Serializable {
   override def createExample(): Entrada = new Entrada
   
   def create(pSector: Sector, pNoche: Noche, pCategoria:CategoriaPersona, pFila: Int, pAsiento:Int, pCliente:String, pPuestoVenta:String): Unit = {
-  var entrada = new Entrada
-  entrada.setPuestoVenta(pPuestoVenta)
-  entrada.setCliente(pCliente)
-  entrada.setFila(pFila)
-  entrada.setCategoriaPersona(pCategoria)
-  entrada.setNoche(pNoche)
-  entrada.setSector(pSector)
-  entrada.setAsiento(pFila)
-  this.create(entrada)
+	  var entrada = new Entrada
+	  entrada.setPuestoVenta(pPuestoVenta)
+	  entrada.setCliente(pCliente)
+	  entrada.setFila(pFila)
+	  entrada.setCategoriaPersona(pCategoria)
+	  entrada.setNoche(pNoche)
+	  entrada.setSector(pSector)
+	  entrada.setAsiento(pFila)
+	  this.create(entrada)
   } 
   
-  def todasLasEntradas:  java.util.List[recital.Entrada] = {
+  def todasLasEntradas: java.util.List[recital.Entrada] = {
 	searchByExample(new Entrada())
+  }
+  
+  def filtrarEntradasPorCliente(cliente: String): java.util.List[recital.Entrada] = {
+    val entrada = new Entrada()
+    entrada.cliente = cliente
+	searchByExample(entrada)
+  }
+  
+  def filtrarEntradasPorNoche(noche: String): java.util.List[recital.Entrada] = {
+    val entrada = new Entrada()
+    val nochee = new Noche()
+    nochee.nombreNoche = noche
+    entrada.noche = nochee
+	searchByExample(entrada)
   }
   
 }
