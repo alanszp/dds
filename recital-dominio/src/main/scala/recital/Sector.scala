@@ -16,10 +16,6 @@ class Sector extends Serializable {
   @PersistentField
   def getNombre = nombre
   def setNombre(n:String) = nombre = n
-	
-  @Relation
-  def getFilas = filas
-  def setFilas(f:Set[RangoFilas]) = filas = f
   
   def valorEntradaBase(numero: Int): Double ={
     val fila = buscarFila(numero)

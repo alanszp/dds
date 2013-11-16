@@ -28,18 +28,6 @@ class Noche extends Entity  {
 	def getFecha = fecha
 	def setFecha(f:String) = fecha = f
 	
-	@Relation
-	def getBandas = bandas
-	def setBandas(b:Set[Banda]) = bandas = b
-	
-	@Relation
-	def getDescuentos = descuentos
-	def setDescuentos(d:Set[CategoriaPersona]) = descuentos = d
-	
-	@Relation
-	def getSectores = sectores
-	def setSectores(s:Set[Sector]) = sectores = s
-	
 	def valorExtra : Double = this.bandas.maxBy(x => x.precioCategoria).precioCategoria
 	
 	def tieneDescuento(categoriaPersona : CategoriaPersona) = {
