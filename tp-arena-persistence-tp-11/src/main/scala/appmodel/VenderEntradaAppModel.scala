@@ -16,6 +16,7 @@ import recital.RangoFilas
 import recital.Sector
 import java.util.ArrayList
 import recital.CategoriaPersona
+import home.HomeEntradas
 
 
 @org.uqbar.commons.utils.Observable
@@ -44,6 +45,7 @@ class VenderEntradaAppModel(var listModel : ListadorEntrada) extends Serializabl
 	def nocheRecital = _nocheRecital
     
 	def venderEntrada = {
+	  	HomeEntradas.create(sector, nocheRecital, categoriaCliente, fila, asiento,nombreCliente, "Abasto")
 	    var entradaNueva = new Entrada(sector, nocheRecital, categoriaCliente, fila, asiento, nombreCliente, "Abasto")
 	    coreVentas.venderEntrada(entradaNueva)
 	    listModel.search
