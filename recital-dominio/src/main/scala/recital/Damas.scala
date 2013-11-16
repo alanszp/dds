@@ -1,7 +1,9 @@
 package recital
 
 import uqbar.arena.persistence.annotations.PersistentField
+import uqbar.arena.persistence.annotations.PersistentClass
 
+@PersistentClass
 class Damas extends CategoriaPersona {
 
   def this(porcentajeDescuento: Double) = {
