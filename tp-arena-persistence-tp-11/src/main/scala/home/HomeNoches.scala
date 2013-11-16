@@ -1,11 +1,15 @@
 package home
 
+import scala.collection.JavaConversions.asScalaBuffer
+
 import org.uqbar.commons.utils.Observable
-import recital.Noche
-import uqbar.arena.persistence.PersistentHome
+
 import recital.Banda
 import recital.CategoriaPersona
+import recital.Noche
 import recital.Sector
+import uqbar.arena.persistence.PersistentHome
+import uqbar.arena.persistence.annotations.PersistentClass
 
 @Observable
 object HomeNoches extends PersistentHome[Noche] with Serializable {
@@ -21,4 +25,6 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
   noche.setSectores(pSectores)
   this.create(noche)
   } 
+  
+  def noches: Seq[Noche] = allInstances
 }
