@@ -1,6 +1,8 @@
 package recital
 
-abstract class EntradaAbstracta extends Serializable {
+import org.uqbar.commons.model.Entity
+
+abstract class EntradaAbstracta extends Entity {
 
   def precioEntrada:Double
   def cantidadDeEntradas:Int
