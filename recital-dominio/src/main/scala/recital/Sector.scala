@@ -2,7 +2,9 @@ package recital
 
 import uqbar.arena.persistence.annotations.PersistentField
 import javax.management.relation.Relation
+import uqbar.arena.persistence.annotations.PersistentClass
 
+@PersistentClass
 class Sector extends Serializable {
   
   def this(nombre: String) = {
