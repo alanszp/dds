@@ -1,8 +1,12 @@
 package recital
 
-import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.Entity
 
-@Observable
+import uqbar.arena.persistence.annotations.Relation
+import uqbar.arena.persistence.annotations.PersistentClass
+import uqbar.arena.persistence.annotations.PersistentField
+
+@PersistentClass
 class Entrada extends EntradaAbstracta {
 
   def this(sector: Sector, noche: Noche, categoria:CategoriaPersona, fila: Int, asiento:Int, cliente:String, puestoVenta:String) = {
@@ -26,6 +30,19 @@ class Entrada extends EntradaAbstracta {
   var asiento:Int = _
   var cliente:String = _
   var puestoVenta:String =_
+  
+  	@PersistentField
+  	def getPuestoVenta = puestoVenta
+  	def setPuestoVenta(a:String) = puestoVenta = a
+  
+  	@Relation
+	def getNoche = noche
+	def setNoche(n:Noche) = noche = n
+	
+	@Relation
+	def geCategoriaPersona = categoria
+	def setCategoriaPersona(c:CategoriaPersona) = categoria = c
+  
   
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 
   
