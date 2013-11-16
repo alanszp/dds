@@ -1,6 +1,8 @@
 package recital
 
-class CoreDeVentas extends Serializable {
+import org.uqbar.commons.model.Entity
+
+class CoreDeVentas extends Entity {
 
   var entradas: Set[EntradaAbstracta] = Set()
   var noches: Set[Noche] = Set()
