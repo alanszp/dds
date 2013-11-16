@@ -11,7 +11,7 @@ import recital._
 @Observable
 class HomeNoches extends PersistentHome[Noche] with Serializable {
   
-  override def getEntityType(): Class[Noche] = ???
-  override def createExample(): Noche = ???
+  override def getEntityType(): Class[Noche] = classOf[Noche]
+  override def createExample(): Noche = new Noche
   
 }
