@@ -37,7 +37,7 @@ class Entrada extends EntradaAbstracta {
   
   	@Relation
 	def getNoche = noche
-	def setNoche(n:Noche) = noche = n
+	def setNoche(na:Noche) = noche = na
 	
 	@Relation
 	def geCategoriaPersona = categoria
