@@ -1,6 +1,11 @@
 package recital
 
-class CategoriaBanda {
+import uqbar.arena.persistence.annotations.PersistentField
+import uqbar.arena.persistence.annotations.PersistentClass
+import org.uqbar.commons.model.Entity
+
+@PersistentClass
+class CategoriaBanda extends Entity {
 	var tipo: String = _
 	var precioExtra: Double = _
 	
@@ -9,4 +14,12 @@ class CategoriaBanda {
 	  this.tipo = tipo
 	  this.precioExtra = precioExtra
 	}
+	
+	@PersistentField
+	def getTipo = tipo
+	def setTipo(t:String) = tipo = t
+	
+	@PersistentField
+	def getPrecioExtra = precioExtra
+	def setPrecioExtra(p:Double) = precioExtra = p
 }

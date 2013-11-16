@@ -1,6 +1,6 @@
 package recital
 
-class Sector{
+class Sector extends Serializable {
   
   def this(nombre: String) = {
     this()

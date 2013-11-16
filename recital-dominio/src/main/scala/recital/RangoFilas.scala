@@ -1,6 +1,6 @@
 package recital
 
-class RangoFilas {
+class RangoFilas extends Serializable {
   
   def this(desde: Int, hasta: Int, precio: Double, cantAsientos:Int) = {
     this()

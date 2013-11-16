@@ -1,17 +1,19 @@
 package recital
 
-class EntradaExistenteException extends Exception{
+import org.uqbar.commons.model.UserException
+
+class EntradaExistenteException extends UserException("La entrada ya fue vendida."){
 
 }
 
-class FilaIncorrectaException extends Exception{
+class FilaIncorrectaException extends UserException("La fila es incorrecta."){
 
 }
 
-class AsientoIncorrectoException extends Exception{
+class AsientoIncorrectoException extends UserException("El asiento es incorrecto."){
 
 }
 
-class CategoriaNoValidaException extends Exception{
+class CategoriaNoValidaException extends UserException("La categoria no es correcta."){
 
 }

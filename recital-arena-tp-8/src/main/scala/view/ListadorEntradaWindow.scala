@@ -1,23 +1,24 @@
 package view
 
-import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.windows.SimpleWindow
-import appmodel.ComprarEntradaAppModel
-import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.actions.MessageSend
+import org.uqbar.arena.bindings.NotNullObservable
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.actions.MessageSend
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.tables.Column
-import org.uqbar.arena.windows.Dialog
-import org.uqbar.arena.bindings.NotNullObservable
 import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
+
+import appmodel.ListadorEntrada
 import recital.Entrada
 
-class ComprarEntradaWindow(owner:WindowOwner) extends SimpleWindow[ComprarEntradaAppModel](owner, new ComprarEntradaAppModel())   {
+class ListadorEntradaWindow(owner:WindowOwner) extends SimpleWindow[ListadorEntrada](owner, new ListadorEntrada())   {
 	
 	getModelObject.search
 	
@@ -63,7 +64,6 @@ class ComprarEntradaWindow(owner:WindowOwner) extends SimpleWindow[ComprarEntrad
 	}
 	
 	def venderEntrada() {
-		//this.openDialog(new VenderEntradaWindow(this))
 	  var ventana = new VenderEntradaWindow(this)
 	  ventana.open()
 	}

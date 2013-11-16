@@ -1,9 +1,9 @@
 package runner
 
-import view.ComprarEntradaWindow
+import view.ListadorEntradaWindow
 import org.uqbar.arena.Application
 
 object Runner extends Application with App {
-	  def createMainWindow() = new ComprarEntradaWindow(this)
+	  def createMainWindow() = new ListadorEntradaWindow(this)
 	  start()
 }

@@ -32,9 +32,16 @@ class Entrada extends EntradaAbstracta {
   def cantidadDeEntradas = 1
   
   def sosOLaTenes(e: EntradaAbstracta):Boolean = {
-	  e.isInstanceOf[Entrada] && e.asInstanceOf[Entrada]==this ||
+	  e.isInstanceOf[Entrada] && e.asInstanceOf[Entrada].sosIgual(this) ||
 	  e.isInstanceOf[ComboEntrada] && e.asInstanceOf[ComboEntrada].tenesEntrada(this)
   }
+  
+  def sosIgual(e: Entrada) = {
+    this.sector == e.sector &&
+    this.asiento == e.asiento &&
+    this.fila == e.fila &&
+    this.noche == e.noche
+  } 
   
   def valorEntradaBase = this.sector.valorEntradaBase(fila)
   def descuentoCategoria = this.categoria.aplicarDescuento(this.valorEntradaBase)

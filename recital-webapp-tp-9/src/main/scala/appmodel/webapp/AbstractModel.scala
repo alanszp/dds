@@ -1,5 +1,5 @@
 package appmodel.webapp
 
-abstract class AbstractModel {
+abstract class AbstractModel extends Serializable {
 	def clean
 }

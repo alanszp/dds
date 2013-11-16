@@ -1,6 +1,12 @@
 package recital
 
-class Banda (){
+import uqbar.arena.persistence.annotations.PersistentClass
+import org.uqbar.commons.model.Entity
+import uqbar.arena.persistence.annotations.PersistentField
+import uqbar.arena.persistence.annotations.Relation
+
+@PersistentClass
+class Banda extends Entity {
 	def this(nom:String, cat:CategoriaBanda) = {
 	  this()
 	  this.nombre = nom
@@ -10,5 +16,13 @@ class Banda (){
 	var nombre:String = _
 	var categoria:CategoriaBanda = _
 	
+	@PersistentField
+	def getNombre = nombre
+	def setNombre(n:String) = nombre = n
+	
+	@Relation
+	def getCategoria = categoria
+	def setCategoria(c:CategoriaBanda) = categoria = c
+	  
 	def precioCategoria : Double = categoria.precioExtra
 }

@@ -12,25 +12,31 @@ import org.apache.wicket.ajax.AjaxRequestTarget
 import appmodel.webapp.AbstractModel
 import org.apache.wicket.model.CompoundPropertyModel
 
-class FormBuilder {
+class FormBuilder extends Serializable {
   
   var model : AbstractModel = _
   var form : Form[_] = _
 
   def setForm[T:Manifest](idForm : String) = {
     this.form = new Form[T](idForm, new CompoundPropertyModel[T](model))
+    this
   }
 
-  def setModel(model : AbstractModel) = this.model = model
+  def setModel(model : AbstractModel) = {
+    this.model = model
+    this
+  } 
   
   def setResult[T:Manifest](id:String,  columnas : List[String]) = {
 		form.add(new PropertyListView[T](id) {
 			override def populateItem(item: ListItem[T]) = columnas.foreach(idColumna => item.add(new Label(idColumna)) )
 		})
-	  }
+	this	
+  }
 
   def setSearchFields(lista : List[String]) = {
     lista.foreach(idField => form.add(new TextField(idField)) )
+    this
   }
 	
    
@@ -54,7 +60,8 @@ class FormBuilder {
 
         override def onError(target: AjaxRequestTarget, form: Form[_]) = {}
       })
-  }
+      this
+	}
     
 	def build = this.form
 

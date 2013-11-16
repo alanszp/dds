@@ -15,68 +15,68 @@ import recital.Noche
 import recital.RangoFilas
 import recital.Sector
 import java.util.ArrayList
+import recital.CategoriaPersona
 
 
 @org.uqbar.commons.utils.Observable
-class VenderEntradaAppModel extends Serializable {
+class VenderEntradaAppModel(var listModel : ListadorEntrada) extends Serializable {
 	
-	
-	var coreVentas = new CoreDeVentas
-	
-	private var _nocheRecital : String = _
-	private var _nombreCliente : String = _
-    private var _apellidoCliente : String = _
-    private var _categoriaCliente : String = _
-    private var _sector : String = _
-    private var _fila : String = _
-    private var _asiento : String = _
-	var entradaSeleccionada : Entrada = _
+	var _nocheRecital : Noche = _
+	var nombreCliente : String = _
+    var apellidoCliente : String = _
+    var categoriaCliente : CategoriaPersona = _
+    var sector : Sector = _
+    var fila : Int = _
+    var asiento : Int = _
+    
+    var coreVentas = listModel.coreVentas
+    
+    var categoriasList : java.util.List[CategoriaPersona] = _
+    var sectoresList : java.util.List[Sector] = _
+    
 
-		//
-		def nombreCliente_=(nombreCliente:String) = {
-		  _nombreCliente = nombreCliente
-		}
-		def nombreCliente = _nombreCliente
-		//
-		def apellidoCliente_=(apellidoCliente:String) = {
-		  _apellidoCliente = apellidoCliente
-		}
-		def apellidoCliente = _apellidoCliente
-		//
-		def nocheRecital_=(nocheRecital :String) = {
-		  _nocheRecital = nocheRecital
-		
-		}
-		def nocheRecital = _nocheRecital
-		//
-		def categoriaCliente_=(categoriaCliente :String) = {
-		  _categoriaCliente = categoriaCliente		
-		}
-		
-		def categoriaCliente = _categoriaCliente
-		//
-		def sector_=(sector :String) = {
-		  _sector = sector		
-		}
-		
-		def sector = _sector
-		//
-		def fila_=(fila:String) = {
-		  _fila=fila
-		
-		}
-		def fila = _fila
-		//
-		def asiento_=(asiento:String) = {
-		  _asiento = asiento
-		
-		}
-		def asiento = _asiento
-		
-	def venderEntrada {
-		
-		coreVentas.venderEntrada(entradaSeleccionada)
-
+    def nocheRecital_=(noche : Noche) = {
+	  _nocheRecital = noche
+	  actualizarCategoriasList
+	  actualizarSectoresList
+	}
+	
+	def nocheRecital = _nocheRecital
+    
+	def venderEntrada = {
+	    var entradaNueva = new Entrada(sector, nocheRecital, categoriaCliente, fila, asiento, nombreCliente, "Abasto")
+	    coreVentas.venderEntrada(entradaNueva)
+	    listModel.search
+	}
+	
+	def categorias : ListBuffer[CategoriaPersona] = {
+	  traerLista(nocheRecital.descuentos)
+	}
+	
+	def sectores : ListBuffer[Sector] = {
+	  traerLista(nocheRecital.sectores)
+	}
+	
+	def actualizarSectoresList = {
+	  sectoresList = JavaConversions.asJavaList(sectores)
+	}
+	 
+	def actualizarCategoriasList = {
+	  categoriasList = JavaConversions.asJavaList(categorias)
+	}
+	
+	def nochesList = JavaConversions.asJavaSet(coreVentas.noches)
+	
+	def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {
+	  var lista: ListBuffer[T] = ListBuffer()
+	  set.foreach(entrada => lista += entrada)
+	  lista
+	}
+  
+	def traerLista[T](lista : Set[T]): ListBuffer[T] = {	  
+	  if (nocheRecital == null)
+	  	return ListBuffer()
+	  setToBuffer[T](lista)	  
 	}
 
 }

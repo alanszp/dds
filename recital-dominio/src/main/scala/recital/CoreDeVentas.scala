@@ -1,6 +1,6 @@
 package recital
 
-class CoreDeVentas {
+class CoreDeVentas extends Serializable {
 
   var entradas: Set[EntradaAbstracta] = Set()
   var noches: Set[Noche] = Set()

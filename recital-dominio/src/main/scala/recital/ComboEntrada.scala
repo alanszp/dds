@@ -26,7 +26,7 @@ class ComboEntrada extends EntradaAbstracta {
   
   def precioAux =  entradas.map(_.precioEntrada).sum
   
-  def tenesEntrada(entrada:Entrada):Boolean = this.entradas.contains(entrada)
+  def tenesEntrada(e:Entrada):Boolean = this.entradas.filter(entrada => entrada.sosIgual(e)).size > 0
   
   def tenesAlgunaEntrada(otroCombo:ComboEntrada):Boolean = (this.entradas intersect otroCombo.entradas).size > 0
   

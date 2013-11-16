@@ -1,6 +1,6 @@
 package recital
 
-abstract class EntradaAbstracta {
+abstract class EntradaAbstracta extends Serializable {
 
   def precioEntrada:Double
   def cantidadDeEntradas:Int
