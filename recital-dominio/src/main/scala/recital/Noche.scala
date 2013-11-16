@@ -2,7 +2,7 @@ package recital
 
 import org.uqbar.commons.model.Entity
 
-import javax.management.relation.Relation
+import uqbar.arena.persistence.annotations.Relation
 import uqbar.arena.persistence.annotations.PersistentClass
 import uqbar.arena.persistence.annotations.PersistentField
 
@@ -28,13 +28,24 @@ class Noche extends Entity  {
 	def getFecha = fecha
 	def setFecha(f:String) = fecha = f
 	
+	@Relation
+	def getBandas : Set[Banda] = bandas
+	def setBandas(b:Set[Banda]) = bandas = b
+	
+	@Relation
+	def getDescuentos : Set[CategoriaPersona] = descuentos
+	def setDescuentos(d:Set[CategoriaPersona]) = descuentos = d
+	
+	@Relation
+	def getSectores : Set[Sector] = sectores
+	def setSectores(s:Set[Sector]) = sectores = s
+	
 	def valorExtra : Double = this.bandas.maxBy(x => x.precioCategoria).precioCategoria
 	
 	def tieneDescuento(categoriaPersona : CategoriaPersona) = {
 	  if (!this.descuentos.contains(categoriaPersona)) {
 	    throw new CategoriaNoValidaException
 	  }
-	  
 	}
 
 }
