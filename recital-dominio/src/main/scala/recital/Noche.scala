@@ -1,16 +1,44 @@
 package recital
 
-class Noche extends Serializable {
+import org.uqbar.commons.model.Entity
+
+import javax.management.relation.Relation
+import uqbar.arena.persistence.annotations.PersistentClass
+import uqbar.arena.persistence.annotations.PersistentField
+
+@PersistentClass
+class Noche extends Entity  { 
 	
 	def this(fecha: String) = {
 	  this()
 	  this.fecha = fecha
 	}
+
 	var nombreNoche: String = _
 	var fecha: String = _
 	var bandas: Set[Banda] = Set()
 	var descuentos: Set[CategoriaPersona] = Set()
 	var sectores : Set[Sector] = Set()
+	
+	@PersistentField
+	def getNombreNoche = nombreNoche
+	def setNombreNoche(n:String) = nombreNoche = n
+	
+	@PersistentField
+	def getFecha = fecha
+	def setFecha(f:String) = fecha = f
+	
+	@Relation
+	def getBandas = bandas
+	def setBandas(b:Set[Banda]) = bandas = b
+	
+	@Relation
+	def getDescuentos = descuentos
+	def setDescuentos(d:Set[CategoriaPersona]) = descuentos = d
+	
+	@Relation
+	def getSectores = sectores
+	def setSectores(s:Set[Sector]) = sectores = s
 	
 	def valorExtra : Double = this.bandas.maxBy(x => x.precioCategoria).precioCategoria
 	
@@ -20,7 +48,5 @@ class Noche extends Serializable {
 	  }
 	  
 	}
-	
-	//def valorExtra = descuentos.foreach (b => b.aplicarDescuento(EntradaBase))
 
 }
