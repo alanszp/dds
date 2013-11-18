@@ -17,10 +17,11 @@ import recital.Sector
 import java.util.ArrayList
 import recital.CategoriaPersona
 import home.HomeEntradas
+import home.HomeNoches
 
 
 @org.uqbar.commons.utils.Observable
-class VenderEntradaAppModel(var listModel : ListadorEntrada) extends Serializable {
+class VenderEntradaAppModel(var listEntradaModel : ListadorEntrada) extends Serializable {
 	
 	var _nocheRecital : Noche = _
 	var nombreCliente : String = _
@@ -29,8 +30,6 @@ class VenderEntradaAppModel(var listModel : ListadorEntrada) extends Serializabl
     var sector : Sector = _
     var fila : Int = _
     var asiento : Int = _
-    
-    var coreVentas = listModel.coreVentas
     
     var categoriasList : java.util.List[CategoriaPersona] = _
     var sectoresList : java.util.List[Sector] = _
@@ -46,39 +45,23 @@ class VenderEntradaAppModel(var listModel : ListadorEntrada) extends Serializabl
     
 	def venderEntrada = {
 	  	HomeEntradas.create(sector, nocheRecital, categoriaCliente, fila, asiento,nombreCliente, "Abasto")
-	    var entradaNueva = new Entrada(sector, nocheRecital, categoriaCliente, fila, asiento, nombreCliente, "Abasto")
-	    coreVentas.venderEntrada(entradaNueva)
-	    listModel.search
+	    listEntradaModel.search
 	}
 	
-	def categorias : ListBuffer[CategoriaPersona] = {
-	  traerLista(nocheRecital.descuentos)
-	}
-	
-	def sectores : ListBuffer[Sector] = {
-	  traerLista(nocheRecital.sectores)
+	def actualizarCategoriasList = {
+	  categoriasList = traerLista(nocheRecital.getDescuentos)
 	}
 	
 	def actualizarSectoresList = {
-	  sectoresList = JavaConversions.asJavaList(sectores)
-	}
-	 
-	def actualizarCategoriasList = {
-	  categoriasList = JavaConversions.asJavaList(categorias)
+	  sectoresList = traerLista(nocheRecital.getSectores)
 	}
 	
-	def nochesList = JavaConversions.asJavaSet(coreVentas.noches)
+	def nochesList = HomeNoches.noches
 	
-	def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {
-	  var lista: ListBuffer[T] = ListBuffer()
-	  set.foreach(entrada => lista += entrada)
-	  lista
-	}
-  
-	def traerLista[T](lista : Set[T]): ListBuffer[T] = {	  
+	def traerLista[T](lista : java.util.List[T]): java.util.List[T] = {	  
 	  if (nocheRecital == null)
-	  	return ListBuffer()
-	  setToBuffer[T](lista)	  
+	  	return new java.util.ArrayList
+	  lista	  
 	}
 
 }
