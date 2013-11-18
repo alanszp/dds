@@ -24,25 +24,25 @@ class Noche extends DomainEntity {
     this.nombreNoche.equalsIgnoreCase(noche.nombreNoche) 
   }
 
+  def setNombreNoche(n: String) = nombreNoche = n
   @PersistentField
   def getNombreNoche = nombreNoche
-  def setNombreNoche(n: String) = nombreNoche = n
-
+  
   @PersistentField
   def getFecha = fecha
   def setFecha(f: String) = fecha = f
 
+  def setBandas(b: java.util.List[Banda]) = bandas = listToSet(b)
   @Relation
   def getBandas: java.util.List[Banda] = setToList(bandas)
-  def setBandas(b: java.util.List[Banda]) = bandas = listToSet(b)
 
+  def setDescuentos(d: java.util.List[CategoriaPersona]) = descuentos = listToSet(d)
   @Relation
   def getDescuentos: java.util.List[CategoriaPersona] = setToList(descuentos)
-  def setDescuentos(d: java.util.List[CategoriaPersona]) = descuentos = listToSet(d)
 
+  def setSectores(s: java.util.List[Sector]) = sectores = listToSet(s)
   @Relation
   def getSectores: java.util.List[Sector] = setToList(sectores)
-  def setSectores(s: java.util.List[Sector]) = sectores = listToSet(s)
 
   def valorExtra: Double = this.bandas.maxBy(x => x.precioCategoria).precioCategoria
 
