@@ -29,11 +29,12 @@ class Menor extends CategoriaPersona {
     	((descuento*100).round) / 100.0
 	}
   
+  	def setprecioDescuento(n:Double) = precioDescuento = n
     @PersistentField
 	def getprecioDescuento = precioDescuento
-	def setprecioDescuento(n:Double) = precioDescuento = n
-	
+
+	def setporcentajeDescuento(n:Double) = porcentajeDescuento = n
 	@PersistentField
 	def getporcentajeDescuento = porcentajeDescuento
-	def setporcentajeDescuento(n:Double) = porcentajeDescuento = n
+
 }
