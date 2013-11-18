@@ -17,8 +17,8 @@ class Jubilado extends CategoriaPersona{
 	return (EntradaBase * this.precioDescuento * 100).round / 100.0
   }
   
-  def setprecioDescuento(n:Double) = precioDescuento = n
+  def setPrecioDescuento(n:Double) = precioDescuento = n
   @PersistentField
-	def getprecioDescuento = precioDescuento
+	def getPrecioDescuento = precioDescuento
 
 }
