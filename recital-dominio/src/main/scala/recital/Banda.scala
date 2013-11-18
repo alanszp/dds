@@ -10,19 +10,19 @@ import compatibility.DomainEntity
 class Banda extends DomainEntity {
 	def this(nom:String, cat:CategoriaBanda) = {
 	  this()
-	  this.nombre_(nom)
-	  this.categoria_ (cat)
+	  this.nombre(nom)
+	  this.categoria (cat)
 	}
   
 	var _nombre:String = _
 	var _categoria:CategoriaBanda = _
 	
-	def nombre_(n:String) = _nombre = n
+	def nombre(n:String) = _nombre = n
 	@PersistentField
 	def nombre = _nombre
 	
 	
-	def categoria_(c:CategoriaBanda) = _categoria = c
+	def categoria(c:CategoriaBanda) = _categoria = c
 	@Relation
 	def categoria = _categoria
 	

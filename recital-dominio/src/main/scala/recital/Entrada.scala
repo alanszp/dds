@@ -11,54 +11,54 @@ class Entrada extends EntradaAbstracta {
 
   def this(sector: Sector, noche: Noche, categoria:CategoriaPersona, fila: Int, asiento:Int, cliente:String, puestoVenta:String) = {
     this()
-    this.sector= sector
-    this.noche = noche
-    this.categoria = categoria
-    this.fila = fila
-    this.asiento = asiento
-    this.cliente = cliente
-    this.puestoVenta = puestoVenta
+    this._sector= sector
+    this._noche = noche
+    this._categoria = categoria
+    this._fila = fila
+    this._asiento = asiento
+    this._cliente = cliente
+    this._puestoVenta = puestoVenta
     
     
     this.validarEntrada //Corre al instanciarse con todos los parametros. 
   }
   
-  var sector: Sector = _
-  var noche: Noche = _
-  var categoria:CategoriaPersona = _
-  var fila: Int = _
-  var asiento:Int = _
-  var cliente:String = _
-  var puestoVenta:String =_
+  var _sector: Sector = _
+  var _noche: Noche = _
+  var _categoria:CategoriaPersona = _
+  var _fila: Int = _
+  var _asiento:Int = _
+  var _cliente:String = _
+  var _puestoVenta:String =_
   
-    def setPuestoVenta(a:String) = puestoVenta = a
+    def puestoVenta(a:String) = _puestoVenta = a
   	@PersistentField
-  	def getPuestoVenta = puestoVenta
+  	def puestoVenta = _puestoVenta
 
-	def setNoche(na:Noche) = noche = na  
+	def noche(na:Noche) = _noche = na  
   	@Relation
-	def getNoche = noche
+	def noche = _noche
 
-	def setCategoriaPersona(c:CategoriaPersona) = categoria = c	
+	def categoriaPersona(c:CategoriaPersona) = _categoria = c	
 	@Relation
-	def geCategoriaPersona = categoria
+	def categoriaPersona = _categoria
 
-    def setFila(f:Int) = fila = f
+    def fila(f:Int) = _fila = f
 	@PersistentField
-  	def getFila = fila
+  	def fila = _fila
 
   	
-  	def setAsiento(as:Int) = asiento = as  
+  	def asiento(as:Int) = _asiento = as  
   	@PersistentField
-  	def getAsiento = asiento
+  	def asiento = _asiento
 
-  	def setSector(s:Sector) = sector = s
+  	def sector(s:Sector) = _sector = s
   	@Relation
-	def getSector = sector
+	def sector = _sector
 
-  	def setCliente(c:String) = cliente = c	
+  	def cliente(c:String) = _cliente = c	
 	@PersistentField
-  	def getCliente = cliente
+  	def cliente = _cliente
   	
   	
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 
@@ -78,14 +78,14 @@ class Entrada extends EntradaAbstracta {
   } 
   
   def valorEntradaBase = this.sector.valorEntradaBase(fila)
-  def descuentoCategoria = this.categoria.aplicarDescuento(this.valorEntradaBase)
-  def valorExtraPorNoche = this.noche.valorExtra
+  def descuentoCategoria = this._categoria.aplicarDescuento(this.valorEntradaBase)
+  def valorExtraPorNoche = this._noche.valorExtra
   
-  def esDama:Boolean = this.categoria.isInstanceOf[Damas]
+  def esDama:Boolean = this._categoria.isInstanceOf[Damas]
   
   def validarEntrada = {
      sector.verificarUbicacion(fila, asiento) //Si no existen, tira excepcion por fila o por asiento inexistente...
-     noche.tieneDescuento(categoria) //Si no tiene descuento, tira excepcion por categoria no valida...
+     noche.tieneDescuento(_categoria) //Si no tiene descuento, tira excepcion por categoria no valida...
   }
   
   def entradas = Set(this)

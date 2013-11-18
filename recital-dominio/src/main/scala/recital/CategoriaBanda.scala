@@ -7,22 +7,22 @@ import compatibility.DomainEntity
 
 @PersistentClass
 class CategoriaBanda extends DomainEntity {
-	var tipo: String = _
-	var precioExtra: Double = _
+	var _tipo: String = _
+	var _precioExtra: Double = _
 	
 	def this(tipo: String, precioExtra: Double) = {
 	  this()
-	  this.tipo = tipo
-	  this.precioExtra = precioExtra
+	  this._tipo = tipo
+	  this._precioExtra = precioExtra
 	}
 	
-	def setTipo(t:String) = tipo = t
+	def tipo(t:String) = _tipo = t
 	@PersistentField
-	def getTipo = tipo
+	def tipo = _tipo
 	
 	
-	def setPrecioExtra(p:Double) = precioExtra = p
+	def precioExtra(p:Double) = _precioExtra = p
 	@PersistentField
-	def getPrecioExtra = precioExtra
+	def precioExtra = _precioExtra
 	
 }

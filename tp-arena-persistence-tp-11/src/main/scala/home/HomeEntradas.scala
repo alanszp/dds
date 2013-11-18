@@ -17,13 +17,13 @@ object HomeEntradas extends PersistentHome[Entrada] with Serializable {
   
   def create(pSector: Sector, pNoche: Noche, pCategoria:CategoriaPersona, pFila: Int, pAsiento:Int, pCliente:String, pPuestoVenta:String): Unit = {
 	  var entrada = new Entrada
-	  entrada.setPuestoVenta(pPuestoVenta)
-	  entrada.setCliente(pCliente)
-	  entrada.setFila(pFila)
-	  entrada.setCategoriaPersona(pCategoria)
-	  entrada.setNoche(pNoche)
-	  entrada.setSector(pSector)
-	  entrada.setAsiento(pFila)
+	  entrada.puestoVenta(pPuestoVenta)
+	  entrada.cliente(pCliente)
+	  entrada.fila(pFila)
+	  entrada.categoriaPersona(pCategoria)
+	  entrada.noche(pNoche)
+	  entrada.sector(pSector)
+	  entrada.asiento(pFila)
 	  this.create(entrada)
   } 
   
@@ -33,15 +33,15 @@ object HomeEntradas extends PersistentHome[Entrada] with Serializable {
   
   def filtrarPorCliente(cliente: String): java.util.List[recital.Entrada] = {
     val entrada = new Entrada()
-    entrada.cliente = cliente
+    entrada._cliente = cliente
 	searchByExample(entrada)
   }
   
   def filtrarPorNoche(noche: String): java.util.List[recital.Entrada] = {
     val entrada = new Entrada()
     val nochee = new Noche()
-    nochee.nombreNoche = noche
-    entrada.noche = nochee
+    nochee._nombreNoche = noche
+    entrada._noche = nochee
 	searchByExample(entrada)
   }
   

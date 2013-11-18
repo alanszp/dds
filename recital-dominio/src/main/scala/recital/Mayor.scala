@@ -6,11 +6,11 @@ import uqbar.arena.persistence.annotations.PersistentField
 @PersistentClass
 class Mayor extends CategoriaPersona {
   
-   val descripcion = "Mayor"
+   val _descripcion = "Mayor"
    override def aplicarDescuento(EntradaBase: Double):Double = {
      0
    }
    
    @PersistentField
-   def getDescripcion = descripcion
+   def descripcion = _descripcion
 }

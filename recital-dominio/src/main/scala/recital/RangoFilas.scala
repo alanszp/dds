@@ -4,42 +4,40 @@ import uqbar.arena.persistence.annotations.PersistentField
 import uqbar.arena.persistence.annotations.PersistentClass
 import compatibility.DomainEntity
 
-
 @PersistentClass
 class RangoFilas extends DomainEntity {
-  
-  def this(desde: Int, hasta: Int, precio: Double, cantAsientos:Int) = {
+
+  def this(desde: Int, hasta: Int, precio: Double, cantAsientos: Int) = {
     this()
-    this.desde = desde
-    this.hasta = hasta
-    this.precio = precio
-    this.cantAsientos = cantAsientos
-  }  
-  
-  var desde: Int =_
-  var hasta: Int =_
-  var precio: Double = _
-  var cantAsientos:Int = _
+    this._desde = desde
+    this._hasta = hasta
+    this._precio = precio
+    this._cantAsientos = cantAsientos
+  }
 
-  
-  def tengoFila(fila: Int): Boolean = (this.desde <= fila) && (this.hasta >= fila)
-   
-  def existeAsiento(asiento: Int):Boolean = asiento <= this.cantAsientos && asiento > 0
-  
-  	def setprecio(n:Double) = precio = n
-  	@PersistentField
-	def getprecio = precio
-	
-		def setdesde(n:Int) = desde = n
-	@PersistentField
-	def getdesde = desde
+  var _desde: Int = _
+  var _hasta: Int = _
+  var _precio: Double = _
+  var _cantAsientos: Int = _
 
-	def sethasta(n:Int) = hasta = n
-	@PersistentField
-	def gethasta = hasta
+  def tengoFila(fila: Int): Boolean = (this._desde <= fila) && (this._hasta >= fila)
 
-	def setcantAsientos(n:Int) = cantAsientos = n
-	@PersistentField
-	def getcantAsientos = cantAsientos
+  def existeAsiento(asiento: Int): Boolean = asiento <= this._cantAsientos && asiento > 0
+
+  def precio(n: Double) = _precio = n
+  @PersistentField
+  def precio = _precio
+
+  def desde(n: Int) = _desde = n
+  @PersistentField
+  def desde = _desde
+
+  def hasta(n: Int) = _hasta = n
+  @PersistentField
+  def hasta = _hasta
+
+  def cantAsientos(n: Int) = _cantAsientos = n
+  @PersistentField
+  def cantAsientos = _cantAsientos
 
 }

@@ -7,47 +7,44 @@ import compatibility.DomainEntity
 
 @PersistentClass
 class Sector extends DomainEntity {
-  
+
   def this(nombre: String) = {
     this()
-    this.nombre = nombre
+    this._nombre = nombre
   }
-  
-  var nombre: String =_
-  var filas: Set[RangoFilas] = Set()
-  
-  def setNombre(n:String) = nombre = n
-  @PersistentField
-  def getNombre = nombre
-  
-  def setFilas(f:java.util.List[RangoFilas]) = filas = listToSet(f)
-  @Relation
-  def getFilas : java.util.List[RangoFilas] = setToList(filas)
 
-	
-  
-  def valorEntradaBase(numero: Int): Double ={
+  var _nombre: String = _
+  var _filas: Set[RangoFilas] = Set()
+
+  def nombre(n: String) = _nombre = n
+  @PersistentField
+  def nombre = _nombre
+
+  def filas(f: java.util.List[RangoFilas]) = _filas = listToSet(f)
+  @Relation
+  def filas: java.util.List[RangoFilas] = setToList(_filas)
+
+  def valorEntradaBase(numero: Int): Double = {
     val fila = buscarFila(numero)
-    	
+
     fila.precio
   }
-  
-  def verificarUbicacion(fila:Int, asiento:Int) = {
+
+  def verificarUbicacion(fila: Int, asiento: Int) = {
     val filaEncontrada = buscarFila(fila)
-    
-    if( !(filaEncontrada.existeAsiento(asiento)) ){
+
+    if (!(filaEncontrada.existeAsiento(asiento))) {
       throw new AsientoIncorrectoException
     }
   }
-  
+
   def buscarFila(numero: Int): RangoFilas = {
-    var fila = filas.find{fila: RangoFilas => fila.tengoFila(numero)}
-    
-    if (fila.isEmpty) 
-    	throw new FilaIncorrectaException      
-    	
+    var fila = _filas.find { fila: RangoFilas => fila.tengoFila(numero) }
+
+    if (fila.isEmpty)
+      throw new FilaIncorrectaException
+
     fila.get
   }
-  
- 
+
 }
