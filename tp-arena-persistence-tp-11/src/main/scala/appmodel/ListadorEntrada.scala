@@ -21,8 +21,6 @@ import home.HomeEntradas
 @org.uqbar.commons.utils.Observable
 class ListadorEntrada extends Serializable {
 
-  var coreVentas = new CoreDeVentas
-
   private var _noche: Noche = _
   private var _nocheRecital: String = _
   private var _nombreCliente: String = _
@@ -61,7 +59,7 @@ class ListadorEntrada extends Serializable {
   }
 
   def anularEntradaSeleccionada {
-    coreVentas.anularEntrada(entradaSeleccionada)
+    HomeEntradas.delete(entradaSeleccionada)
     search
   }
 
@@ -88,10 +86,10 @@ class ListadorEntrada extends Serializable {
     }
     HomeEntradas.filtrarPorCliente(_nombreCliente)
   }
+
  
-  def todasLasEntradas: java.util.List[recital.Entrada] = {
-    HomeEntradas.entradas //VER COMO USAR HOMEENTRADAS.TODASLASENTRADAS
-  }  
+  def todasLasEntradas: java.util.List[recital.Entrada] = HomeEntradas.entradas 
+
 
   
   def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {

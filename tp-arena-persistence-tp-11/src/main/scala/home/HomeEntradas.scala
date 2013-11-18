@@ -27,7 +27,9 @@ object HomeEntradas extends PersistentHome[Entrada] with Serializable {
 	  this.create(entrada)
   } 
   
+
   def entradas: java.util.List[recital.Entrada] = allInstances
+
   
   def filtrarPorCliente(cliente: String): java.util.List[recital.Entrada] = {
     val entrada = new Entrada()
