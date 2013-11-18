@@ -21,8 +21,8 @@ class Sector extends DomainEntity {
   def setNombre(n:String) = nombre = n
   
   @Relation
-  def getFilas : Set[RangoFilas] = filas
-  def setFilas(f:Set[RangoFilas]) = filas = f
+  def getFilas : java.util.List[RangoFilas] = setToList(filas)
+  def setFilas(f:java.util.List[RangoFilas]) = filas = listToSet(f)
 	
   
   def valorEntradaBase(numero: Int): Double ={
