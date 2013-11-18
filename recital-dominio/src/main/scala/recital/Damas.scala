@@ -10,16 +10,18 @@ class Damas extends CategoriaPersona {
     this()
     this.porcentajeDescuento = porcentajeDescuento
   }
-  
+
   var porcentajeDescuento: Double = _
-    val descripcion = "Dama"
-  override def aplicarDescuento(EntradaBase: Double):Double = {
+  val descripcion = "Dama"
+  override def aplicarDescuento(EntradaBase: Double): Double = {
     EntradaBase * this.porcentajeDescuento
   }
-  
-  	def setPorcentajeDescuento(n:Double) = porcentajeDescuento = n
-  	@PersistentField
-	def getPorcentajeDescuento = porcentajeDescuento
 
+  def setPorcentajeDescuento(n: Double) = porcentajeDescuento = n
+  @PersistentField
+  def getPorcentajeDescuento = porcentajeDescuento
+
+  @PersistentField
+  def getDescripcion = descripcion
 }
 

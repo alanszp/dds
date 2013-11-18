@@ -5,21 +5,24 @@ import uqbar.arena.persistence.annotations.PersistentClass
 
 @PersistentClass
 class Menor12 extends CategoriaPersona {
-  
+
   def this(porcentajeDescuento: Double) = {
     this()
     this.porcentajeDescuento = porcentajeDescuento
   }
-  
-  var porcentajeDescuento: Double =_ 
+
+  var porcentajeDescuento: Double = _
   val descripcion = "Menor12"
 
-  override def aplicarDescuento(EntradaBase: Double):Double = {
-    
+  override def aplicarDescuento(EntradaBase: Double): Double = {
+
     (EntradaBase * this.porcentajeDescuento)
   }
-  
-    def setPorcentajeDescuento(n:Double) = porcentajeDescuento = n
-  	@PersistentField
-	def getPorcentajeDescuento = porcentajeDescuento
+
+  def setPorcentajeDescuento(n: Double) = porcentajeDescuento = n
+  @PersistentField
+  def getPorcentajeDescuento = porcentajeDescuento
+
+  @PersistentField
+  def getDescripcion = descripcion
 }
