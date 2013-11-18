@@ -43,10 +43,11 @@ class Entrada extends EntradaAbstracta {
 	@Relation
 	def geCategoriaPersona = categoria
 
-  
+    def setFila(f:Int) = fila = f
 	@PersistentField
   	def getFila = fila
-  	def setFila(f:Int) = fila = f
+
+  	
   	def setAsiento(as:Int) = asiento = as  
   	@PersistentField
   	def getAsiento = asiento
