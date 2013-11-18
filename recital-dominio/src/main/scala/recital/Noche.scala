@@ -28,16 +28,16 @@ class Noche extends DomainEntity  {
 	def setFecha(f:String) = fecha = f
 	
 	@Relation
-	def getBandas : Set[Banda] = bandas
-	def setBandas(b:Set[Banda]) = bandas = b
+	def getBandas : java.util.List[Banda] =setToList( bandas)
+	def setBandas(b:java.util.List[Banda]) = bandas = listToSet(b)
 	
 	@Relation
-	def getDescuentos : Set[CategoriaPersona] = descuentos
-	def setDescuentos(d:Set[CategoriaPersona]) = descuentos = d
+	def getDescuentos : java.util.List[CategoriaPersona] = setToList(descuentos)
+	def setDescuentos(d:java.util.List[CategoriaPersona]) = descuentos = listToSet(d)
 	
 	@Relation
-	def getSectores : Set[Sector] = sectores
-	def setSectores(s:Set[Sector]) = sectores = s
+	def getSectores : java.util.List[Sector] = setToList( sectores)
+	def setSectores(s:java.util.List[Sector]) = sectores = listToSet (s)
 	
 	def valorExtra : Double = this.bandas.maxBy(x => x.precioCategoria).precioCategoria
 	
