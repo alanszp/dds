@@ -2,7 +2,6 @@ package appmodel
 
 import scala.collection.JavaConversions
 import scala.collection.mutable.ListBuffer
-
 import recital.Banda
 import recital.CategoriaBanda
 import recital.CategoriaPersona
@@ -17,6 +16,7 @@ import recital.Menor12
 import recital.Noche
 import recital.RangoFilas
 import recital.Sector
+import home.HomeEntradas
 
 @org.uqbar.commons.utils.Observable
 class ListadorEntrada extends Serializable {
@@ -65,32 +65,32 @@ class ListadorEntrada extends Serializable {
     search
   }
 
-  def buscarEntradas: java.util.List[Entrada] = {
+/*  def buscarEntradas: java.util.List[Entrada] = {
     JavaConversions.asJavaList(filtrarEntradas)
-  }
+  }*/
 
-  def filtrarEntradas: ListBuffer[Entrada] = {
-    var entradas = todasLasEntradas
+  def buscarEntradas: java.util.List[Entrada] = {
+    var entradas = HomeEntradas.entradas
     entradas = filtrarEntradasPorCliente(entradas)
     filtrarEntradasPorNoche(entradas)
   }
 
-  def filtrarEntradasPorNoche(coleccion: ListBuffer[Entrada]): ListBuffer[Entrada] = {
+  def filtrarEntradasPorNoche(coleccion: java.util.List[Entrada]): java.util.List[Entrada] = {
     if (campoVacio(_nocheRecital)) {
       return coleccion
     }
-    coleccion.filter(entrada => entrada.noche.fecha contains _nocheRecital)
+    HomeEntradas.filtrarPorNoche(_nocheRecital)
   }
 
-  def filtrarEntradasPorCliente(coleccion: ListBuffer[Entrada]): ListBuffer[Entrada] = {
+  def filtrarEntradasPorCliente(coleccion: java.util.List[Entrada]): java.util.List[Entrada] = {
     if (campoVacio(_nombreCliente)) {
       return coleccion
     }
-    coleccion.filter(entrada => entrada.cliente.toLowerCase().contains(_nombreCliente.toLowerCase()))
+    HomeEntradas.filtrarPorCliente(_nombreCliente)
   }
-
-  def todasLasEntradas: ListBuffer[Entrada] = {
-    setToBuffer[Entrada](coreVentas.entradas.flatMap(_.entradas)) //VER COMO USAR HOMEENTRADAS.TODASLASENTRADAS
+ 
+  def todasLasEntradas: java.util.List[recital.Entrada] = {
+    HomeEntradas.entradas //VER COMO USAR HOMEENTRADAS.TODASLASENTRADAS
   }  
 
   
