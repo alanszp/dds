@@ -28,9 +28,10 @@ class Noche extends DomainEntity {
   @PersistentField
   def getNombreNoche = nombreNoche
   
+  def setFecha(f: String) = fecha = f
   @PersistentField
   def getFecha = fecha
-  def setFecha(f: String) = fecha = f
+ 
 
   def setBandas(b: java.util.List[Banda]) = bandas = listToSet(b)
   @Relation
