@@ -10,21 +10,21 @@ import compatibility.DomainEntity
 class Banda extends DomainEntity {
 	def this(nom:String, cat:CategoriaBanda) = {
 	  this()
-	  this.nombre = nom
-	  this.categoria = cat
+	  this.nombre_(nom)
+	  this.categoria_ (cat)
 	}
   
-	var nombre:String = _
-	var categoria:CategoriaBanda = _
+	var _nombre:String = _
+	var _categoria:CategoriaBanda = _
 	
-	def setNombre(n:String) = nombre = n
+	def nombre_(n:String) = _nombre = n
 	@PersistentField
-	def getNombre = nombre
+	def nombre = _nombre
 	
 	
-	def setCategoria(c:CategoriaBanda) = categoria = c
+	def categoria_(c:CategoriaBanda) = _categoria = c
 	@Relation
-	def getCategoria = categoria
+	def categoria = _categoria
 	
 	  
 	def precioCategoria : Double = categoria.precioExtra
