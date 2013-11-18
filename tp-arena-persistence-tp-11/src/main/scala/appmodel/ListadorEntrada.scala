@@ -90,13 +90,11 @@ class ListadorEntrada extends Serializable {
  
   def todasLasEntradas: java.util.List[recital.Entrada] = HomeEntradas.entradas 
 
-
-  
-  def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {
-    var lista: ListBuffer[T] = ListBuffer()
-    set.foreach(entrada => lista += entrada)
-    lista
-  }
+//  def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {
+//    var lista: ListBuffer[T] = ListBuffer()
+//    set.foreach(entrada => lista += entrada)
+//    lista
+//  }
 
   def campoVacio(campo: String): Boolean = {
     campo == "" || campo == null
