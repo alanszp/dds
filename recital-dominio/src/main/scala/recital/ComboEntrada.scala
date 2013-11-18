@@ -1,5 +1,10 @@
 package recital
 
+import uqbar.arena.persistence.annotations.PersistentClass
+import uqbar.arena.persistence.annotations.PersistentField
+import uqbar.arena.persistence.annotations.Relation
+
+@PersistentClass
 class ComboEntrada extends EntradaAbstracta {
   
   def this(porcentajeDescuento: Double) = {
@@ -16,6 +21,15 @@ class ComboEntrada extends EntradaAbstracta {
       }
       	this.precioAux
   }
+  
+  @PersistentField
+  def getPorcentajeDescuento = porcentajeDescuento
+  def setPorcentajeDescuento(p: Double) = porcentajeDescuento = p
+  
+  @Relation
+  def getEntradas = setToList(entradas)
+  def setEntradas(e:  java.util.List[Entrada]) = entradas = listToSet(e)
+  
   
   def cantidadDeEntradas = this.entradas.size
 		  
