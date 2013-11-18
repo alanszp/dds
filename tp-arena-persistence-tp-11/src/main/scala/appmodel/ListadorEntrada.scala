@@ -2,7 +2,6 @@ package appmodel
 
 import scala.collection.JavaConversions
 import scala.collection.mutable.ListBuffer
-
 import recital.Banda
 import recital.CategoriaBanda
 import recital.CategoriaPersona
@@ -17,11 +16,10 @@ import recital.Menor12
 import recital.Noche
 import recital.RangoFilas
 import recital.Sector
+import home.HomeEntradas
 
 @org.uqbar.commons.utils.Observable
 class ListadorEntrada extends Serializable {
-
-  var coreVentas = new CoreDeVentas
 
   private var _noche: Noche = _
   private var _nocheRecital: String = _
@@ -61,7 +59,7 @@ class ListadorEntrada extends Serializable {
   }
 
   def anularEntradaSeleccionada {
-    coreVentas.anularEntrada(entradaSeleccionada)
+    HomeEntradas.delete(entradaSeleccionada)
     search
   }
 
@@ -90,7 +88,7 @@ class ListadorEntrada extends Serializable {
   }
 
   def todasLasEntradas: ListBuffer[Entrada] = {
-    setToBuffer[Entrada](coreVentas.entradas.flatMap(_.entradas)) //VER COMO USAR HOMEENTRADAS.TODASLASENTRADAS
+    HomeEntradas.entradas
   }  
 
   
