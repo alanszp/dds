@@ -17,7 +17,7 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
   override def getEntityType(): Class[Noche] = classOf[Noche]
   override def createExample(): Noche = new Noche
   
-  def create(pNombreNoche: String, pFecha: String, pBandas: Set[Banda], pdescuentos: Set[CategoriaPersona], pSectores: Set[Sector]): Unit = {
+  def create(pNombreNoche: String, pFecha: String, pBandas: java.util.List[Banda], pdescuentos: java.util.List[CategoriaPersona], pSectores: java.util.List[Sector]): Unit = {
   var noche = new Noche
   noche.setNombreNoche(pNombreNoche)
   noche.setBandas(pBandas)
