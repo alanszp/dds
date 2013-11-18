@@ -3,9 +3,10 @@ package recital
 import uqbar.arena.persistence.annotations.PersistentField
 import uqbar.arena.persistence.annotations.Relation
 import uqbar.arena.persistence.annotations.PersistentClass
+import compatibility.DomainEntity
 
 @PersistentClass
-class Sector extends Serializable {
+class Sector extends DomainEntity {
   
   def this(nombre: String) = {
     this()

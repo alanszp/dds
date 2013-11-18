@@ -1,13 +1,12 @@
 package recital
 
-import org.uqbar.commons.model.Entity
-
-import uqbar.arena.persistence.annotations.Relation
+import compatibility.DomainEntity
 import uqbar.arena.persistence.annotations.PersistentClass
 import uqbar.arena.persistence.annotations.PersistentField
+import uqbar.arena.persistence.annotations.Relation
 
 @PersistentClass
-class Noche extends Entity  { 
+class Noche extends DomainEntity  { 
 	
 	def this(fecha: String) = {
 	  this()

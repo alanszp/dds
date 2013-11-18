@@ -3,9 +3,10 @@ package recital
 import uqbar.arena.persistence.annotations.PersistentField
 import uqbar.arena.persistence.annotations.PersistentClass
 import org.uqbar.commons.model.Entity
+import compatibility.DomainEntity
 
 @PersistentClass
-class CategoriaBanda extends Entity {
+class CategoriaBanda extends DomainEntity {
 	var tipo: String = _
 	var precioExtra: Double = _
 	

@@ -4,9 +4,10 @@ import uqbar.arena.persistence.annotations.PersistentClass
 import org.uqbar.commons.model.Entity
 import uqbar.arena.persistence.annotations.PersistentField
 import uqbar.arena.persistence.annotations.Relation
+import compatibility.DomainEntity
 
 @PersistentClass
-class Banda extends Entity {
+class Banda extends DomainEntity {
 	def this(nom:String, cat:CategoriaBanda) = {
 	  this()
 	  this.nombre = nom

@@ -2,10 +2,11 @@ package recital
 
 import uqbar.arena.persistence.annotations.PersistentField
 import uqbar.arena.persistence.annotations.PersistentClass
+import compatibility.DomainEntity
 
 
 @PersistentClass
-class RangoFilas extends Serializable {
+class RangoFilas extends DomainEntity {
   
   def this(desde: Int, hasta: Int, precio: Double, cantAsientos:Int) = {
     this()
