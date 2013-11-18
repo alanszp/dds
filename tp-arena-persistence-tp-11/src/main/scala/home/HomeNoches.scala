@@ -92,9 +92,8 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
     noche2.bandas += wachiturros
     noche2.descuentos = noche2.descuentos union Set(jubilado, menor, mayor, damas, menorDe12)
 
-    //createIfNotExist(noche1)
-    //createIfNotExist(noche2)
-
+    createIfNotExist(noche1)
+    createIfNotExist(noche2)
   }
 
 }
