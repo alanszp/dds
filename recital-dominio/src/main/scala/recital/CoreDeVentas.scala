@@ -3,7 +3,7 @@ package recital
 import org.uqbar.commons.model.Entity
 import compatibility.DomainEntity
 
-class CoreDeVentas extends DomainEntity {
+class CoreDeVentas {
 
   var entradas: Set[EntradaAbstracta] = Set()
   var noches: Set[Noche] = Set()
