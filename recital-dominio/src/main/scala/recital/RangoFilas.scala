@@ -26,20 +26,16 @@ class RangoFilas extends DomainEntity {
    
   def existeAsiento(asiento: Int):Boolean = asiento <= this.cantAsientos && asiento > 0
   
-  	def setprecio(n:Double) = precio = n
-  	@PersistentField
-	def getprecio = precio
+  	def setPrecio(n:Double) = precio = n
+  	@PersistentField def getPrecio = precio
 	
-		def setdesde(n:Int) = desde = n
-	@PersistentField
-	def getdesde = desde
+	def setDsde(n:Int) = desde = n
+	@PersistentField def getDesde = desde
 
-	def sethasta(n:Int) = hasta = n
-	@PersistentField
-	def gethasta = hasta
+	def sethHsta(n:Int) = hasta = n
+	@PersistentField def getHasta = hasta
 
 	def setcantAsientos(n:Int) = cantAsientos = n
-	@PersistentField
-	def getcantAsientos = cantAsientos
+	@PersistentField def getCantAsientos = cantAsientos
 
 }

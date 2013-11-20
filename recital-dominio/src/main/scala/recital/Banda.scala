@@ -18,13 +18,11 @@ class Banda extends DomainEntity {
 	var categoria:CategoriaBanda = _
 	
 	def setNombre(n:String) = nombre = n
-	@PersistentField
-	def getNombre = nombre
+	@PersistentField def getNombre = nombre
 	
 	
 	def setCategoria(c:CategoriaBanda) = categoria = c
-	@Relation
-	def getCategoria = categoria
+	@Relation def getCategoria = categoria
 	
 	  
 	def precioCategoria : Double = categoria.precioExtra

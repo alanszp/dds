@@ -22,12 +22,10 @@ class ComboEntrada extends EntradaAbstracta {
       	this.precioAux
   }
   
-  @PersistentField
-  def getPorcentajeDescuento = porcentajeDescuento
+  @PersistentField  def getPorcentajeDescuento = porcentajeDescuento
   def setPorcentajeDescuento(p: Double) = porcentajeDescuento = p
   
-  @Relation
-  def getEntradas = setToList(entradas)
+  @Relation  def getEntradas = setToList(entradas)
   def setEntradas(e:  java.util.List[Entrada]) = entradas = listToSet(e)
   
   

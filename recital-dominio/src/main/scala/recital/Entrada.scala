@@ -32,33 +32,26 @@ class Entrada extends EntradaAbstracta {
   var puestoVenta:String =_
   
     def setPuestoVenta(a:String) = puestoVenta = a
-  	@PersistentField
-  	def getPuestoVenta = puestoVenta
+  	@PersistentField def getPuestoVenta = puestoVenta
 
 	def setNoche(na:Noche) = noche = na  
-  	@Relation
-	def getNoche = noche
+  	@Relation def getNoche = noche
 
 	def setCategoriaPersona(c:CategoriaPersona) = categoria = c	
-	@Relation
-	def geCategoriaPersona = categoria
+	@Relation def getCategoriaPersona = categoria
 
     def setFila(f:Int) = fila = f
-	@PersistentField
-  	def getFila = fila
+	@PersistentField def getFila = fila
 
   	
   	def setAsiento(as:Int) = asiento = as  
-  	@PersistentField
-  	def getAsiento = asiento
+  	@PersistentField def getAsiento = asiento
 
   	def setSector(s:Sector) = sector = s
-  	@Relation
-	def getSector = sector
+  	@Relation def getSector = sector
 
   	def setCliente(c:String) = cliente = c	
-	@PersistentField
-  	def getCliente = cliente
+	@PersistentField def getCliente = cliente
   	
   	
   def precioEntrada =  this.valorEntradaBase + this.valorExtraPorNoche - this.descuentoCategoria 

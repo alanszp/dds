@@ -17,12 +17,10 @@ class Sector extends DomainEntity {
   var filas: Set[RangoFilas] = Set()
   
   def setNombre(n:String) = nombre = n
-  @PersistentField
-  def getNombre = nombre
+  @PersistentField def getNombre = nombre
   
   def setFilas(f:java.util.List[RangoFilas]) = filas = listToSet(f)
-  @Relation
-  def getFilas : java.util.List[RangoFilas] = setToList(filas)
+  @Relation def getFilas : java.util.List[RangoFilas] = setToList(filas)
 
 	
   

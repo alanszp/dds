@@ -20,9 +20,6 @@ class Menor12 extends CategoriaPersona {
   }
 
   def setPorcentajeDescuento(n: Double) = porcentajeDescuento = n
-  @PersistentField
-  def getPorcentajeDescuento = porcentajeDescuento
+  @PersistentField def getPorcentajeDescuento = porcentajeDescuento
 
-  @PersistentField
-  def getDescripcion = descripcion
 }

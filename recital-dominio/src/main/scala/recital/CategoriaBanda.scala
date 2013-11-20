@@ -17,12 +17,10 @@ class CategoriaBanda extends DomainEntity {
 	}
 	
 	def setTipo(t:String) = tipo = t
-	@PersistentField
-	def getTipo = tipo
+	@PersistentField def getTipo = tipo
 	
 	
 	def setPrecioExtra(p:Double) = precioExtra = p
-	@PersistentField
-	def getPrecioExtra = precioExtra
+	@PersistentField def getPrecioExtra = precioExtra
 	
 }

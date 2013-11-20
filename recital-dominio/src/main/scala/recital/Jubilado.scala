@@ -18,9 +18,6 @@ class Jubilado extends CategoriaPersona {
   }
 
   def setPrecioDescuento(n: Double) = precioDescuento = n
-  @PersistentField
-  def getPrecioDescuento = precioDescuento
+  @PersistentField def getPrecioDescuento = precioDescuento
 
-  @PersistentField
-  def getDescripcion = descripcion
 }
