@@ -9,40 +9,40 @@ class ComboEntrada extends EntradaAbstracta {
   
   def this(porcentajeDescuento: Double) = {
     this()
-    this.porcentajeDescuento = porcentajeDescuento
+    this._porcentajeDescuento = porcentajeDescuento
   }
   
-  var porcentajeDescuento: Double = _
-  var entradas: Set[Entrada] = Set()
+  var _porcentajeDescuento: Double = _
+  var _entradas: Set[Entrada] = Set()
   
   def precioEntrada : Double ={
       if(this.precioAux > 1000){
-    	  return this.precioAux * porcentajeDescuento
+    	  return this.precioAux * _porcentajeDescuento
       }
       	this.precioAux
   }
   
   @PersistentField
-  def getPorcentajeDescuento = porcentajeDescuento
-  def setPorcentajeDescuento(p: Double) = porcentajeDescuento = p
+  def porcentajeDescuento = _porcentajeDescuento
+  def porcentajeDescuento(p: Double) = _porcentajeDescuento = p
   
   @Relation
-  def getEntradas = setToList(entradas)
-  def setEntradas(e:  java.util.List[Entrada]) = entradas = listToSet(e)
+  def entradas = _entradas//setToList(_entradas)
+  def entradas(e:  java.util.List[Entrada]) = _entradas = listToSet(e)
   
   
-  def cantidadDeEntradas = this.entradas.size
+  def cantidadDeEntradas = this._entradas.size
 		  
   def sosOLaTenes(e: EntradaAbstracta):Boolean = {
 	  e.isInstanceOf[Entrada] && this.tenesEntrada(e.asInstanceOf[Entrada]) ||
 	  e.isInstanceOf[ComboEntrada] && this.tenesAlgunaEntrada(e.asInstanceOf[ComboEntrada])
   }
   
-  def precioAux =  entradas.map(_.precioEntrada).sum
+  def precioAux =  _entradas.map(_.precioEntrada).sum
   
-  def tenesEntrada(e:Entrada):Boolean = this.entradas.filter(entrada => entrada.sosIgual(e)).size > 0
+  def tenesEntrada(e:Entrada):Boolean = this._entradas.filter(entrada => entrada.sosIgual(e)).size > 0
   
-  def tenesAlgunaEntrada(otroCombo:ComboEntrada):Boolean = (this.entradas intersect otroCombo.entradas).size > 0
+  def tenesAlgunaEntrada(otroCombo:ComboEntrada):Boolean = (this._entradas intersect otroCombo.entradas).size > 0
   
-  def agregar(entrada:Entrada) = this.entradas += entrada
+  def agregar(entrada:Entrada) = this._entradas += entrada
  }

@@ -7,20 +7,20 @@ import uqbar.arena.persistence.annotations.PersistentClass
 class Jubilado extends CategoriaPersona {
   def this(precioDescuento: Double) = {
     this()
-    this.precioDescuento = precioDescuento
+    this._precioDescuento = precioDescuento
   }
 
-  var precioDescuento: Double = _
-  val descripcion = "Jubilado"
+  var _precioDescuento: Double = _
+  val _descripcion = "Jubilado"
 
   override def aplicarDescuento(EntradaBase: Double): Double = {
-    return (EntradaBase * this.precioDescuento * 100).round / 100.0
+    return (EntradaBase * this._precioDescuento * 100).round / 100.0
   }
 
-  def setPrecioDescuento(n: Double) = precioDescuento = n
+  def precioDescuento(n: Double) = _precioDescuento = n
   @PersistentField
-  def getPrecioDescuento = precioDescuento
+  def precioDescuento = _precioDescuento
 
   @PersistentField
-  def getDescripcion = descripcion
+  def descripcion = _descripcion
 }

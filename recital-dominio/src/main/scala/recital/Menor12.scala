@@ -8,21 +8,21 @@ class Menor12 extends CategoriaPersona {
 
   def this(porcentajeDescuento: Double) = {
     this()
-    this.porcentajeDescuento = porcentajeDescuento
+    this._porcentajeDescuento = porcentajeDescuento
   }
 
-  var porcentajeDescuento: Double = _
-  val descripcion = "Menor12"
+  var _porcentajeDescuento: Double = _
+  val _descripcion = "Menor12"
 
   override def aplicarDescuento(EntradaBase: Double): Double = {
 
-    (EntradaBase * this.porcentajeDescuento)
+    (EntradaBase * this._porcentajeDescuento)
   }
 
-  def setPorcentajeDescuento(n: Double) = porcentajeDescuento = n
+  def porcentajeDescuento(n: Double) = _porcentajeDescuento = n
   @PersistentField
-  def getPorcentajeDescuento = porcentajeDescuento
+  def porcentajeDescuento = _porcentajeDescuento
 
   @PersistentField
-  def getDescripcion = descripcion
+  def descripcion = _descripcion
 }

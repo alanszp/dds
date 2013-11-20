@@ -49,11 +49,11 @@ class VenderEntradaAppModel(var listEntradaModel : ListadorEntrada) extends Seri
 	}
 	
 	def actualizarCategoriasList = {
-	  categoriasList = traerLista(nocheRecital.getDescuentos)
+	  categoriasList = traerLista(nocheRecital.descuentos)
 	}
 	
 	def actualizarSectoresList = {
-	  sectoresList = traerLista(nocheRecital.getSectores)
+	  sectoresList = traerLista(nocheRecital.sectores)
 	}
 	
 	def nochesList = HomeNoches.noches

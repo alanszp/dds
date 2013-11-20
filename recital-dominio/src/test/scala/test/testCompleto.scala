@@ -1,3 +1,4 @@
+
 package test
 
 import org.scalatest.junit._
@@ -6,7 +7,7 @@ import org.junit.Test
 import org.junit.Before
 import org.junit.After
 import recital._
-
+/*
 class testCompleto extends AssertionsForJUnit {
   
   @Before
@@ -359,4 +360,4 @@ class testCompleto extends AssertionsForJUnit {
     
   }
   
-}
+}*/

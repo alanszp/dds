@@ -24,10 +24,10 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
 
   def create(pNombreNoche: String, pFecha: String, pBandas: java.util.List[Banda], pdescuentos: java.util.List[CategoriaPersona], pSectores: java.util.List[Sector]): Unit = {
     var noche = new Noche
-    noche.setNombreNoche(pNombreNoche)
-    noche.setBandas(pBandas)
-    noche.setDescuentos(pdescuentos)
-    noche.setSectores(pSectores)
+    noche.nombreNoche(pNombreNoche)
+    noche.bandas(pBandas)
+    noche.descuentos(pdescuentos)
+    noche.sectores(pSectores)
     this.create(noche)
   }
 
@@ -87,10 +87,10 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
 
     noche1.bandas += acdc
     noche1.bandas += wachiturros
-    noche1.descuentos = noche1.descuentos union Set(jubilado, menor, mayor, damas, menorDe12)
+    noche1._descuentos = noche1._descuentos union Set(jubilado, menor, mayor, damas, menorDe12)
 
     noche2.bandas += wachiturros
-    noche2.descuentos = noche2.descuentos union Set(jubilado, menor, mayor, damas, menorDe12)
+    noche2._descuentos = noche2._descuentos union Set(jubilado, menor, mayor, damas, menorDe12)
 
     createIfNotExist(noche1)
     createIfNotExist(noche2)

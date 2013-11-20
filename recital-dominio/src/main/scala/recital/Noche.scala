@@ -10,42 +10,42 @@ class Noche extends DomainEntity {
 
   def this(fecha: String) = {
     this()
-    this.fecha = fecha
+    this._fecha = fecha
   }
 
-  var nombreNoche: String = _
-  var fecha: String = _
-  var bandas: Set[Banda] = Set()
-  var descuentos: Set[CategoriaPersona] = Set()
-  var sectores: Set[Sector] = Set()
+  var _nombreNoche: String = _
+  var _fecha: String = _
+  var _bandas: Set[Banda] = Set()
+  var _descuentos: Set[CategoriaPersona] = Set()
+  var _sectores: Set[Sector] = Set()
 
   def esIgual(noche: Noche) = {
-    this.fecha == noche.fecha &&
-    this.nombreNoche.equalsIgnoreCase(noche.nombreNoche) 
+    this._fecha == noche.fecha &&
+    this._nombreNoche.equalsIgnoreCase(noche.nombreNoche) 
   }
 
-  def setNombreNoche(n: String) = nombreNoche = n
+  def nombreNoche(n: String) = _nombreNoche = n
   @PersistentField
-  def getNombreNoche = nombreNoche
+  def nombreNoche = _nombreNoche
   
-  def setFecha(f: String) = fecha = f
+  def fecha(f: String) = _fecha = f
   @PersistentField
-  def getFecha = fecha
+  def fecha = _fecha
  
 
-  def setBandas(b: java.util.List[Banda]) = bandas = listToSet(b)
+  def bandas(b: java.util.List[Banda]) = _bandas = listToSet(b)
   @Relation
-  def getBandas: java.util.List[Banda] = setToList(bandas)
+  def bandas: java.util.List[Banda] = setToList(_bandas)
 
-  def setDescuentos(d: java.util.List[CategoriaPersona]) = descuentos = listToSet(d)
+  def descuentos(d: java.util.List[CategoriaPersona]) = _descuentos = listToSet(d)
   @Relation
-  def getDescuentos: java.util.List[CategoriaPersona] = setToList(descuentos)
+  def descuentos: java.util.List[CategoriaPersona] = setToList(_descuentos)
 
-  def setSectores(s: java.util.List[Sector]) = sectores = listToSet(s)
+  def sectores(s: java.util.List[Sector]) = _sectores = listToSet(s)
   @Relation
-  def getSectores: java.util.List[Sector] = setToList(sectores)
+  def sectores: java.util.List[Sector] = setToList(_sectores)
 
-  def valorExtra: Double = this.bandas.maxBy(x => x.precioCategoria).precioCategoria
+  def valorExtra: Double = this._bandas.maxBy(x => x.precioCategoria).precioCategoria
 
   def tieneDescuento(categoriaPersona: CategoriaPersona) = {
     if (!this.descuentos.contains(categoriaPersona)) {
