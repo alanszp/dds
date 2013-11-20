@@ -29,13 +29,13 @@ class RangoFilas extends DomainEntity {
   	def setPrecio(n:Double) = precio = n
   	@PersistentField def getPrecio = precio
 	
-	def setDsde(n:Int) = desde = n
+	def setDesde(n:Int) = desde = n
 	@PersistentField def getDesde = desde
 
-	def sethHsta(n:Int) = hasta = n
+	def setHasta(n:Int) = hasta = n
 	@PersistentField def getHasta = hasta
 
-	def setcantAsientos(n:Int) = cantAsientos = n
+	def setCantAsientos(n:Int) = cantAsientos = n
 	@PersistentField def getCantAsientos = cantAsientos
 
 }

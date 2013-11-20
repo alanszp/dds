@@ -47,5 +47,6 @@ class Sector extends DomainEntity {
     fila.get
   }
   
+  override def toString : String = nombre.toString()
  
 }

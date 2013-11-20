@@ -21,7 +21,7 @@ import home.HomeEntradas
 @org.uqbar.commons.utils.Observable
 class ListadorEntrada extends Serializable {
 
-  private var _noche: Noche = _
+
   private var _nocheRecital: String = _
   private var _nombreCliente: String = _
 
@@ -34,19 +34,11 @@ class ListadorEntrada extends Serializable {
   }
   def nocheRecital = _nocheRecital
 
-  def noche_=(noche1: Noche) = {
-    _noche = noche1
-    search
-  }
-  def noche = _noche
-
   def nombreCliente_=(cliente: String) = {
     _nombreCliente = cliente
     search
   }
   def nombreCliente = _nombreCliente
-
-
 
   def clear {
     _nocheRecital = null
@@ -55,7 +47,7 @@ class ListadorEntrada extends Serializable {
   }
 
   def search {
-    listaEntradas = buscarEntradas
+    listaEntradas = todasLasEntradas
   }
 
   def anularEntradaSeleccionada {
@@ -63,39 +55,13 @@ class ListadorEntrada extends Serializable {
     search
   }
 
-/*  def buscarEntradas: java.util.List[Entrada] = {
-    JavaConversions.asJavaList(filtrarEntradas)
-  }*/
-
   def buscarEntradas: java.util.List[Entrada] = {
-    var entradas = HomeEntradas.entradas
-    entradas = filtrarEntradasPorCliente(entradas)
-    filtrarEntradasPorNoche(entradas)
+    HomeEntradas.searchClienteYNoche(nombreCliente, nocheRecital)
   }
-
-  def filtrarEntradasPorNoche(coleccion: java.util.List[Entrada]): java.util.List[Entrada] = {
-    if (campoVacio(_nocheRecital)) {
-      return coleccion
-    }
-    HomeEntradas.filtrarPorNoche(_nocheRecital)
-  }
-
-  def filtrarEntradasPorCliente(coleccion: java.util.List[Entrada]): java.util.List[Entrada] = {
-    if (campoVacio(_nombreCliente)) {
-      return coleccion
-    }
-    HomeEntradas.filtrarPorCliente(_nombreCliente)
-  }
-
  
   def todasLasEntradas: java.util.List[recital.Entrada] = HomeEntradas.entradas 
 
-//  def setToBuffer[T](set : Set[T]) : ListBuffer[T] = {
-//    var lista: ListBuffer[T] = ListBuffer()
-//    set.foreach(entrada => lista += entrada)
-//    lista
-//  }
-
+  
   def campoVacio(campo: String): Boolean = {
     campo == "" || campo == null
   }

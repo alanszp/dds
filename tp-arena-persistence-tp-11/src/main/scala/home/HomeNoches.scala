@@ -15,6 +15,7 @@ import recital.Jubilado
 import recital.Menor
 import recital.RangoFilas
 import recital.Mayor
+import recital.Entrada
 
 @Observable
 object HomeNoches extends PersistentHome[Noche] with Serializable {
@@ -31,7 +32,7 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
     this.create(noche)
   }
 
-  def noches: Seq[Noche] = allInstances
+  def noches: java.util.List[Noche] = allInstances
 
   def createIfNotExist(noche: Noche) = {
     if (this.get(noche) == null) {
@@ -39,8 +40,36 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
     }
   }
   
-  def get(noche : Noche) = {
-    noches.find(itemNoche => itemNoche.esIgual(noche)).getOrElse(null)
+  def getByFecha(fecha:String) : Noche = {
+    var iterator = noches.iterator()
+    var elem : Noche = null
+    while (iterator.hasNext()) {
+      elem = iterator.next()
+      if (elem.getFecha == fecha){
+        return elem
+      } 
+    }
+    return null
+  }
+  
+  def get(noche : Noche) : Noche= {
+    var iterator = noches.iterator()
+    var elem : Noche = null
+    while (iterator.hasNext()) {
+      elem = iterator.next()
+      if (noche.esIgual(elem)){
+        return elem
+      } 
+    }
+    return null
+  }
+  
+  def deleteAll = {
+    var iterator = noches.iterator()
+    var elem : Noche = null
+    while (iterator.hasNext()) {
+      delete(iterator.next())
+    }
   }
 
   def populate = {
@@ -94,6 +123,13 @@ object HomeNoches extends PersistentHome[Noche] with Serializable {
 
     createIfNotExist(noche1)
     createIfNotExist(noche2)
+   
+//    HomeEntradas.createIfNotExist(new Entrada(sectorA, noche1, jubilado, 9, 2, "Pepe", "Abasto"))
+//    HomeEntradas.createIfNotExist(new Entrada(sectorA, noche1, jubilado, 9, 3, "Pepe", "Abasto"))
+//    HomeEntradas.createIfNotExist(new Entrada(sectorA, noche1, jubilado, 9, 4, "Pepe", "Abasto"))
+//    HomeEntradas.createIfNotExist(new Entrada(sectorB, noche2, mayor, 19, 19, "Luis", "Abasto"))
+//    HomeEntradas.createIfNotExist(new Entrada(sectorC, noche1, damas, 23, 5, "Maria", "Abasto"))
+//    HomeEntradas.createIfNotExist(new Entrada(sectorC, noche1, damas, 22, 6, "Maria", "Abasto"))
   }
 
 }

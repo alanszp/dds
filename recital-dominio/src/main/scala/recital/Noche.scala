@@ -19,9 +19,10 @@ class Noche extends DomainEntity {
   var descuentos: Set[CategoriaPersona] = Set()
   var sectores: Set[Sector] = Set()
 
-  def esIgual(noche: Noche) = {
-    this.fecha == noche.fecha &&
-    this.nombreNoche.equalsIgnoreCase(noche.nombreNoche) 
+  def esIgual(noche: Noche) : Boolean = {
+    if(this.fecha == null || noche.fecha == null)
+      return false
+    this.fecha.equals(noche.fecha)
   }
 
   def setNombreNoche(n: String) = nombreNoche = n
@@ -47,5 +48,7 @@ class Noche extends DomainEntity {
       throw new CategoriaNoValidaException
     }
   }
+  
+  override def toString : String = fecha.toString()
 
 }

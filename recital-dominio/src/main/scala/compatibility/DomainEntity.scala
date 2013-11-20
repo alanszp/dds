@@ -1,7 +1,8 @@
 package compatibility
 
 import org.uqbar.commons.model.Entity
-
+import org.uqbar.commons.utils.Observable
+@Observable
 class DomainEntity extends Entity {
   
   def setToList[T](set: Set[T]) : java.util.List[T] = {

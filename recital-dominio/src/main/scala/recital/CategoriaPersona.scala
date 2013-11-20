@@ -8,4 +8,6 @@ import uqbar.arena.persistence.annotations.PersistentClass
 abstract class CategoriaPersona extends DomainEntity {
   val descripcion :String
   def aplicarDescuento(EntradaBase: Double):Double
+  
+  override def toString : String = descripcion.toString()
 }
